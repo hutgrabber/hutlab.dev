@@ -297,7 +297,8 @@ h1, h2, h3 {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 0.9rem;
+  /* 16px floor: anything smaller makes iOS Safari zoom in on focus */
+  font-size: 1rem;
   cursor: text;
 }
 .search-row:focus-within {
@@ -317,13 +318,23 @@ h1, h2, h3 {
   min-width: 0;
   background: none;
   border: none;
+  border-radius: 0;
   color: var(--text);
   font: inherit;
   padding: 0;
+  /* kill iOS/WebKit native search-field chrome (grey pill, system font) */
+  -webkit-appearance: none;
+  appearance: none;
 }
 #search-input:focus { outline: none; }
 #search-input::placeholder { color: color-mix(in srgb, var(--muted) 65%, transparent); }
-#search-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+#search-input::-webkit-search-decoration,
+#search-input::-webkit-search-cancel-button,
+#search-input::-webkit-search-results-button,
+#search-input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
 
 .search-status {
   margin: 0.6rem 0 0;
@@ -614,6 +625,8 @@ h1, h2, h3 {
   padding: 0.6rem 0.9rem;
 }
 .feed-url-row code {
+  flex: 1 1 auto;
+  min-width: 0;
   background: none;
   border: none;
   padding: 0;

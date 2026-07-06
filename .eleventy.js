@@ -71,6 +71,10 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 
+  // Changes every build; appended to CSS/JS URLs so GitHub Pages' 10-minute
+  // asset cache can never serve stale styles with fresh HTML
+  eleventyConfig.addGlobalData("buildId", () => Date.now().toString(36));
+
   return {
     dir: {
       input: "src",
