@@ -1,5 +1,5 @@
 ---
-title: Your Post Title Here
+title: A Fresh New Look
 date: 2026-07-06
 layout: layouts/post.njk
 permalink: /quick-update/
