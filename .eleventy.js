@@ -42,11 +42,28 @@ export default function (eleventyConfig) {
     (tags || []).filter((t) => t !== "posts")
   );
 
-  // Make root-relative URLs absolute (for RSS readers fetching content)
-  eleventyConfig.addFilter("absoluteUrls", (html, base) =>
+  // Post HTML prepared for feed readers: absolute URLs, and YouTube embed
+  // iframes swapped for plain links (readers strip iframes, leaving a gap)
+  eleventyConfig.addFilter("feedContent", (html, base) =>
     String(html || "")
+      .replace(
+        /<div class="video-embed">\s*<iframe([^>]*)>\s*<\/iframe>\s*<\/div>/g,
+        (match, attrs) => {
+          const src = attrs.match(/src="https:\/\/www\.youtube\.com\/embed\/([\w-]+)/);
+          if (!src) return match; // non-YouTube embed: leave as-is
+          const title = attrs.match(/title="([^"]*)"/);
+          const label =
+            title && title[1] && title[1] !== "Embedded video" ? `: ${title[1]}` : "";
+          return `<p><a href="https://www.youtube.com/watch?v=${src[1]}">▶ Watch on YouTube${label}</a></p>`;
+        }
+      )
       .replaceAll('src="/', `src="${base}/`)
       .replaceAll('href="/', `href="${base}/`)
+  );
+
+  // YYYY-MM-DD, used for stable tag: URIs in feed guids
+  eleventyConfig.addFilter("isoDateOnly", (date) =>
+    new Date(date).toISOString().slice(0, 10)
   );
 
   // Escape a string for safe inclusion inside an XML CDATA section
