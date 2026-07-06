@@ -72,6 +72,13 @@ Then reference them with an absolute path:
 ![Nmap scan results](/assets/images/2026/07/scan-results.png)
 ```
 
+**Images are served as-is — no auto-resizing.** You must provide properly-sized
+images before uploading. CSS scales them responsively (max-width: 100%), but won't
+crop or enlarge. Recommended dimensions:
+
+- **Feature images**: ~1200×600px (2:1 ratio, crisp on social previews)
+- **In-body images**: 800–1200px width (stays sharp on all devices)
+
 Want a caption under the image? Use a figure block (this is what the migrated Ghost
 posts use — it centers the image and styles the caption):
 
