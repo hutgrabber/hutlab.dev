@@ -1,4 +1,19 @@
+# build output & dependencies
 node_modules/
 _site/
-drafts/
+
+# drafts stay local — only the folder itself (via README) is tracked
+drafts/*
+!drafts/README.md
+
+# Obsidian vault config & trash (any level)
+.obsidian/
+.trash/
+
+# macOS
 .DS_Store
+._*
+
+# misc
+*.log
+.env
