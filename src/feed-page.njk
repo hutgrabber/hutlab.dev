@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+permalink: /feed/
+title: "Subscribe"
+description: "Follow hutlab.dev with RSS — full posts delivered to your reader, no algorithm, no account."
+eleventyExcludeFromCollections: true
+---
+<article class="post">
+  <header class="post-header">
+    <p class="crumb"><span class="prompt-glyph">$</span> systemctl enable --now hutlab-updates</p>
+    <h1 class="post-title">Subscribe via RSS</h1>
+  </header>
+
+  <div class="prose">
+    <p>New posts, delivered straight to your feed reader the moment they're published.
+    No algorithm deciding what you see, no email address handed over, full post content
+    included — images, code blocks and all.</p>
+
+    <h3>The feed</h3>
+    <p>Copy either URL into your reader — both carry the same full-content posts:</p>
+
+    <div class="feed-urls">
+      <div class="feed-url-row">
+        <code id="feed-rss">https://hutlab.dev/feed.xml</code>
+        <button type="button" class="copy-btn" data-copy="https://hutlab.dev/feed.xml">copy</button>
+        <span class="feed-kind">RSS 2.0</span>
+      </div>
+      <div class="feed-url-row">
+        <code id="feed-json">https://hutlab.dev/feed.json</code>
+        <button type="button" class="copy-btn" data-copy="https://hutlab.dev/feed.json">copy</button>
+        <span class="feed-kind">JSON Feed</span>
+      </div>
+    </div>
+
+    <p>Most readers also find the feed automatically — just add <code>hutlab.dev</code>.</p>
+
+    <h3>Need a reader?</h3>
+    <ul>
+      <li><a href="https://netnewswire.com/" target="_blank" rel="noopener">NetNewsWire</a> — free &amp; open source (macOS, iOS)</li>
+      <li><a href="https://feedly.com/" target="_blank" rel="noopener">Feedly</a> — popular web + mobile app</li>
+      <li><a href="https://miniflux.app/" target="_blank" rel="noopener">Miniflux</a> — minimalist, self-hostable</li>
+      <li><a href="https://www.inoreader.com/" target="_blank" rel="noopener">Inoreader</a> — powerful filtering</li>
+      <li><a href="https://reederapp.com/" target="_blank" rel="noopener">Reeder</a> — polished Apple-platform client</li>
+    </ul>
+
+    <p class="post-footer"><span class="prompt-glyph">$</span> cd <a href="/">..</a></p>
+  </div>
+</article>
+
+<script>
+  document.querySelectorAll(".copy-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+        btn.textContent = "copied!";
+        setTimeout(function () { btn.textContent = "copy"; }, 1500);
+      });
+    });
+  });
+</script>

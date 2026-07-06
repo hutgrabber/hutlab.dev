@@ -3,22 +3,40 @@ permalink: /feed.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml-stylesheet type="text/xsl" href="/feed.xsl"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>{{ site.title }}</title>
     <link>{{ site.url }}/</link>
     <description>{{ site.description }}</description>
-    <language>en</language>
+    <language>en-us</language>
+    <lastBuildDate>{{ collections.posts[0].date | rfc822Date }}</lastBuildDate>
+    <generator>Eleventy</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <ttl>60</ttl>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>{{ site.url }}/assets/images/2024/09/hut-9.png</url>
+      <title>{{ site.title }}</title>
+      <link>{{ site.url }}/</link>
+    </image>
     {%- for post in collections.posts %}
     <item>
       <title>{{ post.data.title | escape }}</title>
       <link>{{ site.url }}{{ post.url }}</link>
-      <guid>{{ site.url }}{{ post.url }}</guid>
+      <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
       <pubDate>{{ post.date | rfc822Date }}</pubDate>
+      <dc:creator>{{ site.author.name }}</dc:creator>
+      {%- for tag in post.data.tags | displayTags %}
+      <category>{{ tag }}</category>
+      {%- endfor %}
       {%- if post.data.description %}
       <description>{{ post.data.description | escape }}</description>
       {%- endif %}
+      <content:encoded><![CDATA[{% if post.data.feature_image %}<p><img src="{{ site.url }}{{ post.data.feature_image }}" alt="{{ post.data.title | escape }}"></p>{% endif %}{{ post.templateContent | absoluteUrls(site.url) | cdata | safe }}]]></content:encoded>
     </item>
     {%- endfor %}
   </channel>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: "VT323";
+    src: url("../src/assets/fonts/vt323-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-weight: 100 800;
+    src: url("../src/assets/fonts/jetbrains-mono-var.woff2") format("woff2");
+  }
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: #0d0b12;
+    background-image: radial-gradient(ellipse 900px 500px at 50% 120%, rgba(123, 65, 174, 0.28), transparent 65%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .terminal {
+    width: 1020px;
+    background: #171226;
+    border: 2px solid #2e2547;
+    border-radius: 16px;
+    box-shadow: 0 30px 90px rgba(0,0,0,.6);
+    overflow: hidden;
+  }
+  .bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 16px 22px;
+    background: #1f1833;
+    border-bottom: 2px solid #2e2547;
+  }
+  .dot { width: 16px; height: 16px; border-radius: 50%; background: #2e2547; }
+  .dot:first-child { background: #a778e8; }
+  .bar-title { margin-left: 12px; font-size: 19px; color: #8b84a2; letter-spacing: .08em; }
+  .body {
+    display: flex; align-items: center; gap: 48px;
+    padding: 52px 64px 60px;
+  }
+  .text { flex: 1; }
+  .line { font-size: 26px; color: #d8d4e4; margin-bottom: 10px; }
+  .prompt { color: #6fe3a1; font-weight: 700; }
+  .site {
+    font-family: "VT323", monospace;
+    font-size: 148px; line-height: 1;
+    color: #d8d4e4;
+    margin: 18px 0 20px;
+  }
+  .site .accent { color: #a778e8; }
+  .tagline { font-size: 23px; color: #8b84a2; line-height: 1.6; }
+  .hut {
+    width: 220px; height: 220px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 44px rgba(167, 120, 232, 0.55));
+  }
+</style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="bar-title">hutgrabber@hutlab.dev:~</span>
+    </div>
+    <div class="body">
+      <div class="text">
+        <div class="line"><span class="prompt">$</span> whoami</div>
+        <div class="site">hutlab<span class="accent">.dev</span></div>
+        <div class="tagline">All things cyber — pentesting tutorials,<br>write-ups &amp; field notes from the lab.</div>
+      </div>
+      <img class="hut" src="../src/assets/images/2024/09/hut-9.png" alt="">
+    </div>
+  </div>
+</body>
+</html>

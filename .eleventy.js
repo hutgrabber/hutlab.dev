@@ -42,6 +42,18 @@ export default function (eleventyConfig) {
     (tags || []).filter((t) => t !== "posts")
   );
 
+  // Make root-relative URLs absolute (for RSS readers fetching content)
+  eleventyConfig.addFilter("absoluteUrls", (html, base) =>
+    String(html || "")
+      .replaceAll('src="/', `src="${base}/`)
+      .replaceAll('href="/', `href="${base}/`)
+  );
+
+  // Escape a string for safe inclusion inside an XML CDATA section
+  eleventyConfig.addFilter("cdata", (html) =>
+    String(html || "").replaceAll("]]>", "]]]]><![CDATA[>")
+  );
+
   // Search index text: strip HTML, collapse whitespace, lowercase
   eleventyConfig.addFilter("squash", (html) =>
     String(html || "")

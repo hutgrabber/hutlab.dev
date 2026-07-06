@@ -1,0 +1,66 @@
+---
+permalink: /feed.xsl
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:atom="http://www.w3.org/2005/Atom">
+<xsl:output method="html" encoding="utf-8" indent="yes"/>
+<xsl:template match="/rss/channel">
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title><xsl:value-of select="title"/> · RSS feed</title>
+  <link rel="stylesheet" href="/assets/css/style.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <span class="brand-path">~/hutlab</span><span class="brand-prompt"> $</span>
+      </a>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="post">
+      <header class="post-header">
+        <p class="crumb"><span class="prompt-glyph">$</span> curl -s /feed.xml</p>
+        <h1 class="post-title">RSS feed</h1>
+      </header>
+      <div class="prose">
+        <p>This is the <strong><xsl:value-of select="title"/></strong> web feed, viewed in a
+        friendly form because you opened it in a browser. To get new posts delivered
+        automatically, copy this page's URL into any RSS reader
+        (<a href="https://netnewswire.com/">NetNewsWire</a>,
+        <a href="https://feedly.com/">Feedly</a>,
+        <a href="https://miniflux.app/">Miniflux</a>, and
+        <a href="https://en.wikipedia.org/wiki/Comparison_of_feed_aggregators">many more</a>) —
+        no algorithm, no account with us, full posts included.</p>
+        <p><a class="btn" href="/feed/">More about subscribing →</a></p>
+      </div>
+      <h2 class="post-title" style="font-size:1.9rem; margin-top:2.5rem;">Recent posts</h2>
+      <ol class="post-list">
+        <xsl:for-each select="item">
+          <li class="post-item">
+            <div class="post-item-meta">
+              <time><xsl:value-of select="substring(pubDate, 1, 16)"/></time>
+              <xsl:for-each select="category">
+                <span class="tag-chip">#<xsl:value-of select="."/></span>
+              </xsl:for-each>
+            </div>
+            <h2 class="post-item-title">
+              <a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute>
+                <xsl:value-of select="title"/></a>
+            </h2>
+            <p class="post-item-excerpt"><xsl:value-of select="description"/></p>
+          </li>
+        </xsl:for-each>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>

@@ -5,20 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if meta_title %}{{ meta_title }}{% elif title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }} — all things cyber{% endif %}</title>
   <meta name="description" content="{{ description or site.description }}">
+  <meta name="author" content="{{ site.author.name }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <meta property="og:type" content="{% if tags %}article{% else %}website{% endif %}">
+  {%- if noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  {%- set is_post = "posts" in (tags or []) %}
+  <meta property="og:type" content="{% if is_post %}article{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="{{ meta_title or title or site.title }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   {%- if feature_image %}
   <meta property="og:image" content="{{ site.url }}{{ feature_image }}">
+  <meta property="og:image:alt" content="{{ feature_image_caption or title }}">
+  {%- else %}
+  <meta property="og:image" content="{{ site.url }}/assets/images/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ site.title }} — all things cyber">
   {%- endif %}
-  <meta name="twitter:card" content="summary{% if feature_image %}_large_image{% endif %}">
+  {%- if is_post %}
+  <meta property="article:published_time" content="{{ page.date | isoDate }}">
+  <meta property="article:author" content="{{ site.author.name }}">
+  {%- for tag in tags | displayTags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {%- endfor %}
+  {%- endif %}
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="{{ site.author.twitter }}">
+  <meta name="twitter:creator" content="{{ site.author.twitter }}">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
+  <link rel="alternate" type="application/feed+json" title="{{ site.title }}" href="/feed.json">
+  <script type="application/ld+json">
+  {%- if is_post %}
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ (title or site.title) | dump | safe }},
+    "description": {{ (description or site.description) | dump | safe }},
+    "url": "{{ site.url }}{{ page.url }}",
+    "datePublished": "{{ page.date | isoDate }}",
+    {%- if feature_image %}
+    "image": "{{ site.url }}{{ feature_image }}",
+    {%- endif %}
+    "author": { "@type": "Person", "name": {{ site.author.name | dump | safe }}, "url": "{{ site.author.github }}" },
+    "publisher": { "@type": "Person", "name": {{ site.author.name | dump | safe }} },
+    "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+  }
+  {%- else %}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ site.title | dump | safe }},
+    "description": {{ site.description | dump | safe }},
+    "url": "{{ site.url }}/",
+    "author": { "@type": "Person", "name": {{ site.author.name | dump | safe }}, "url": "{{ site.author.github }}" }
+  }
+  {%- endif %}
+  </script>
   <link rel="preload" href="/assets/fonts/vt323-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -55,7 +104,7 @@
       <p class="footer-links">
         <a href="{{ site.author.github }}" target="_blank" rel="noopener">github</a>
         <span aria-hidden="true">·</span>
-        <a href="/feed.xml">rss</a>
+        <a href="/feed/">rss</a>
         <span aria-hidden="true">·</span>
         <span class="footer-meta">built with eleventy, served by github pages</span>
       </p>
