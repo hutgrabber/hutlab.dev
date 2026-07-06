@@ -1,0 +1,20 @@
+{
+  "title": "hutlab",
+  "domain": "hutlab.dev",
+  "url": "https://hutlab.dev",
+  "description": "The hutlab blog — all things cyber. Penetration testing, tutorials, and write-ups by Sparsh Mehta (hutgrabber).",
+  "author": {
+    "name": "Sparsh Mehta",
+    "handle": "hutgrabber",
+    "github": "https://github.com/hutgrabber",
+    "twitter": "@hutgrabber",
+    "image": "/assets/images/2024/09/HutgrabberSquare-4.jpg"
+  },
+  "accent": "#7b41ae",
+  "nav": [
+    { "label": "posts", "url": "/" },
+    { "label": "author", "url": "/author/" },
+    { "label": "about", "url": "/about-me/" },
+    { "label": "github", "url": "https://github.com/hutgrabber", "external": true }
+  ]
+}

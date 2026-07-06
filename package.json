@@ -1,0 +1,15 @@
+{
+  "name": "hutlab.dev",
+  "version": "1.0.0",
+  "description": "hutlab.dev — the Hutgrabber blog, built with Eleventy for GitHub Pages",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2"
+  }
+}

@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+---
+<article class="post">
+  <header class="post-header">
+    <p class="crumb"><span class="prompt-glyph">$</span> cat ./posts/{{ page.fileSlug }}.md</p>
+    <h1 class="post-title">{{ title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+      <span class="meta-sep" aria-hidden="true">::</span>
+      <span>{{ content | striptags | wordcount | readingTime }}</span>
+      {%- set shown = tags | displayTags %}
+      {%- if shown.length %}
+      <span class="meta-sep" aria-hidden="true">::</span>
+      {%- for tag in shown %}
+      <a class="tag-chip" href="/tags/{{ tag }}/">#{{ tag }}</a>
+      {%- endfor %}
+      {%- endif %}
+    </p>
+  </header>
+
+  {%- if feature_image %}
+  <figure class="feature-image">
+    <img src="{{ feature_image }}" alt="{{ feature_image_caption or title }}">
+    {%- if feature_image_caption %}
+    <figcaption>{{ feature_image_caption }}</figcaption>
+    {%- endif %}
+  </figure>
+  {%- endif %}
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+
+  <footer class="post-footer">
+    <p><span class="prompt-glyph">$</span> cd <a href="/">..</a></p>
+  </footer>
+</article>

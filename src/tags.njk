@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter: ["posts", "all", "tagList"]
+permalink: /tags/{{ tag }}/
+eleventyComputed:
+  title: "#{{ tag }}"
+  description: "Posts tagged #{{ tag }} on hutlab.dev"
+---
+<section>
+  <header class="post-header">
+    <p class="crumb"><span class="prompt-glyph">$</span> grep -rl "#{{ tag }}" ./posts</p>
+    <h1 class="post-title">#{{ tag }}</h1>
+  </header>
+  <ol class="post-list" reversed>
+    {%- for post in collections[tag] | reverse %}
+    <li class="post-item">
+      <div class="post-item-meta">
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+      </div>
+      <h2 class="post-item-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      {%- if post.data.description %}
+      <p class="post-item-excerpt">{{ post.data.description }}</p>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ol>
+  <p class="post-footer"><span class="prompt-glyph">$</span> cd <a href="/">..</a></p>
+</section>

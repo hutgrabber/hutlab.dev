@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if meta_title %}{{ meta_title }}{% elif title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }} — all things cyber{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="{% if tags %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ meta_title or title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {%- if feature_image %}
+  <meta property="og:image" content="{{ site.url }}{{ feature_image }}">
+  {%- endif %}
+  <meta name="twitter:card" content="summary{% if feature_image %}_large_image{% endif %}">
+  <meta name="twitter:site" content="{{ site.author.twitter }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
+  <link rel="preload" href="/assets/fonts/vt323-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem("theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="{{ site.title }} home">
+        <span class="brand-path">~/{{ site.title }}</span><span class="brand-prompt"> $</span><span class="cursor" aria-hidden="true"></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        {%- for item in site.nav %}
+        <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener"{% elif page.url == item.url %} aria-current="page"{% endif %}>./{{ item.label }}</a>
+        {%- endfor %}
+        <button id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-line"><span class="prompt-glyph">$</span> echo "© {% year %} {{ site.author.name }}"</p>
+      <p class="footer-links">
+        <a href="{{ site.author.github }}" target="_blank" rel="noopener">github</a>
+        <span aria-hidden="true">·</span>
+        <a href="/feed.xml">rss</a>
+        <span aria-hidden="true">·</span>
+        <span class="footer-meta">built with eleventy, served by github pages</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var current = root.getAttribute("data-theme");
+      if (!current) {
+        current = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      var next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  </script>
+</body>
+</html>
