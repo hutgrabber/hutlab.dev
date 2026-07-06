@@ -14,3 +14,10 @@ When a draft is ready to publish:
 Obsidian tip: open the repo root as your vault (or add it to an existing vault).
 The `.obsidian/` config folder is gitignored too, so your workspace settings,
 themes, and plugins stay out of the repository.
+
+---
+# To Do:
+- [ ] Fix your image uploading pipeline
+	- Any size image file can be inserted and it gets auto-cropped
+	- New image sizes are pre-defined
+- [ ] Make a new file with new widths.
