@@ -166,5 +166,3 @@ This is a great video by LearnLinuxTV that gives you a hands on tutorial about S
 ### SSH-ell Yeah! We did it.
 
 We talked about the ssh-client, the ssh-server and how they work under the hood. We also saw ways in which we can configure them to make them tick. We will be coming out with more content about <u>securing SSH servers</u> as well as <u>using SSH as a tool for penetration testing</u>. For keeping up with all our content, please subscribe to the newsletter and if you already have, you're awesome!
-
-<p class="btn-row"><a class="btn" href="/support-the-mission">♥️ Consider Tipping</a></p>

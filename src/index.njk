@@ -12,14 +12,26 @@ permalink: /
       <p><span class="prompt-glyph">$</span> whoami</p>
       <p class="term-out">{{ site.author.name }} — penetration tester, cybersecurity enthusiast, coffee snob.</p>
       <p><span class="prompt-glyph">$</span> cat mission.txt</p>
-      <p class="term-out">All things cyber: tutorials, write-ups &amp; field notes from the lab. Formerly hutgrabber.com — now free-range on GitHub Pages.</p>
+      <p class="term-out">All things cyber: tutorials, write-ups &amp; field notes from the lab.</p>
       <p><span class="prompt-glyph">$</span> ls ./posts --sort=date<span class="cursor" aria-hidden="true"></span></p>
     </div>
   </div>
 </section>
 
+<section class="search" aria-label="Search posts">
+  <label class="search-row" for="search-input">
+    <span class="prompt-glyph" aria-hidden="true">$</span>
+    <span class="search-cmd" aria-hidden="true">grep -ri</span>
+    <input id="search-input" type="search" placeholder='"query"' autocomplete="off"
+           spellcheck="false" aria-label="Search posts">
+    <span class="search-cmd" aria-hidden="true">./posts</span>
+  </label>
+  <p class="search-status" id="search-status" role="status" aria-live="polite" hidden></p>
+</section>
+
 <section aria-label="Posts">
-  <ol class="post-list" reversed>
+  <ol class="post-list" id="search-results" hidden></ol>
+  <ol class="post-list" id="post-list" reversed>
     {%- for post in collections.posts %}
     <li class="post-item">
       <div class="post-item-meta">
@@ -37,3 +49,5 @@ permalink: /
     {%- endfor %}
   </ol>
 </section>
+
+<script src="/assets/js/search.js" defer></script>

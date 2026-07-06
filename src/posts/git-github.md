@@ -189,7 +189,3 @@ Go to `github.com` and refresh the page. You will find the recently pushed `READ
 ### And That's All She Wrote!
 
 We learned about what Git is and how it differs from GitHub, and we also learned how to initialize a new git repo and set it up so that it can sync with a remote repository on GitHub.
-
----
-
-<p class="btn-row"><a class="btn" href="/support-the-mission">♥️ Consider Tipping</a></p>

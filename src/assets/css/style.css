@@ -285,6 +285,52 @@ h1, h2, h3 {
   padding-left: 1.15em;
 }
 
+/* ---------- search ---------- */
+
+.search { margin: 0 0 1.5rem; }
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: text;
+}
+.search-row:focus-within {
+  border-color: var(--accent);
+  outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: 1px;
+}
+
+.search-cmd {
+  color: var(--muted);
+  white-space: nowrap;
+  user-select: none;
+}
+
+#search-input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  padding: 0;
+}
+#search-input:focus { outline: none; }
+#search-input::placeholder { color: color-mix(in srgb, var(--muted) 65%, transparent); }
+#search-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+.search-status {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
 /* ---------- post list ---------- */
 
 .post-list {

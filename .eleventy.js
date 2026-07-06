@@ -42,6 +42,16 @@ export default function (eleventyConfig) {
     (tags || []).filter((t) => t !== "posts")
   );
 
+  // Search index text: strip HTML, collapse whitespace, lowercase
+  eleventyConfig.addFilter("squash", (html) =>
+    String(html || "")
+      .replace(/<[^>]*>/g, " ")
+      .replace(/&[a-z#0-9]+;/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase()
+  );
+
   eleventyConfig.addFilter("readingTime", (words) => {
     const minutes = Math.max(1, Math.round(words / 220));
     return `${minutes} min read`;

@@ -46,6 +46,3 @@ Through this blog, I'm sharing my journey in cybersecurity, from developing the 
 
 So, whether you're here to level up your hacking skills or just curious about how many espresso shots it takes to crack a particularly stubborn firewall (spoiler: more than you'd think), stick around. It's going to be a wild, caffeinated ride! Remember: In cybersecurity, as in coffee, it's all about finding the right blend of skills, tools, and a dash of creative chaos. Together, let's try and find the best digital brew!
 
-[♥️ Consider Tipping](/support-the-mission)
-
-📰 Subscribe to Newsletter

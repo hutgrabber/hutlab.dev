@@ -325,7 +325,3 @@ And as you dive into your next engagement, just remember:
 > Because they couldn’t find the right connection!
 
 So grab that coffee, fire up your terminal, and let the exploration begin! The digital world is waiting for your expertise!
-
----
-
-<p class="btn-row"><a class="btn" href="/support-the-mission">♥️ Consider Tipping</a></p>
