@@ -211,7 +211,8 @@ git push origin master
 
 The **Deploy to GitHub Pages** workflow runs on every push to `master` — watch it
 under the repo's *Actions* tab if you're curious. Green check = live. The homepage,
-tag pages, RSS feed (`/feed.xml`), and search index all update automatically.
+tag pages, feeds (`/feed.xml` and `/feed.json` — subscribers get new posts on their
+readers' next poll, no extra steps), and search index all update automatically.
 
 ---
 
