@@ -26,6 +26,10 @@
 /* ---------- tokens ---------- */
 
 :root {
+  /* layout widths: content is a step wider than the header/footer bar */
+  --width-content: 50rem;
+  --width-bar: 46rem;
+
   /* dark is home base: purple-biased near-black, never pure grey */
   --bg: #0d0b12;
   --surface: #171226;
@@ -125,8 +129,13 @@ body {
 ::selection { background: var(--selection); }
 
 .wrap {
-  width: min(100% - 2.5rem, 46rem);
+  width: min(100% - 2.5rem, var(--width-content));
   margin-inline: auto;
+}
+
+/* header/footer bars stay at the narrower reference width */
+.header-inner, .footer-inner {
+  width: min(100% - 2.5rem, var(--width-bar));
 }
 
 a {
@@ -445,12 +454,6 @@ h1, h2, h3 {
 
 /* ---------- prose ---------- */
 
-/* The text column is capped per-child (not on .prose itself) so figures can
-   break out to the full .wrap width via the img-big / img-feature classes */
-.prose > * {
-  max-width: 65ch;
-}
-
 .prose h2, .prose h3, .prose h4 {
   margin: 2.4rem 0 0.8rem;
 }
@@ -512,12 +515,12 @@ h1, h2, h3 {
 }
 
 /* figure size classes — pick one on the figure tag:
-   <figure class="img-small|img-regular|img-big|img-feature"> */
+   <figure class="img-small|img-regular|img-big|img-feature">
+   regular/big/feature all render at the full text width today (kept as
+   distinct classes so sizing can be tuned independently later) */
 .prose .img-small img { width: 60%; }
-.prose .img-regular img { width: 100%; }
-.prose .img-big { max-width: 75ch; }
-.prose .img-big img { width: 100%; }
-.prose .img-feature { max-width: none; }
+.prose .img-regular img,
+.prose .img-big img,
 .prose .img-feature img { width: 100%; }
 
 .prose u { text-decoration-color: var(--accent); text-underline-offset: 0.25em; }

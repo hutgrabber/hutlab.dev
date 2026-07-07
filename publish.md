@@ -97,21 +97,23 @@ gives you a styled caption:
 | Class | Width | Use for |
 |---|---|---|
 | `img-small` | ~60% of the text column | Terminal snippets, tall/narrow screenshots |
-| `img-regular` | Full text column | The default — most screenshots and diagrams |
-| `img-big` | Slight breakout past the text | Detailed screenshots that need more room |
-| `img-feature` | Full page width (same as the cover) | Wide artwork, hero-style illustrations |
+| `img-regular` | Full text column (800px) | The default — most screenshots and diagrams |
+| `img-big` | Full text column (800px) | Reserved for a future, wider treatment |
+| `img-feature` | Full text column (800px), same as the cover | Reserved for a future, wider treatment |
 
-Plain `<figure>`, the legacy `class="figure"`, and bare Markdown images all render
-at `img-regular` size. On phones every size collapses to full width (`img-small`
+`img-regular`, `img-big`, and `img-feature` all render at the same width today —
+the text column itself is 800px, one step wider than the header/footer bar, so
+there's no room left to break out further. They're kept as distinct classes so
+sizing can be tuned independently later without touching any posts. Plain
+`<figure>`, the legacy `class="figure"`, and bare Markdown images all render at
+`img-regular` size. On phones every size collapses to full width (`img-small`
 stays a bit narrower).
 
 **Images are served as-is — no auto-resizing.** You must provide properly-sized
-images before uploading. CSS scales them responsively, but won't crop — and a small
-source forced into `img-big`/`img-feature` will upscale and look soft. Recommended
-dimensions:
+images before uploading. CSS scales them responsively, but won't crop — and a
+small source will upscale and look soft at 800px. Recommended dimensions:
 
-- **Cover / `img-feature`**: ≥1200px wide (~2:1 ratio is crisp on social previews)
-- **In-body images**: 800–1200px width (stays sharp on all devices)
+- **Cover / in-body images**: ≥1000px wide (~2:1 ratio is crisp on social previews)
 
 For the post's cover, set `feature_image` (and optionally `feature_image_caption`)
 in the front matter instead of putting the image in the body — name the file
