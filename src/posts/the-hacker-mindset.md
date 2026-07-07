@@ -1,12 +1,14 @@
 ---
-title: "The Hacker Mindset — From Mind to Machine"
+title: The Hacker Mindset — From Mind to Machine
 date: 2024-09-19T14:17:42.000Z
 layout: layouts/post.njk
 permalink: /the-hacker-mindset/
-tags: [posts]
-description: "This blog aims to cover things that I believe are invaluable for anyone starting their journey as a penetration tester. That being said, there is also a section in the blog that intrigues people who are looking for something zesty."
-meta_title: "The Hacker Mindset - Mind to Machine"
-feature_image: "/images/2024-09-19-hacker-mindset/cover.jpg"
+tags:
+  - posts
+  - career
+description: This blog aims to cover things that I believe are invaluable for anyone starting their journey as a penetration tester. That being said, there is also a section in the blog that intrigues people who are looking for something zesty.
+meta_title: The Hacker Mindset - Mind to Machine
+feature_image: /images/2024-09-19-hacker-mindset/cover.jpg
 templateEngineOverride: md
 ---
 

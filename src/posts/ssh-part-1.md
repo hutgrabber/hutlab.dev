@@ -1,11 +1,13 @@
 ---
-title: "All Things SSH - Part 1"
+title: All Things SSH - Part 1
 date: 2024-10-05T22:23:52.000Z
 layout: layouts/post.njk
 permalink: /ssh-part-1/
-tags: [posts, tutorials]
-description: "A multi-part series where we talk about the basics of SSH. From ssh clients, to ssh servers. We cover all things ssh to make your life easier!"
-feature_image: "/images/2024-10-05-ssh-part-1/cover.jpg"
+tags:
+  - posts
+  - write-up
+description: A multi-part series where we talk about the basics of SSH. From ssh clients, to ssh servers. We cover all things ssh to make your life easier!
+feature_image: /images/2024-10-05-ssh-part-1/cover.jpg
 templateEngineOverride: md
 ---
 

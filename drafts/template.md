@@ -9,7 +9,7 @@ feature_image: "/images/2026-01-01-short-name/cover.jpg"
 feature_image_caption: "Optional caption shown under the cover image — delete this line if unused"
 # meta_title: "Optional — overrides title in the browser tab & search engines only"
 ---
-
+```
 <!-- ============================================================
 HOW TO USE THIS TEMPLATE
 1. Duplicate this file, rename it after your URL slug (my-post.md).
@@ -27,6 +27,7 @@ HOW TO USE THIS TEMPLATE
 Full instructions: publish.md at the repo root.
 HTML comments like this one never appear on the site.
 ============================================================= -->
+```
 
 Your opening paragraph. Body text is justified on both edges automatically. All the
 usual inline styles work: **bold**, *italic*, ***bold italic***, ~~strikethrough~~,
