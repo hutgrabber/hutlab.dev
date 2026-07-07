@@ -24,7 +24,7 @@ layout: layouts/post.njk
 permalink: /hardening-ssh/
 tags: [posts, tutorials]
 description: "Lock down sshd like you mean it — keys, configs, and the settings everyone forgets."
-feature_image: "/assets/images/2026/07/hardening-ssh-cover.jpg"
+feature_image: "/images/2026-07-06-hardening-ssh/cover.jpg"
 ---
 
 Your post starts here...
@@ -60,37 +60,62 @@ Your post starts here...
 
 ## 3. Images
 
-Drop image files into `src/assets/images/<year>/<month>/`:
+Every post gets **one image folder** under `src/images/`, named after the publish
+date plus a short blog name (1-2 words, independent of the permalink):
 
 ```
-src/assets/images/2026/07/scan-results.png
+src/images/2026-07-06-hardening-ssh/
+```
+
+Drop all of the post's images in there — the cover included — and give each file a
+**1-2 word kebab-case description** (the folder already carries the date):
+
+```
+src/images/2026-07-06-hardening-ssh/cover.jpg
+src/images/2026-07-06-hardening-ssh/sshd-config.png
+src/images/2026-07-06-hardening-ssh/scan-results.png
 ```
 
 Then reference them with an absolute path:
 
 ```markdown
-![Nmap scan results](/assets/images/2026/07/scan-results.png)
+![Nmap scan results](/images/2026-07-06-hardening-ssh/scan-results.png)
 ```
 
-**Images are served as-is — no auto-resizing.** You must provide properly-sized
-images before uploading. CSS scales them responsively (max-width: 100%), but won't
-crop or enlarge. Recommended dimensions:
+### Choosing an image size
 
-- **Feature images**: ~1200×600px (2:1 ratio, crisp on social previews)
-- **In-body images**: 800–1200px width (stays sharp on all devices)
-
-Want a caption under the image? Use a figure block (this is what the migrated Ghost
-posts use — it centers the image and styles the caption):
+Use a figure block with one of four size classes — this also centers the image and
+gives you a styled caption:
 
 ```html
-<figure class="figure">
-  <img src="/assets/images/2026/07/scan-results.png" alt="Nmap scan results" loading="lazy">
+<figure class="img-regular">
+  <img src="/images/2026-07-06-hardening-ssh/scan-results.png" alt="Nmap scan results" loading="lazy">
   <figcaption>Figure — full TCP scan of the target</figcaption>
 </figure>
 ```
 
+| Class | Width | Use for |
+|---|---|---|
+| `img-small` | ~60% of the text column | Terminal snippets, tall/narrow screenshots |
+| `img-regular` | Full text column | The default — most screenshots and diagrams |
+| `img-big` | Slight breakout past the text | Detailed screenshots that need more room |
+| `img-feature` | Full page width (same as the cover) | Wide artwork, hero-style illustrations |
+
+Plain `<figure>`, the legacy `class="figure"`, and bare Markdown images all render
+at `img-regular` size. On phones every size collapses to full width (`img-small`
+stays a bit narrower).
+
+**Images are served as-is — no auto-resizing.** You must provide properly-sized
+images before uploading. CSS scales them responsively, but won't crop — and a small
+source forced into `img-big`/`img-feature` will upscale and look soft. Recommended
+dimensions:
+
+- **Cover / `img-feature`**: ≥1200px wide (~2:1 ratio is crisp on social previews)
+- **In-body images**: 800–1200px width (stays sharp on all devices)
+
 For the post's cover, set `feature_image` (and optionally `feature_image_caption`)
-in the front matter instead of putting the image in the body.
+in the front matter instead of putting the image in the body — name the file
+`cover.jpg`/`cover.png` in the post's image folder.
 
 Tips: compress screenshots before committing (the repo serves them as-is), always
 write `alt` text, and `loading="lazy"` on in-body images keeps pages fast.

@@ -5,7 +5,7 @@ layout: layouts/post.njk
 permalink: /bring-your-own-image/
 tags: [posts, tutorials]
 description: "Creating instances with your custom VM image in the cloud."
-feature_image: "/assets/images/2024/09/1-bzjmkxuac5xlcvchzh_f2g.png"
+feature_image: "/images/2024-09-14-byo-image/cover.png"
 feature_image_caption: "Figure — Creating an Object Storage Space"
 templateEngineOverride: md
 ---
@@ -16,7 +16,7 @@ Creating instances with your custom VM image in the cloud.
 
 There are several cloud providers out there which give you various cloud services from IaaS to SaaS. These days, everything in the cloud is a service which mostly proves to be very useful for various kinds of use cases. In this document we will attempt to lay out ways in which custom VM images can be created, and uploaded to Cloud Service Providers which can then be used to create virtual machine instances on their platform. The specific issue I was facing with the ENPM634 class is that the VMs that are given to the students can only be run on x86\_64 systems. Since I have an M1 Mac which is ARM based, there is only one other option, which is to upload the image to the cloud and boot it there so that it can be used as the course demands.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-lveyewfec_jzke7c_jryba-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/cloud-illustration.jpg"/></figure>
 
 Here is a summary of the steps that we will be following:  
 1. Getting hold of the `.ova` files.  
@@ -55,15 +55,15 @@ qemu-img convert -f vmdk -O qcow2 ENPM634-Ubuntu.vmdk MyUbuntu.qcow2
 
 Once the image is ready to be uploaded, get yourself a Digital Ocean account and create a new project. In this project create a new “Space” which is equivalent to an AWS S3 bucket. Once this space is created, you can go ahead an upload the `MyUbuntu.qcow2` file on this space.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-apqdv0glylyasr7hk7nmsq.png"/><figcaption>Figure — Creating a new Spaces Bucket</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/create-bucket.png"/><figcaption>Figure — Creating a new Spaces Bucket</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-oaq6l_ojvi5gcqpugysavq.png"/><figcaption>Figure — Spaces Bucket Ready</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/bucket-ready.png"/><figcaption>Figure — Spaces Bucket Ready</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-dixh636cdhh-rawhh45aog.png"/><figcaption>Figure — Uploading the QCOW2 File</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/upload-qcow2.png"/><figcaption>Figure — Uploading the QCOW2 File</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-thltfbehz_w4sdsqxdnozg.png"/><figcaption>Figure — Uploading…</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/uploading.png"/><figcaption>Figure — Uploading…</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-tsamrxrhlrojdvtf-yeivg.png"/><figcaption>Figure — Upload Complete</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/upload-complete.png"/><figcaption>Figure — Upload Complete</figcaption></figure>
 
 Make sure you keep the bucket “Public” so that any resource on the internet can access it. Don’t worry, we are going to destroy this bucket after we’ve used the QCOW2 file to create a custom VM image.
 
@@ -79,31 +79,31 @@ The next step is to create a new Digital Ocean Droplet using our custom VM image
 4. Click on “Custom” to upload a custom VM image. Copy and paste the location of the QCOW2 file in this prompt.
 5. Let it brew until the “pending” message goes away.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-ey04sxafl7zg0ra5ys21rg.png"/><figcaption>Figure — Create Droplet</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/create-droplet.png"/><figcaption>Figure — Create Droplet</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-_wjjeziba3_abxhkrgn1zw.png"/><figcaption>Figure — Creating a Custom Image</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/custom-image.png"/><figcaption>Figure — Creating a Custom Image</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-3s658ydpvqiejvd72clecg.png"/><figcaption>Figure — Importing from Spaces URL</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/import-url.png"/><figcaption>Figure — Importing from Spaces URL</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-wdsdyirsbnglxze2tiv46q.png"/><figcaption>Figure — Quick Share</figcaption></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/quick-share.png"/><figcaption>Figure — Quick Share</figcaption></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-t9ckvti04nofht3mkipxdw.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/share-url.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-fwc1weya-uuzqgm0dzh3fq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/image-url.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-djc9gdhynvuiutvjvnz8ta.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/image-region.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1--1fghkpl06xb8l9jxva6eg.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/image-pending.png"/></figure>
 
 Once the image is ready, go back to the “Create Droplet” menu, select your region as NYC3 for those who are following along and click on the custom image button. The new Ubuntu image should be waiting here all set for success. Make other configuration changes as shown in the figures below and you should be fine. For “Authentication” you can definitely use an SSH key, which is the way I would recommend you do things, but to keep things simple here, let’s not go there. In any case, there is an “OPTIONAL” section at the end of this document that will guide you on setting up and using SSH keys for your VM in the cloud.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-6jsdzttojaent--cy6pdbq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/droplet-region.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-ggsbuzazc2tz1_paehzmog.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/select-image.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-go2r5k8mp7okwnxkdwdboa.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/droplet-size.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-g7uibhban3r2yurkghzcfq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/root-password.png"/></figure>
 
 All we need to do now is finalize changes and create the droplet.
 
@@ -114,17 +114,17 @@ All we need to do now is finalize changes and create the droplet.
 Phew! That was a lot, but we made it. Well almost…  
 You know when things are going well, and life throws curveballs? Well this was just a moment like that for me. The droplet has successfully been created but since it is a custom image, it is YOUR job to make it connect to the internet. As you might already have noticed, SSH-ing into this droplet is not possible, neither is pinging. Commands like `curl google.com` do not show any output.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-ifbko9s94cbko9sd-a4ttq-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/no-internet-meme.jpg"/></figure>
 
 Let’s get some internet shall we?
 
 Start by going to the “Access” section of the Droplet and scrolling down to “Launch Recovery Console”. This will give you access to the console via Digital Ocean’s proprietary connection method which is like sitting next to the server that your VM is loaded into. However, let’s not get nerdy right now. For this specific VM, the students of UMD have already been furnished with the ID and Passphrase they need to login. Enter those credentials and you will have a temporary shell to do some voodoo-magic.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-stkn4moivgz1leyhjcgorq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/droplet-access.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-grfxv0h7lofjhaatjpgirw.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/recovery-console.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-mkliqcrw9nlrmrvq6btr_w.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/console-login.png"/></figure>
 
 **Overview**  
 We will do the following:  
@@ -157,9 +157,9 @@ ping -c 2 google.com
 
 Below are screenshots of the changes that you need to make. The first figure shows the current network interfaces — `ens3` & `ens4`. The figure below that, shows the interfaces file open in a text editor (vim).
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-bmvxlk9vtt4-mxcpebbooq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/ip-a-output.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-toeici63z2apyvjxs80e3q.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/interfaces-file.png"/></figure>
 
 Now we need to edit specific sections of this file to tell the operating system which interfaces to look for, and what to do with them. We are going to use DHCP (Dynamic Host Allocation Protocol) to keep things simple.
 
@@ -173,7 +173,7 @@ iface ens4 inet dhcp
 
 After adding these two lines, comment out the last two lines of the file. We do this because `ens34` does not exist on this system.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-ecvvii89qte-az44ylix1a.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/interfaces-edited.png"/></figure>
 
 Voila! You can now try to ping google, and it should work. Just restart the network service on your system using:
 
@@ -181,7 +181,7 @@ Voila! You can now try to ping google, and it should work. Just restart the netw
 sudo systemctl restart networking.service
 ```
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-bhdq4xf9izjralejrfecmw.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/ping-success.png"/></figure>
 
 ---
 
@@ -199,7 +199,7 @@ It is with this caution that I **VERY STRONGLY RECOMMEND** that you create a fir
 4. Add TCP/UDP inbound rules.
 5. Add TCP/UDP outbound rules.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-4yoxgmrjgzxuqbothcppma-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/ccna-joke.jpg"/></figure>
 
 To get your IPv4 you can use this nifty little command I have created. You can also alias it to something and put it in your ZSHRC file to always get your public IP by snapping your fingers:
 
@@ -209,29 +209,29 @@ host myip.opendns.com resolver1.opendns.com | grep -oE '\b([0-9]{1,3}\.){3}[0-9]
 
 Once you have your public IP head over to your Droplet and click on Networking & scroll down to firewall. Here, create a new firewall and start adding inbound and outbound rules. Let’s say your IP is `222.222.222.110`. To only allow this IP to connect to your instance, add an inbound rule that allows all TCP, UDP and ICMP packets originating from `222.222.222.110/32`. Follow the screenshots that follow, for setting up the firewall this way.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-zuaalyt1qjglg7powml9lw.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/droplet-networking.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-vk1af7pemqueycfrdsxpea.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/firewall-edit.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-9pkhgjp93ub3sttarxpm7w.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/create-firewall.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-afzrdk3istzlp6zadf5una.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/inbound-rules.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-knkr2rvt6b3hlp9yiwshgg.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/outbound-rules.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-mfsxrckfmwlbbhk1xw7a9g.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/firewall-rules.png"/></figure>
 
 Now all we have to do is apply this firewall to our new Droplet which will filter the necessary packets.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-fbxy56xdhu9inwotgivo2q.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/add-droplet.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-sqzxu-g--mqeh4piortc0g.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/select-droplet.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-u2usxo2w1to7cnbo5zmfsw.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/firewall-applied.png"/></figure>
 
 Check if your firewall is working by pinging the system, or in this very specific case, performing an NMAP scan to see if the computer can reach it:
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-3a_lij2uceppmum6keqppa.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/nmap-scan.png"/></figure>
 
 Great. It works!
 
@@ -246,17 +246,17 @@ For creating an SSH key to connect to any cloud instance, you just need to do th
 
 3. Using the key along with your SSH command instead of your password.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-nuolgix1quhjqqh5ehcc7q.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/new-ssh-key.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-0ejo8xb28pwweeotdneovg.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/ssh-keygen.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-fypycmmuaohromcmuv202a.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/key-files.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-1bd4odz9bi7p6fq0uamgqw.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/copy-pubkey.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-ixaqin7zaredjy4uucdw6w.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/add-pubkey.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-9xuf0ku3qsyhyse98ffk8g.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-14-byo-image/select-key.png"/></figure>
 
 ### Finally…
 

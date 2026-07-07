@@ -445,7 +445,9 @@ h1, h2, h3 {
 
 /* ---------- prose ---------- */
 
-.prose {
+/* The text column is capped per-child (not on .prose itself) so figures can
+   break out to the full .wrap width via the img-big / img-feature classes */
+.prose > * {
   max-width: 65ch;
 }
 
@@ -466,6 +468,12 @@ h1, h2, h3 {
 }
 
 .prose p { margin: 0 0 1.2rem; }
+
+.prose p, .prose li, .prose blockquote {
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
 
 .prose hr {
   border: none;
@@ -502,6 +510,15 @@ h1, h2, h3 {
   color: var(--muted);
   margin-top: 0.55rem;
 }
+
+/* figure size classes — pick one on the figure tag:
+   <figure class="img-small|img-regular|img-big|img-feature"> */
+.prose .img-small img { width: 60%; }
+.prose .img-regular img { width: 100%; }
+.prose .img-big { max-width: 75ch; }
+.prose .img-big img { width: 100%; }
+.prose .img-feature { max-width: none; }
+.prose .img-feature img { width: 100%; }
 
 .prose u { text-decoration-color: var(--accent); text-underline-offset: 0.25em; }
 
@@ -700,4 +717,8 @@ h1, h2, h3 {
   .header-inner { justify-content: center; }
   .post-item-title { font-size: 1.8rem; }
   .terminal-body { font-size: 0.8rem; }
+  /* justified monospace gets gappy on narrow screens */
+  .prose p, .prose li, .prose blockquote { text-align: left; }
+  /* size classes converge on small screens */
+  .prose .img-small img { width: 75%; }
 }

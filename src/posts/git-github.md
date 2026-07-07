@@ -10,7 +10,7 @@ templateEngineOverride: md
 
 A Beginner’s Guide
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-lh0kjijlry90isdbut5bhw-jpeg-1.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-01-15-git-github/git-graph.jpg"/></figure>
 
 If you have anything to do pertaining to do with IT or code, you have sure as hell come across the term ‘git’. This is my first ever blog post, the goal of which is to help pure beginners to setup & get started with Git.
 
