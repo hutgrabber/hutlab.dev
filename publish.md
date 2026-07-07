@@ -8,7 +8,12 @@ automatically — live at [hutlab.dev](https://hutlab.dev) in about a minute.
 
 ## 1. Create the post file
 
-Posts live in `src/posts/`. Create a new file there, named after the URL slug you want:
+**Fastest path: duplicate [`drafts/template.md`](drafts/template.md)** — it carries
+the front matter pre-filled and a working example of every element the site can
+render (headings, images at every size, code, tables, embeds, cards). Rename it,
+fill it in, delete what you don't need, and move it to `src/posts/` when ready.
+
+Or start from scratch: posts live in `src/posts/`, named after the URL slug you want:
 
 ```
 src/posts/hardening-ssh.md   →   https://hutlab.dev/hardening-ssh/

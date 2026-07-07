@@ -1,15 +1,18 @@
 # Drafts
 
 Write posts here (great as an Obsidian vault folder) — everything in this folder
-except this README is **ignored by git**, so drafts never end up on GitHub or the
-live site.
+except this README and `template.md` is **ignored by git**, so drafts never end
+up on GitHub or the live site.
 
-When a draft is ready to publish:
+Starting a new post:
 
-1. Move the `.md` file to `src/posts/`
-2. Add the front matter block (see [publish.md](../publish.md) for the template
-   and the full workflow — images, tags, embeds, code blocks)
-3. Commit and push to `master` — live in about a minute
+1. **Duplicate [`template.md`](template.md)** — it has the front matter pre-filled
+   and a working example of every element the site can render. Rename the copy,
+   write, and delete the example sections you don't need.
+2. Drop the post's images into `src/images/<date>-<short-name>/` with 1-2 word
+   descriptive filenames (see [publish.md](../publish.md) §3 for details)
+3. When ready, move the `.md` file to `src/posts/`
+4. Commit and push to `master` — live in about a minute
 
 Obsidian tip: open the repo root as your vault (or add it to an existing vault).
 The `.obsidian/` config folder is gitignored too, so your workspace settings,

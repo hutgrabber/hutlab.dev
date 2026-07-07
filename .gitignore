@@ -2,9 +2,10 @@
 node_modules/
 _site/
 
-# drafts stay local — only the folder itself (via README) is tracked
+# drafts stay local — only the README and the post template are tracked
 drafts/*
 !drafts/README.md
+!drafts/template.md
 
 # Obsidian vault config & trash (any level)
 .obsidian/
