@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+permalink: /tags/
+title: "#tags"
+description: "Every tag on hutlab.dev, visualized as an interactive graph — drag, zoom, and explore how posts and topics connect."
+---
+<section>
+  <header class="post-header">
+    <p class="crumb"><span class="prompt-glyph">$</span> ./tags --graph</p>
+    <h1 class="post-title">#tags</h1>
+  </header>
+
+  <div class="terminal graph-window">
+    <div class="terminal-bar">
+      <span class="term-dot" aria-hidden="true"></span><span class="term-dot" aria-hidden="true"></span><span class="term-dot" aria-hidden="true"></span>
+      <span class="term-title">~/tags — {{ collections.tagList.length }} tags · {{ collections.posts.length }} posts</span>
+      <input class="graph-filter" type="search" placeholder="filter…" aria-label="Filter graph nodes" autocomplete="off" spellcheck="false">
+      <button class="graph-reset" type="button" title="Reset view" aria-label="Reset graph view">⌖</button>
+    </div>
+    <div class="graph-panel">
+      <canvas id="graph-canvas" class="graph-canvas">
+        Interactive graph of tags and posts — use the tag list below instead.
+      </canvas>
+    </div>
+  </div>
+  <p class="graph-hint" aria-hidden="true">
+    <span class="g-dot g-dot-tag"></span> tag
+    <span class="hint-sep">·</span>
+    <span class="g-dot g-dot-post"></span> post
+    <span class="hint-sep">·</span>
+    drag to explore <span class="hint-sep">·</span> scroll to zoom <span class="hint-sep">·</span> click to open
+  </p>
+
+  <h2 class="graph-list-title"><span class="prompt-glyph">##</span> all tags</h2>
+  <ul class="tag-index">
+    {%- for tag in collections.tagList %}
+    <li><a href="/tags/{{ tag.name }}/">#{{ tag.name }} <span class="tag-count">{{ tag.count }}</span></a></li>
+    {%- endfor %}
+  </ul>
+
+  <p class="post-footer"><span class="prompt-glyph">$</span> cd <a href="/">..</a></p>
+
+  <script type="application/json" id="graph-data">
+  {
+    "nodes": [
+      {%- for tag in collections.tagList %}
+      { "id": "tag:{{ tag.name }}", "type": "tag", "label": {{ tag.name | dump | safe }}, "count": {{ tag.count }}, "url": "/tags/{{ tag.name }}/" },
+      {%- endfor %}
+      {%- for post in collections.posts %}
+      { "id": {{ post.url | dump | safe }}, "type": "post", "label": {{ post.data.title | dump | safe }}, "url": {{ post.url | dump | safe }} }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ],
+    "edges": [
+      {%- set edgeFirst = true %}
+      {%- for post in collections.posts %}
+      {%- for tag in post.data.tags | displayTags %}
+      {%- if not edgeFirst %},{% endif %}{% set edgeFirst = false %}
+      { "source": "tag:{{ tag }}", "target": {{ post.url | dump | safe }}, "type": "tag" }
+      {%- endfor %}
+      {%- for target in post.templateContent | internalLinks(collections.posts, post.url) %}
+      {%- if not edgeFirst %},{% endif %}{% set edgeFirst = false %}
+      { "source": {{ post.url | dump | safe }}, "target": {{ target | dump | safe }}, "type": "link" }
+      {%- endfor %}
+      {%- endfor %}
+    ]
+  }
+  </script>
+  <script src="/assets/js/graph.js?v={{ buildId }}" defer></script>
+</section>

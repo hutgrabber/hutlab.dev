@@ -67,6 +67,16 @@ export default function (eleventyConfig) {
     new Date(date).toISOString().slice(0, 10)
   );
 
+  // URLs of other posts this post's body links to (for the /tags/ graph)
+  eleventyConfig.addFilter("internalLinks", (html, posts, selfUrl) => {
+    const known = new Set(posts.map((p) => p.url));
+    const found = new Set();
+    for (const m of String(html || "").matchAll(/href="(\/[^"/]+\/)"/g)) {
+      if (known.has(m[1]) && m[1] !== selfUrl) found.add(m[1]);
+    }
+    return [...found];
+  });
+
   // Escape a string for safe inclusion inside an XML CDATA section
   eleventyConfig.addFilter("cdata", (html) =>
     String(html || "").replaceAll("]]>", "]]]]><![CDATA[>")

@@ -59,6 +59,9 @@ Your post starts here...
   `tags: [posts, writeups]`, or several: `tags: [posts, tutorials, cloud]`.
 - Each topic tag automatically gets an archive page at `/tags/<tag>/` — a brand-new
   tag needs no setup, just use it. Tag chips on posts and the homepage link there.
+- Every tag and post also appears automatically on the interactive tag graph at
+  [`/tags/`](https://hutlab.dev/tags/), including dashed edges for posts that link
+  to each other — nothing to maintain.
 - Use lowercase single words (`tutorials`, `writeups`, `redteam`) so URLs stay clean.
 
 ---

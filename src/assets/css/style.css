@@ -627,6 +627,117 @@ h1, h2, h3 {
   color: var(--muted);
 }
 
+/* ---------- tag graph (/tags/) ---------- */
+
+.graph-window { margin: 1.9rem 0 0; }
+
+.graph-window .term-title { flex: 1; min-width: 0; }
+
+.graph-filter {
+  font: inherit;
+  font-size: 0.72rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.18rem 0.55rem;
+  width: clamp(80px, 22%, 150px);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.graph-filter::placeholder { color: var(--muted); }
+.graph-filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.graph-filter::-webkit-search-decoration,
+.graph-filter::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+.graph-reset {
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.14rem 0.45rem;
+  cursor: pointer;
+}
+.graph-reset:hover { color: var(--accent-strong); border-color: var(--accent); }
+
+/* the graph space stays terminal-dark in both themes, like code blocks.
+   Node colors are CVD-validated against this surface — see graph.js */
+.graph-panel {
+  --g-bg: #12101c;
+  --g-dot: rgba(216, 212, 228, 0.055);
+  --g-tag: #a778e8;
+  --g-tag-glow: rgba(167, 120, 232, 0.55);
+  --g-post: #21a866;
+  --g-post-glow: rgba(33, 168, 102, 0.5);
+  --g-edge: rgba(139, 132, 162, 0.3);
+  --g-edge-hi: #c39bf5;
+  --g-text: #d8d4e4;
+  --g-muted: #9d96b5;
+  position: relative;
+  height: clamp(340px, 62vh, 600px);
+  background: var(--g-bg);
+}
+
+.graph-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+  color: var(--g-muted); /* canvas fallback text */
+}
+.graph-canvas.dragging { cursor: grabbing; }
+
+.graph-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0.7rem 0 2.4rem;
+}
+.graph-hint .hint-sep { color: var(--border); }
+.g-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  vertical-align: -1px;
+}
+.g-dot-tag { background: #a778e8; box-shadow: 0 0 6px rgba(167, 120, 232, 0.7); }
+.g-dot-post { background: #21a866; box-shadow: 0 0 6px rgba(33, 168, 102, 0.6); }
+
+.graph-list-title {
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+}
+.graph-list-title .prompt-glyph { font-size: 1rem; }
+
+.tag-index {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.tag-index a {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.32rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  background: var(--surface);
+}
+.tag-index a:hover { border-color: var(--accent); color: var(--accent-strong); }
+.tag-index .tag-count { color: var(--muted); font-size: 0.75rem; }
+
 /* feed subscribe page */
 .feed-urls {
   display: flex;
@@ -724,4 +835,8 @@ h1, h2, h3 {
   .prose p, .prose li, .prose blockquote { text-align: left; }
   /* size classes converge on small screens */
   .prose .img-small img { width: 75%; }
+  /* tag graph: shorter panel, drop the bar title to fit the tools */
+  .graph-panel { height: clamp(300px, 55vh, 440px); }
+  .graph-window .term-title { display: none; }
+  .graph-filter { flex: 1; width: auto; }
 }
