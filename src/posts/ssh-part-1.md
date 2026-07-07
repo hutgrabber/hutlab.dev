@@ -5,7 +5,7 @@ layout: layouts/post.njk
 permalink: /ssh-part-1/
 tags: [posts, tutorials]
 description: "A multi-part series where we talk about the basics of SSH. From ssh clients, to ssh servers. We cover all things ssh to make your life easier!"
-feature_image: "/assets/images/2024/10/_37aeb45f-ca89-47f8-ab5e-d8e4c0d17bec.jpg"
+feature_image: "/images/2024-10-05-ssh-part-1/cover.jpg"
 templateEngineOverride: md
 ---
 
@@ -55,7 +55,7 @@ Using passwords to login to an ssh session can make a server prone to a brutefor
 
 In order to generate a new key, use the `ssh-keygen` tool that comes with the OpenSSH suite of tools. Follow the on-screen prompts that follow create your key. To make sure your key gets saved to the `$HOME/.ssh/` directory, provide the absolute path while naming the key.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/10/SCR-20241001-odsb.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-10-05-ssh-part-1/ssh-keygen.png"/></figure>
 
 This command creates a key-pair with a public and a private key inside the `$HOME/.ssh` directory of the current user. In this case we have the `demo-key` as well as the `demo-key.pub` in the `.ssh` directory.
 
@@ -69,7 +69,7 @@ However, this will not work until the server you are connecting to knows who you
 
 Once the server knows who you are, you will not be prompted for a password. Just make sure that the permissions of the key-files are no more than`600` and `644` respectively for the private and public key-files. Which means that they are only readable/writeable by the owner of the file and no one else.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/10/SCR-20241001-pelt.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-10-05-ssh-part-1/key-files.png"/></figure>
 
 Success!
 

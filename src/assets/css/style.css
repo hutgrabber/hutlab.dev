@@ -26,6 +26,10 @@
 /* ---------- tokens ---------- */
 
 :root {
+  /* layout widths: content is a step wider than the header/footer bar */
+  --width-content: 50rem;
+  --width-bar: 46rem;
+
   /* dark is home base: purple-biased near-black, never pure grey */
   --bg: #0d0b12;
   --surface: #171226;
@@ -125,8 +129,13 @@ body {
 ::selection { background: var(--selection); }
 
 .wrap {
-  width: min(100% - 2.5rem, 46rem);
+  width: min(100% - 2.5rem, var(--width-content));
   margin-inline: auto;
+}
+
+/* header/footer bars stay at the narrower reference width */
+.header-inner, .footer-inner {
+  width: min(100% - 2.5rem, var(--width-bar));
 }
 
 a {
@@ -445,10 +454,6 @@ h1, h2, h3 {
 
 /* ---------- prose ---------- */
 
-.prose {
-  max-width: 65ch;
-}
-
 .prose h2, .prose h3, .prose h4 {
   margin: 2.4rem 0 0.8rem;
 }
@@ -466,6 +471,12 @@ h1, h2, h3 {
 }
 
 .prose p { margin: 0 0 1.2rem; }
+
+.prose p, .prose li, .prose blockquote {
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
 
 .prose hr {
   border: none;
@@ -502,6 +513,15 @@ h1, h2, h3 {
   color: var(--muted);
   margin-top: 0.55rem;
 }
+
+/* figure size classes — pick one on the figure tag:
+   <figure class="img-small|img-regular|img-big|img-feature">
+   regular/big/feature all render at the full text width today (kept as
+   distinct classes so sizing can be tuned independently later) */
+.prose .img-small img { width: 60%; }
+.prose .img-regular img,
+.prose .img-big img,
+.prose .img-feature img { width: 100%; }
 
 .prose u { text-decoration-color: var(--accent); text-underline-offset: 0.25em; }
 
@@ -700,4 +720,8 @@ h1, h2, h3 {
   .header-inner { justify-content: center; }
   .post-item-title { font-size: 1.8rem; }
   .terminal-body { font-size: 0.8rem; }
+  /* justified monospace gets gappy on narrow screens */
+  .prose p, .prose li, .prose blockquote { text-align: left; }
+  /* size classes converge on small screens */
+  .prose .img-small img { width: 75%; }
 }

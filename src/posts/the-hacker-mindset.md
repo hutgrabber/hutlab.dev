@@ -6,7 +6,7 @@ permalink: /the-hacker-mindset/
 tags: [posts]
 description: "This blog aims to cover things that I believe are invaluable for anyone starting their journey as a penetration tester. That being said, there is also a section in the blog that intrigues people who are looking for something zesty."
 meta_title: "The Hacker Mindset - Mind to Machine"
-feature_image: "/assets/images/2024/09/1-v9djvdaii-38p6oxy0b4xg-jpeg.jpg"
+feature_image: "/images/2024-09-19-hacker-mindset/cover.jpg"
 templateEngineOverride: md
 ---
 
@@ -34,7 +34,7 @@ Although that was very philosophical to read through & had a nice soothing tone,
 
 *Embracing Controlled Chaos*
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-c90-usndihox350h_d32kq-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/crash-dummy.jpg"/></figure>
 
 This is really for readers who are just thinking of entering this field and are just getting started. I wish someone had explained to me the importance of developing a chain of thought that runs through different permutations and combinations of how something can be broken. This is almost every pentester’s second nature — breaking things. Whenever you see something, think — ‘How can I break it?’ As a security engineer, you will come across a number of programs, scripts, binaries, and tools in general.
 
@@ -50,7 +50,7 @@ Well I’d say that is for you to figure out. Keep breaking, keep learning and a
 
 *There are more moving parts than you think there are.*
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-oy4f_uprhmytc_v4hu5k8q-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/moving-parts.jpg"/></figure>
 
 I can’t stress enough how important it is to have your own system of organization. If you don’t, I’ve got you covered. You can use the contents of this tutorial as a starting point to create your own. A good place to start is the beginning. Once you have the list of machines you are going to engage with, create directories for them based on their IP. You can get really creative with the naming schemes:
 
@@ -83,7 +83,7 @@ I can’t stress enough how important it is to have your own system of organizat
 
 The world is your oyster. Just make sure to **also** **organize the subdirectories** in a way that might make sense to the context of the engagement. If it is a CTF, you may want to follow a file structure like the own shown below, saving artifacts (*credentials*, *pdf files*, *binaries*, *source code*, *hashes*, *etc.*) that you find in their respective categories along the way.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-6h96yrshm7dgkbqtxrtg4g.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/ctf-tree.png"/></figure>
 
 **Here’s a few tips to keep a clear mindset:**
 
@@ -105,11 +105,11 @@ One thing you absolutely need to understand is that the smoother your workflow i
 
 > ARRRRRRRRRRRRRGGGGGGGGGGHHHHHHHHH !!!
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-mifd0epyqbgla6xabu7udq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/argh-meme.png"/></figure>
 
 #### \ Your Temple — The Terminal
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-qwtcwol-mnbgfvqas3jg3w-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/terminal-temple.jpg"/></figure>
 
 I wish someone explained to me the power of bash earlier in life, but better late than never. Any type of scripting knowledge is going to prove to be a golden asset here. We are going to leverage the power of *aliases*, *shell* *scripts* & a few other *terminal apps* that will totally transform your life.
 
@@ -190,11 +190,11 @@ function rmhost() {
 alias hosts="cat /etc/hosts"
 ```
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-wgoss4qgdprgievokwe-qq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/hosts-alias.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-jd_vaifwgkqznluroe6sow.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/addhost-demo.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-8opyn4r4en8a2xnnhprlbq.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/rmhost-demo.png"/></figure>
 
 3. **Dealing with VPNs**— I have all the VPN files in one folder in the home directory. I have setup bash aliases that call the full command and help me connect to that VPN. I am also working on a bash function that will ask me what VPN I would like to connect to, and then connect to the one I provide the input for. I also have another alias called “vpnip” that shows me the IP address assigned to me once I am connected to VPN. This saves me time that is otherwise taken up by typing out the “ip addr” command and scrolling through the output.
 
@@ -210,7 +210,7 @@ alias vpnip="ip -4 addr show tun0 | grep -oP \"(?<=inet\s)\d+(\.\d+){3}\""
 
 4. **NMAP Scripting Engine**— Whenever I forget what nmap script I want to run out of the hundreds of options available, I just run the “nse” command followed by a string like “nse smb-” or “nse http-” (the hyphen is optional). This searches the existence of the string throughout all the scripts NSE provides. Nifty right? I know. Sometimes, I blow my own mind away.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-_ld0g0gguupnuswjar3dyg.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/nse-search.png"/></figure>
 
 ```bash
 nse() { 
@@ -246,7 +246,7 @@ My pentesting toolset can be found in the repo below. Although it is a work in p
 
 **Learning my way around Vim** has really proved to be worth it for me. I agree that Vim has a very steep learning curve, but if you think about it, it’s not that bad. Once you know the ins and outs of Vim, you’ll not only be much faster at writing code, but Vim motions can really feel magical as soon as you get the hang of it. I have some really nice blogs that can help you master Vim in simple and easy steps.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-zgzy4ygpmesueui7r36xdg.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/vim-meme.png"/></figure>
 
 <a class="bookmark" href="https://www.barbarianmeetscoding.com/blog/exploring-vim" rel="noopener" target="_blank"><span class="bookmark-title">Exploring Vim | Barbarian Meets Coding</span><span class="bookmark-desc">I am in a journey to improve my vim skills. Join me and discover vim, an editor that lets you write code at the speed…</span></a>
 
@@ -260,7 +260,7 @@ My pentesting toolset can be found in the repo below. Although it is a work in p
 
 *If you ‘hold that thought’, it is going to vanish before you can say ‘poof’.*
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-5q0roqnifvw4npejne9jua-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/note-taking.jpg"/></figure>
 
 To close things out, I just want to take up a really important, albeit once of the most ‘skipped’ topics of cybersecurity.
 
@@ -282,23 +282,23 @@ By the way, if you can come up with something really good, you can write a blog 
 
 Oh! before I forget, learn markdown. It’s a quality of life improvement in my opinion.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-yn3ro6qqrhiem9jmgt0gnw.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/markdown-meme.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-ggxj0sbg7999hjnaz8awcg.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/markdown-links-meme.png"/></figure>
 
 Alright. Enough markdown jokes. Moving on…
 
 I like to use **Obsidian** to take notes and use **Notion** for writing walkthroughs. Here are some examples that you can use as a base to organize your notes and get started.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-e6dxhxysjbeienlouskmqa.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/obsidian-note.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-t-s8flt1wn1c7wtr9cdwua.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/pivoting-note.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-xm6ntacndo7t8w14lriqhg.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-qb4cnmojhxvycj29oc3hba.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-beyiyfjbf0s7hciv2v7t5a.png"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/dll-hijacking-note.png"/></figure>
 
 **\ Walkthroughs**
 
@@ -312,7 +312,7 @@ Make sure you use git-integration to backup your notes into a private repo on gi
 
 *Finally! I know.*
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/assets/images/2024/09/1-xhqkkvrlsxcizxvc8uiu-a-jpeg.jpg"/></figure>
+<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/desk-photo.jpg"/></figure>
 
 I understand that we’ve covered a lot of ground, and while all this might sound overwhelming, I want you to know that mastering the art of penetration testing is a journey, not a destination. We’ve explored the importance of developing a hacker mindset, embracing controlled chaos, and the critical need for organization in your work.
 

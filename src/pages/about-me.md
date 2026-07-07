@@ -4,7 +4,7 @@ date: 2024-09-26T16:43:32.000Z
 layout: layouts/page.njk
 permalink: /about-me/
 description: "I am a UMD grad and penetration tester. Join me as I  blend cybersecurity insights with a passion for penetration testing and coffee."
-feature_image: "/assets/images/2024/09/_f25edd4d-6a8c-4a18-8a9e-45090fbf0389.jpg"
+feature_image: "/images/about-me/cover.jpg"
 templateEngineOverride: md
 ---
 

@@ -5,7 +5,7 @@ layout: layouts/page.njk
 permalink: /author/
 description: "Take a sneak peak behind the scenes on Hutgrabber where the magic happens."
 meta_title: "Author's Desk | Hutgrabber"
-feature_image: "/assets/images/2024/09/IMG_3618-1.jpeg"
+feature_image: "/images/author/cover.jpeg"
 templateEngineOverride: md
 ---
 
