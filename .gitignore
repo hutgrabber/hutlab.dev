@@ -2,8 +2,10 @@
 node_modules/
 _site/
 
-# drafts and ideas
+# drafts and ideas (keep the README and post template tracked)
 drafts/*
+!drafts/README.md
+!drafts/template.md
 
 # Obsidian vault config & trash (any level)
 .obsidian/

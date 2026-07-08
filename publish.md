@@ -92,11 +92,11 @@ Then reference them with an absolute path:
 
 ### Choosing an image size
 
-Use a figure block with one of four size classes — this also centers the image and
+Use a figure block with one of five size classes — this also centers the image and
 gives you a styled caption:
 
 ```html
-<figure class="img-regular">
+<figure class="img-l">
   <img src="/images/2026-07-06-hardening-ssh/scan-results.png" alt="Nmap scan results" loading="lazy">
   <figcaption>Figure — full TCP scan of the target</figcaption>
 </figure>
@@ -104,18 +104,18 @@ gives you a styled caption:
 
 | Class | Width | Use for |
 |---|---|---|
-| `img-small` | ~60% of the text column | Terminal snippets, tall/narrow screenshots |
-| `img-regular` | Full text column (800px) | The default — most screenshots and diagrams |
-| `img-big` | Full text column (800px) | Reserved for a future, wider treatment |
-| `img-feature` | Full text column (800px), same as the cover | Reserved for a future, wider treatment |
+| `img-xs` | 25% (~200px) | Inline thumbnails, icons, QR codes, tiny crops |
+| `img-s` | 45% (~360px) | Terminal snippets, tall/narrow screenshots, memes |
+| `img-m` | 65% (~520px) | Medium screenshots and diagrams |
+| `img-l` | 85% (~680px) | Most screenshots and wide diagrams |
+| `img-feat` | 100% (800px), same as the cover | Hero shots, panoramas, anything that deserves the full column |
 
-`img-regular`, `img-big`, and `img-feature` all render at the same width today —
-the text column itself is 800px, one step wider than the header/footer bar, so
-there's no room left to break out further. They're kept as distinct classes so
-sizing can be tuned independently later without touching any posts. Plain
-`<figure>`, the legacy `class="figure"`, and bare Markdown images all render at
-`img-regular` size. On phones every size collapses to full width (`img-small`
-stays a bit narrower).
+The five widths step evenly (25 → 45 → 65 → 85 → 100%) so every size is clearly
+distinct at a glance. All are centered in the text column; `img-feat` renders at
+exactly the same width as the post's cover image. Plain `<figure>`, the legacy
+`class="figure"`, and bare Markdown images all render at full width (`img-feat`
+size). On phones the ladder compresses but keeps its hierarchy: `img-xs` → 55%,
+`img-s` → 70%, `img-m` → 85%, `img-l` and `img-feat` → full width.
 
 **Images are served as-is — no auto-resizing.** You must provide properly-sized
 images before uploading. CSS scales them responsively, but won't crop — and a

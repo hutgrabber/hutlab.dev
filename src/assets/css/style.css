@@ -533,13 +533,14 @@ h1, h2, h3 {
 }
 
 /* figure size classes — pick one on the figure tag:
-   <figure class="img-small|img-regular|img-big|img-feature">
-   regular/big/feature all render at the full text width today (kept as
-   distinct classes so sizing can be tuned independently later) */
-.prose .img-small img { width: 60%; }
-.prose .img-regular img,
-.prose .img-big img,
-.prose .img-feature img { width: 100%; }
+   <figure class="img-xs|img-s|img-m|img-l|img-feat">
+   even 20%-steps of the text column, centered; img-feat matches the
+   cover image width */
+.prose .img-xs img   { width: 25%; }
+.prose .img-s img    { width: 45%; }
+.prose .img-m img    { width: 65%; }
+.prose .img-l img    { width: 85%; }
+.prose .img-feat img { width: 100%; }
 
 .prose u { text-decoration-color: var(--accent); text-underline-offset: 0.25em; }
 
@@ -851,8 +852,11 @@ h1, h2, h3 {
   .terminal-body { font-size: 0.8rem; }
   /* justified monospace gets gappy on narrow screens */
   .prose p, .prose li, .prose blockquote { text-align: left; }
-  /* size classes converge on small screens */
-  .prose .img-small img { width: 75%; }
+  /* size ladder compresses on small screens but keeps its hierarchy */
+  .prose .img-xs img { width: 55%; }
+  .prose .img-s img  { width: 70%; }
+  .prose .img-m img  { width: 85%; }
+  .prose .img-l img  { width: 100%; }
   /* tag graph: shorter panel, drop the bar title to fit the tools */
   .graph-panel { height: clamp(300px, 55vh, 440px); }
   .graph-window .term-title { display: none; }
