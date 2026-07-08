@@ -1,1 +1,58 @@
-{}
+{
+  "https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/cheatsheet/": {
+    "fetchedAt": "2026-07-08",
+    "title": "Boost Your Coding Fu With VSCode and Vim - Cheatsheet | Barbarian Meets Coding",
+    "description": "Treatises, articles, tutorials and thoughts on JavaScript, Software and Web Development, User Experience, Philosophy and Life.",
+    "siteName": "",
+    "image": "https://www.barbarianmeetscoding.com/images/barbarian-meets-coding-social-card.png",
+    "favicon": "https://www.barbarianmeetscoding.com/favicon.png"
+  },
+  "https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/moving-blazingly-fast-with-the-core-vim-motions/": {
+    "fetchedAt": "2026-07-08",
+    "title": "Moving Blazingly Fast With The Core Vim Motions | Barbarian Meets Coding",
+    "description": "Where you learn the power of motions and how you can move blazingly fast and with extreme prevision using VSCodeVim",
+    "siteName": "",
+    "image": "https://www.barbarianmeetscoding.com/images/boost-coding-fu-vscode-vim-banner.jpg",
+    "favicon": "https://www.barbarianmeetscoding.com/favicon.png"
+  },
+  "https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim-exercises/03-moving-blazingly-fast-with-vim-motions/": {
+    "fetchedAt": "2026-07-08",
+    "title": "Moving Blazingly Fast with Vim Motions | Barbarian Meets Coding",
+    "description": "Where you learn how to move like the wind in the confines of your editor.",
+    "siteName": "",
+    "image": "https://www.barbarianmeetscoding.com/images/boost-coding-fu-vscode-vim-banner.jpg",
+    "favicon": "https://www.barbarianmeetscoding.com/favicon.png"
+  },
+  "https://www.barbarianmeetscoding.com/blog/exploring-vim": {
+    "fetchedAt": "2026-07-08",
+    "title": "Exploring Vim | Barbarian Meets Coding",
+    "description": "I am in a journey to improve my vim skills. Join me and discover vim, an editor that lets you write code at the speed thought.",
+    "siteName": "",
+    "image": "https://www.barbarianmeetscoding.com/static/c812657a205b5da59a55fc681123973e/47498/do-more.jpg",
+    "favicon": "https://www.barbarianmeetscoding.com/favicon.png"
+  },
+  "https://github.com/hutgrabber/pentesting-toolkit": {
+    "fetchedAt": "2026-07-08",
+    "title": "GitHub - hutgrabber/pentesting-toolkit",
+    "description": "Contribute to hutgrabber/pentesting-toolkit development by creating an account on GitHub.",
+    "siteName": "GitHub",
+    "image": "https://opengraph.githubassets.com/55809bd887d7969b8b49fc2122a0da5230401b1a388a9bd1c8752c57ef9d092e/hutgrabber/pentesting-toolkit",
+    "favicon": "https://github.githubassets.com/favicons/favicon.svg"
+  },
+  "https://hutlab.dev/": {
+    "fetchedAt": "2026-07-08",
+    "title": "hutlab",
+    "description": "All things cyber — pentesting tutorials, write-ups & field notes from the lab.",
+    "siteName": "hutlab",
+    "image": "https://hutlab.dev/assets/images/og-card.png",
+    "favicon": "https://hutlab.dev/assets/images/favicon-32.png"
+  },
+  "https://hutlab.dev/git-github/": {
+    "fetchedAt": "2026-07-08",
+    "title": "Git & GitHub",
+    "description": "Get started with git & github. Learn everything - all the way from learning how to set up git on a new system to making your first commit.",
+    "siteName": "hutlab",
+    "image": "https://hutlab.dev/assets/images/og-card.png",
+    "favicon": "https://hutlab.dev/assets/images/favicon-32.png"
+  }
+}

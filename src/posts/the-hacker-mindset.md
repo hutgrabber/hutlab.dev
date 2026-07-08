@@ -238,26 +238,24 @@ nse() {
 
 To get started with Git, you can use my tutorial that goes through all of the steps to **get-git-done**. See what I did there?
 
-<a class="bookmark" href="/git-github/" rel="noopener" target="_blank"><span class="bookmark-title">Git &amp; GitHub</span><span class="bookmark-desc">A Beginner’s Guide to Using GitHub</span><span class="bookmark-meta">👾 hutgrabber · Sparsh Mehta</span></a>
+https://hutlab.dev/git-github/
 
-My pentesting toolset can be found in the repo below. Although it is a work in progress, it is very much useable. Expect more changes and housekeeping to take place over the winter…
+My pentesting toolset can be found in the repo below. Although it is a work in progress, it is very much useable. Expect more changes and housekeeping to take place over the winter.
 
-<a class="bookmark" href="https://github.com/hutgrabber/pentesting-toolkit" rel="noopener" target="_blank"><span class="bookmark-title">GitHub - hutgrabber/pentesting-toolkit</span><span class="bookmark-desc">Contribute to hutgrabber/pentesting-toolkit development by creating an account on GitHub.</span></a>
-
+https://github.com/hutgrabber/pentesting-toolkit
 ##### **A Strong Recommendation.**
 
 **Learning my way around Vim** has really proved to be worth it for me. I agree that Vim has a very steep learning curve, but if you think about it, it’s not that bad. Once you know the ins and outs of Vim, you’ll not only be much faster at writing code, but Vim motions can really feel magical as soon as you get the hang of it. I have some really nice blogs that can help you master Vim in simple and easy steps.
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/vim-meme.png"/></figure>
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/vim-meme.png"/></figure>
 
-<a class="bookmark" href="https://www.barbarianmeetscoding.com/blog/exploring-vim" rel="noopener" target="_blank"><span class="bookmark-title">Exploring Vim | Barbarian Meets Coding</span><span class="bookmark-desc">I am in a journey to improve my vim skills. Join me and discover vim, an editor that lets you write code at the speed…</span></a>
+https://www.barbarianmeetscoding.com/blog/exploring-vim
 
-<a class="bookmark" href="https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim-exercises/03-moving-blazingly-fast-with-vim-motions/" rel="noopener" target="_blank"><span class="bookmark-title">Vim Motions | Barbarian Meets Coding</span><span class="bookmark-desc">Where you learn how to move like the wind in the confines of your editor.</span></a>
+https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim-exercises/03-moving-blazingly-fast-with-vim-motions/
 
-<a class="bookmark" href="https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/moving-blazingly-fast-with-the-core-vim-motions/" rel="noopener" target="_blank"><span class="bookmark-title">Core Vim Motions | Barbarian Meets Coding</span><span class="bookmark-desc">Where you learn the power of motions and how you can move blazingly fast and with extreme prevision using VSCodeVim</span></a>
+https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/moving-blazingly-fast-with-the-core-vim-motions/
 
-<a class="bookmark" href="https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/cheatsheet/" rel="noopener" target="_blank"><span class="bookmark-title">Boost Your Coding Fu With VSCode and Vim - Cheatsheet | Barbarian Meets Coding</span><span class="bookmark-desc">Treatises, articles, tutorials and thoughts on JavaScript, Software and Web Development, User Experience, Philosophy…</span></a>
-
+https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/cheatsheet/
 ## Note Taking.
 
 > If you ‘hold that thought’, it is going to vanish before you can say ‘poof’.
