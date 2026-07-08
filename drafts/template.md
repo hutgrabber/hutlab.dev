@@ -29,8 +29,8 @@ HTML comments like this one never appear on the site.
 ============================================================= -->
 
 Your opening paragraph. Body text is justified on both edges automatically. All the
-usual inline styles work: **bold**, *italic*, ***bold italic***, ~~strikethrough~~,
-<u>underline</u>, and `inline code`. Links can be
+usual inline styles work: **bold** (renders in the cursor green), *italic*,
+***bold italic***, ~~strikethrough~~, <u>underline</u>, and `inline code`. Links can be
 [internal](/the-hacker-mindset/) — absolute path with both slashes — or
 [external](https://www.openssh.com/) with the full URL.
 

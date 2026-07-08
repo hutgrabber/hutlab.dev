@@ -483,6 +483,11 @@ h1, h2, h3 {
   color: var(--prompt);
 }
 
+/* bold text pops in the cursor green — anywhere, headings included; only
+   bold inside a link keeps the link color so links still read as links */
+.prose strong, .prose b { color: var(--prompt); }
+.prose a strong { color: inherit; }
+
 .prose p { margin: 0 0 1.2rem; }
 
 .prose p, .prose li, .prose blockquote {
