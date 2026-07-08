@@ -34,6 +34,10 @@ I am still early in my own journey, and it really is a craft. What carries you i
 
 # The Crash Test Dummy
 
+<figure class="img-s">
+  <img src="/images/2024-09-19-hacker-mindset/crash-dummy.jpg" loading="lazy">
+</figure>
+
 *Embracing controlled chaos.*
 
 This section is written mainly for people who are just getting started. Early on, I wish someone had explained how important it is to build a habit of asking how something might break. For most pentesters this becomes automatic. Whenever you look at a system, ask: how can I break it? As a security engineer, you will meet a wide range of programs, scripts, binaries, and tools, and each one is a candidate for this kind of thinking.
@@ -45,6 +49,10 @@ Keep testing assumptions, and keep learning from what breaks.
 ---
 
 # Organize, Organize, Organize
+
+<figure class="img-s">
+  <img src="/images/2024-09-19-hacker-mindset/moving-parts.jpg" loading="lazy">
+</figure>
 
 *There are more moving parts than you think.*
 
@@ -81,6 +89,8 @@ Once you have the list of machines you will engage with, create directories for 
 
 Organize the subdirectories to match the context of the engagement too. For a CTF, you might use a structure that sorts the artifacts you find (credentials, PDFs, binaries, source code, hashes, and so on) into their own categories as you go.
 
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/ctf-tree.png"/></figure>
+
 **A few tips for keeping a clear head:**
 
 1. **Enumerate well.** Spend most of your time learning about the machines and making notes. Capture every detail of your target before you make a move. Double-check your scans and other reconnaissance, and enumerate each port more than once, using more than one method.
@@ -93,7 +103,7 @@ A plan of action and a consistent system of organization will carry you a long w
 
 # Getting Those Hands Dirty
 
-You cannot learn to swim from a book, and pentesting works the same way.
+*You cannot learn to swim from a book, and pentesting works the same way.*
 
 Let us talk about engagements. There are three core components: **the terminal**, **your notes**, and **your tools**. In this section we will look at each and set up a portable pentesting environment, so you are not tied to a single distribution such as Kali Linux.
 
@@ -102,6 +112,8 @@ The idea is simple: a smoother workflow leads to clearer thinking, which keeps y
 <figure class="img-xs"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/argh-meme.png"/></figure>
 
 ## Your Temple, The Terminal
+
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/terminal-temple.jpg"/></figure>
 
 I wish I had learned the power of Bash earlier, but better late than never. Any scripting knowledge is a valuable asset here. We are going to use aliases, shell functions, and a few terminal applications to remove repetitive friction from your workflow.
 
@@ -120,7 +132,7 @@ As you work through practice machines, watch your own workflow and note the task
 
 This is where things get more technical, but the payoff is worth it.
 
-First, get comfortable with Bash.
+First, get your bash on!
 
 <div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/SPwyp2NG-bE?feature=oembed" title="Embedded video"></iframe></div>
 
@@ -186,6 +198,15 @@ function rmhost() {
 alias hosts="cat /etc/hosts"
 ```
 
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/hosts-alias.png"/>
+<figcaption>Fig: host aliasing</figcaption></figure>
+
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/addhost-demo.png"/>
+<figcaption>Fig: addhost demo</figcaption></figure>
+
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/rmhost-demo.png"/>
+<figcaption>Fig: rmhost demo</figcaption></figure>
+
 **3. Handling VPNs.** I keep all my VPN files in one folder in my home directory and set up aliases that connect to each one. I am also building a function that prompts for the VPN I want and connects based on my input. A separate alias, `vpnip`, shows the address assigned to me after connecting, which saves me from running `ip addr` and scrolling through the output. Note that `vpnip` assumes an OpenVPN interface named `tun0`; adjust it if your interface differs.
 
 ```bash
@@ -216,9 +237,9 @@ nse() {
 
 **5. tmux.** If you are not familiar with tmux, typecraft is a good place to learn. Chris covers a range of command-line tools and has short series on both tmux and Neovim, which are central to how I work. My tmux and Neovim configs are in the `hutgrabber-dots` repository on GitHub.
 
-<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed" title="Embedded video"></iframe></div>
+<u>T-Mux Productivity Workflow</u>
 
-<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed" title="Embedded video"></iframe></div>
+https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed
 
 **6. Back up your toolset.** To avoid losing your tools, store them in `/opt` and push them to GitHub. In my case, some are binaries, some are PowerShell scripts, and some are Windows executables. Keep in mind that public repositories are visible to everyone, so use a private repo for anything sensitive and avoid committing credentials or client data.
 
@@ -233,6 +254,12 @@ https://github.com/hutgrabber/pentesting-toolkit
 ### A Strong Recommendation
 
 Learning Vim has been worth the effort for me. The learning curve is steep but manageable once you commit to it. Once the motions click, you write and edit code noticeably faster. The blogs below can help you learn Vim in small, manageable steps.
+
+<u>NeoVIM: Getting Started</u>
+
+https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed
+
+**Additional Resources:** Barbarian-Meets-Coding is a great resource I found when lurking around the internet. The independent blogging community always comes in clutch.
 
 https://www.barbarianmeetscoding.com/blog/exploring-vim
 
@@ -268,16 +295,24 @@ One more thing: learn Markdown. It is a real quality-of-life improvement for not
 
 I use **Obsidian** for notes and **Notion** for writing walkthroughs. Either one gives you a solid base to get started.
 
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/markdown-meme.png"/></figure>
+
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
+
 ### Walkthroughs
 
 When you begin practicing machines on hacking platforms, write walkthroughs for them as you go. Create sections such as "Enumeration," "Initial Foothold," "Exploitation," and "Privilege Escalation," then fill them with the steps you took. As a beginner, be thorough. Record what you did, and also the ideas you considered and chose not to pursue.
 
 Use Git to back up your notes to a private repository so nothing is lost. If you want to go further, GitBook is worth a look.
 
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
+
 ---
 
 # Conclusion
 
+<figure class="img-xs"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/desk-photo.jpg"/></figure>
+
 We have covered a lot, and it may feel like a great deal to absorb at once. Mastering penetration testing is a journey, not a single milestone. We looked at building a hacker mindset, testing your assumptions, and staying organized. We also worked through the practical side: an efficient terminal environment, tools like tmux and Vim, and a reliable note-taking system. Each of these supports the same goal, which is your steady growth as a penetration tester.
 
-So grab a coffee, open your terminal, and start exploring.
+So grab a coffee, open your terminal, and start exploring! If you have any questions, you know where to [find me](/about-me/).
