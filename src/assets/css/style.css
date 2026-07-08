@@ -378,11 +378,14 @@ h1, h2, h3 {
 }
 
 .tag-chip {
-  color: var(--accent);
+  color: var(--prompt); /* tags are cursor-green, in both themes */
   text-decoration: none;
   font-size: 0.78rem;
 }
 .tag-chip:hover { text-decoration: underline; }
+
+/* tag-page titles (#updates, #tags) share the tag green */
+.tag-title { color: var(--prompt); }
 
 .post-item-title {
   margin: 0.35rem 0 0.4rem;
@@ -454,19 +457,26 @@ h1, h2, h3 {
 
 /* ---------- prose ---------- */
 
-.prose h2, .prose h3, .prose h4 {
+/* heading ladder: h1-h3 wear their markdown prefix, h4-h6 are plain bold */
+.prose h1, .prose h2, .prose h3 {
   margin: 2.4rem 0 0.8rem;
 }
-.prose h2 { font-size: 2rem; }
-.prose h3 { font-size: 1.7rem; }
-.prose h4 {
+.prose h1 { font-size: 2.25rem; }
+.prose h2 { font-size: 1.9rem; }
+.prose h3 { font-size: 1.6rem; }
+.prose h4, .prose h5, .prose h6 {
   font-family: "JetBrains Mono", monospace;
-  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  margin: 2rem 0 0.6rem;
 }
-.prose h2::before, .prose h3::before {
-  content: "## ";
+.prose h4 { font-size: 1.05rem; }
+.prose h5 { font-size: 0.95rem; }
+.prose h6 { font-size: 0.875rem; }
+.prose h1::before { content: "# "; }
+.prose h2::before { content: "## "; }
+.prose h3::before { content: "### "; }
+.prose h1::before, .prose h2::before, .prose h3::before {
   color: var(--prompt);
 }
 
@@ -668,10 +678,10 @@ h1, h2, h3 {
 .graph-panel {
   --g-bg: #12101c;
   --g-dot: rgba(216, 212, 228, 0.055);
-  --g-tag: #a778e8;
-  --g-tag-glow: rgba(167, 120, 232, 0.55);
-  --g-post: #21a866;
-  --g-post-glow: rgba(33, 168, 102, 0.5);
+  --g-tag: #21a866;
+  --g-tag-glow: rgba(33, 168, 102, 0.55);
+  --g-post: #a778e8;
+  --g-post-glow: rgba(167, 120, 232, 0.5);
   --g-edge: rgba(139, 132, 162, 0.3);
   --g-edge-hi: #c39bf5;
   --g-text: #d8d4e4;
@@ -708,8 +718,8 @@ h1, h2, h3 {
   border-radius: 50%;
   vertical-align: -1px;
 }
-.g-dot-tag { background: #a778e8; box-shadow: 0 0 6px rgba(167, 120, 232, 0.7); }
-.g-dot-post { background: #21a866; box-shadow: 0 0 6px rgba(33, 168, 102, 0.6); }
+.g-dot-tag { background: #21a866; box-shadow: 0 0 6px rgba(33, 168, 102, 0.7); }
+.g-dot-post { background: #a778e8; box-shadow: 0 0 6px rgba(167, 120, 232, 0.6); }
 
 .graph-list-title {
   font-size: 1.6rem;
@@ -731,11 +741,11 @@ h1, h2, h3 {
   border-radius: 999px;
   padding: 0.32rem 0.85rem;
   font-size: 0.85rem;
-  color: var(--accent);
+  color: var(--prompt);
   text-decoration: none;
   background: var(--surface);
 }
-.tag-index a:hover { border-color: var(--accent); color: var(--accent-strong); }
+.tag-index a:hover { border-color: var(--prompt); }
 .tag-index .tag-count { color: var(--muted); font-size: 0.75rem; }
 
 /* feed subscribe page */

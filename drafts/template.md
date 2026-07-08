@@ -36,14 +36,21 @@ usual inline styles work: **bold**, *italic*, ***bold italic***, ~~strikethrough
 
 ---
 
-## Section Heading (h2)
+# Heading 1
 
-The `##` prefix is added by the site's styling automatically — don't type it in
-the heading text. A dashed horizontal rule (the `---` above) separates sections.
+The `#` / `##` / `###` prefixes are added by the site's styling automatically —
+don't type them in the heading text. h4–h6 render as plain bold text, no prefix.
+A dashed horizontal rule (the `---` above) separates sections.
 
-### Sub-section Heading (h3)
+## Heading 2
 
-#### Small Heading (h4)
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
 
 > Blockquote — for quotes, callouts, or asides. Renders italic with an accent
 > bar on the left.
