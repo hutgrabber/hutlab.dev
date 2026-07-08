@@ -99,6 +99,8 @@ Let us talk about engagements. There are three core components: **the terminal**
 
 The idea is simple: a smoother workflow leads to clearer thinking, which keeps your goals in sight. You do not want to lose momentum fumbling for commands or accidentally closing a session you cannot easily rebuild.
 
+<figure class="img-xs"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/argh-meme.png"/></figure>
+
 ## Your Temple, The Terminal
 
 I wish I had learned the power of Bash earlier, but better late than never. Any scripting knowledge is a valuable asset here. We are going to use aliases, shell functions, and a few terminal applications to remove repetitive friction from your workflow.
@@ -134,7 +136,7 @@ This makes every command available in each new shell. (The command is lowercase 
 
 If you already understand how your shell works, let us put it to use. Over time I have written several functions and aliases that address the six problems above, plus many others. As of September 2024, the configuration is still a work in progress that I expect to finish by the end of December 2024, but it is usable today. You can clone the repository, follow the instructions, and build on what is already there.
 
-<a class="bookmark" href="https://github.com/hutgrabber/hutgrabber-dots.git" rel="noopener" target="_blank"><span class="bookmark-title">GitHub - hutgrabber/hutgrabber-dots: Linux Dotfiles</span><span class="bookmark-desc">Linux Dotfiles. Contribute to hutgrabber/hutgrabber-dots development by creating an account on GitHub.</span><span class="bookmark-meta">GitHub · hutgrabber</span></a>
+"https://github.com/hutgrabber/hutgrabber-dots.git"
 
 Look at the "pentest" folder, which holds the scripts that make life easier. Here is how they map to the six problems:
 
@@ -200,7 +202,7 @@ alias vpnip="ip -4 addr show tun0 | grep -oP \"(?<=inet\s)\d+(\.\d+){3}\""
 
 ```bash
 nse() { 
-  nsedb=$"acarsd-info.nse\naddress-info.nse\nafp-brute.nse\nafp-ls.nse\nafp-path-vuln.nse\nafp-serverinfo.nse\nafp-showmount.nse\najp-auth.nse\najp-brute.nse\najp-headers.nse\najp-methods.nse\najp-request.nse\nallseeingeye-info.nse\namqp-info.nse\nasn-query.nse\nauth-owners.nse\nauth-spoof.nse\nbackorifice-brute.nse\nbackorifice-info.nse\nbacnet-info.nse\nbanner.nse\nbitcoin-getaddr.nse\nbitcoin-info.nse\nbitcoinrpc-info.nse\nbittorrent-discovery.nse\nbjnp-discover.nse\nbroadcast-ataoe-discover.nse\nbroadcast-avahi-dos.nse\nbroadcast-bjnp-discover.nse\nbroadcast-db2-discover.nse\nbroadcast-dhcp-discover.nse\nbroadcast-dhcp6-discover.nse\nbroadcast-dns-service-discovery.nse\nbroadcast-dropbox-listener.nse\nbroadcast-eigrp-discovery.nse\nbroadcast-hid-discoveryd.nse\nbroadcast-igmp-discovery.nse\nbroadcast-jenkins-discover.nse\nbroadcast-listener.nse\nbroadcast-ms-sql-discover.nse\nbroadcast-netbios-master-browser.nse\nbroadcast-networker-discover.nse\nbroadcast-novell-locate.nse\nbroadcast-ospf2-discover.nse\nbroadcast-pc-anywhere.nse\nbroadcast-pc-duo.nse\nbroadcast-pim-discovery.nse\nbroadcast-ping.nse\nbroadcast-pppoe-discover.nse\nbroadcast-rip-discover.nse\nbroadcast-ripng-discover.nse\nbroadcast-sonicwall-discover.nse\nbroadcast-sybase-asa-discover.nse\nbroadcast-tellstick-discover.nse\nbroadcast-upnp-info.nse\nbroadcast-versant-locate.nse\nbroadcast-wake-on-lan.nse\nbroadcast-wpad-discover.nse\nbroadcast-wsdd-discover.nse\nbroadcast-xdmcp-discover.nse\ncassandra-brute.nse\ncassandra-info.nse\ncccam-version.nse\ncics-enum.nse\ncics-info.nse\ncics-user-brute.nse\ncics-user-enum.nse\ncitrix-brute-xml.nse\ncitrix-enum-apps-xml.nse\ncitrix-enum-apps.nse\ncitrix-enum-servers-xml.nse\ncitrix-enum-servers.nse\nclamav-exec.nse\nclock-skew.nse\ncoap-resources.nse\ncouchdb-databases.nse\ncouchdb-stats.nse\ncreds-summary.nse\ncups-info.nse\ncups-queue-info.nse\ncvs-brute-repository.nse\ncvs-brute.nse\ndaap-get-library.nse\ndaytime.nse\ndb2-das-info.nse\ndeluge-rpc-brute.nse\ndhcp-discover.nse\ndicom-brute.nse\ndicom-ping.nse\ndict-info.nse\ndistcc-cve2004-2687.nse\ndns-blacklist.nse\ndns-brute.nse\ndns-cache-snoop.nse\ndns-check-zone.nse\ndns-client-subnet-scan.nse\ndns-fuzz.nse\ndns-ip6-arpa-scan.nse\ndns-nsec-enum.nse\ndns-nsec3-enum.nse\ndns-nsid.nse\ndns-random-srcport.nse\ndns-random-txid.nse\ndns-recursion.nse\ndns-service-discovery.nse\ndns-srv-enum.nse\ndns-update.nse\ndns-zeustracker.nse\ndns-zone-transfer.nse\ndocker-version.nse\ndomcon-brute.nse\ndomcon-cmd.nse\ndomino-enum-users.nse\ndpap-brute.nse\ndrda-brute.nse\ndrda-info.nse\nduplicates.nse\neap-info.nse\nenip-info.nse\nepmd-info.nse\neppc-enum-processes.nse\nfcrdns.nse\nfinger.nse\nfingerprint-strings.nse\nfirewalk.nse\nfirewall-bypass.nse\nflume-master-info.nse\nfox-info.nse\nfreelancer-info.nse\nftp-anon.nse\nftp-bounce.nse\nftp-brute.nse\nftp-libopie.nse\nftp-proftpd-backdoor.nse\nftp-syst.nse\nftp-vsftpd-backdoor.nse\nftp-vuln-cve2010-4221.nse\nganglia-info.nse\ngiop-info.nse\ngkrellm-info.nse\ngopher-ls.nse\ngpsd-info.nse\nhadoop-datanode-info.nse\nhadoop-jobtracker-info.nse\nhadoop-namenode-info.nse\nhadoop-secondary-namenode-info.nse\nhadoop-tasktracker-info.nse\nhbase-master-info.nse\nhbase-region-info.nse\nhddtemp-info.nse\nhnap-info.nse\nhostmap-bfk.nse\nhostmap-crtsh.nse\nhostmap-robtex.nse\nhttp-adobe-coldfusion-apsa1301.nse\nhttp-affiliate-id.nse\[REDACTED FOR SANITY]" 
+  nsedb=$"acarsd-info.nse\naddress-info.nse\nafp-brute.nse\nafp-ls.nse\nafp-path-vuln.nse\nafp-serverinfo.nse\nafp-showmount.nse\najp-auth.nse\najp-brute.nse\najp-headers.nse\najp-methods.nse\najp-request.nse\nallseeingeye-info.nse\namqp-info.nse\nasn-query.nse\nauth-owners.nse\[REDACTED FOR SANITY]" 
  
   local search_string="$1" 
   if [[ -z "$search_string" ]]; then 
@@ -241,6 +243,8 @@ https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/mo
 https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/cheatsheet/
 
 ## Note Taking
+
+<figure class="img-xs"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/markdown-links-meme.png"/></figure>
 
 If you tell yourself to "hold that thought," it is usually gone before you can act on it.
 
