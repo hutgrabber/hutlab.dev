@@ -34,7 +34,7 @@ Although that was very philosophical to read through & had a nice soothing tone,
 
 *Embracing Controlled Chaos*
 
-<figure class="img-small">
+<figure class="img-m">
   <img src="/images/2024-09-19-hacker-mindset/crash-dummy.jpg" loading="lazy">
 </figure>
 
@@ -52,7 +52,7 @@ Well I’d say that is for you to figure out. Keep breaking, keep learning and a
 
 *There are more moving parts than you think there are.*
 
-<figure class="img-small">
+<figure class="img-m">
   <img src="/images/2024-09-19-hacker-mindset/moving-parts.jpg" loading="lazy">
 </figure>
 
@@ -87,7 +87,7 @@ I can’t stress enough how important it is to have your own system of organizat
 
 The world is your oyster. Just make sure to **also** **organize the subdirectories** in a way that might make sense to the context of the engagement. If it is a CTF, you may want to follow a file structure like the own shown below, saving artifacts (*credentials*, *pdf files*, *binaries*, *source code*, *hashes*, *etc.*) that you find in their respective categories along the way.
 
-<figure class="img-small"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/ctf-tree.png"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/ctf-tree.png"/></figure>
 
 **Here’s a few tips to keep a clear mindset:**
 
@@ -111,7 +111,7 @@ One thing you absolutely need to understand is that the smoother your workflow i
 
 ### Your Temple, The Terminal.
 
-<figure class="img-small"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/terminal-temple.jpg"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/terminal-temple.jpg"/></figure>
 
 I wish someone explained to me the power of bash earlier in life, but better late than never. Any type of scripting knowledge is going to prove to be a golden asset here. We are going to leverage the power of *aliases*, *shell* *scripts* & a few other *terminal apps* that will totally transform your life.
 
@@ -262,7 +262,7 @@ My pentesting toolset can be found in the repo below. Although it is a work in p
 
 > If you ‘hold that thought’, it is going to vanish before you can say ‘poof’.
 
-<figure class="img-small"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/note-taking.jpg"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/note-taking.jpg"/></figure>
 
 To close things out, I just want to take up a really important, albeit once of the most ‘skipped’ topics of cybersecurity.
 
@@ -291,15 +291,15 @@ Alright. Enough markdown jokes. Moving on…
 
 I like to use **Obsidian** to take notes and use **Notion** for writing walkthroughs. Here are some examples that you can use as a base to organize your notes and get started.
 
-<figure class="img-small"><img alt=""loading="lazy" src="/images/2024-09-19-hacker-mindset/obsidian-note.png"/></figure>
+<figure class="img-m"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/obsidian-note.png"/></figure>
 
-<figure class="img-small"><img alt=""loading="lazy" src="/images/2024-09-19-hacker-mindset/pivoting-note.png"/></figure>
+<figure class="img-m"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/pivoting-note.png"/></figure>
 
-<figure class="img-small"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
+<figure class="img-m"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
 
-<figure class="img-small"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
+<figure class="img-m"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
 
-<figure class="img-small"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/dll-hijacking-note.png"/></figure>
+<figure class="img-m"><img alt="" loading="lazy" src="/images/2024-09-19-hacker-mindset/dll-hijacking-note.png"/></figure>
 
 ##### **Walkthroughs.**
 
