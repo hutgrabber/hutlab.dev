@@ -376,6 +376,9 @@ h1, h2, h3 {
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
+/* post-card dates get the cursor green; the date inside an opened post
+   (.post-meta) deliberately stays muted */
+.post-item-meta time { color: var(--prompt); }
 
 .tag-chip {
   color: var(--accent);
@@ -383,6 +386,9 @@ h1, h2, h3 {
   font-size: 0.78rem;
 }
 .tag-chip:hover { text-decoration: underline; }
+
+/* tag-page titles (#updates, #tags) share the tag purple */
+.tag-title { color: var(--accent); }
 
 .post-item-title {
   margin: 0.35rem 0 0.4rem;
@@ -454,21 +460,33 @@ h1, h2, h3 {
 
 /* ---------- prose ---------- */
 
-.prose h2, .prose h3, .prose h4 {
+/* heading ladder: h1-h3 wear their markdown prefix, h4-h6 are plain bold */
+.prose h1, .prose h2, .prose h3 {
   margin: 2.4rem 0 0.8rem;
 }
-.prose h2 { font-size: 2rem; }
-.prose h3 { font-size: 1.7rem; }
-.prose h4 {
+.prose h1 { font-size: 2.25rem; }
+.prose h2 { font-size: 1.9rem; }
+.prose h3 { font-size: 1.6rem; }
+.prose h4, .prose h5, .prose h6 {
   font-family: "JetBrains Mono", monospace;
-  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  margin: 2rem 0 0.6rem;
 }
-.prose h2::before, .prose h3::before {
-  content: "## ";
+.prose h4 { font-size: 1.05rem; }
+.prose h5 { font-size: 0.95rem; }
+.prose h6 { font-size: 0.875rem; }
+.prose h1::before { content: "# "; }
+.prose h2::before { content: "## "; }
+.prose h3::before { content: "### "; }
+.prose h1::before, .prose h2::before, .prose h3::before {
   color: var(--prompt);
 }
+
+/* bold text pops in the cursor green — anywhere, headings included; only
+   bold inside a link keeps the link color so links still read as links */
+.prose strong, .prose b { color: var(--prompt); }
+.prose a strong { color: inherit; }
 
 .prose p { margin: 0 0 1.2rem; }
 

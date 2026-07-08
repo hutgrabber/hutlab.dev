@@ -13,7 +13,7 @@ eleventyComputed:
 <section>
   <header class="post-header">
     <p class="crumb"><span class="prompt-glyph">$</span> grep -rl "#{{ tag }}" ./posts</p>
-    <h1 class="post-title">#{{ tag }}</h1>
+    <h1 class="post-title tag-title">#{{ tag }}</h1>
   </header>
   <ol class="post-list" reversed>
     {%- for post in collections[tag] | reverse %}
