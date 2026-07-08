@@ -92,11 +92,11 @@ Then reference them with an absolute path:
 
 ### Choosing an image size
 
-Use a figure block with one of four size classes — this also centers the image and
+Use a figure block with one of five size classes — this also centers the image and
 gives you a styled caption:
 
 ```html
-<figure class="img-regular">
+<figure class="img-l">
   <img src="/images/2026-07-06-hardening-ssh/scan-results.png" alt="Nmap scan results" loading="lazy">
   <figcaption>Figure — full TCP scan of the target</figcaption>
 </figure>
@@ -104,18 +104,18 @@ gives you a styled caption:
 
 | Class | Width | Use for |
 |---|---|---|
-| `img-small` | ~60% of the text column | Terminal snippets, tall/narrow screenshots |
-| `img-regular` | Full text column (800px) | The default — most screenshots and diagrams |
-| `img-big` | Full text column (800px) | Reserved for a future, wider treatment |
-| `img-feature` | Full text column (800px), same as the cover | Reserved for a future, wider treatment |
+| `img-xs` | 25% (~200px) | Inline thumbnails, icons, QR codes, tiny crops |
+| `img-s` | 45% (~360px) | Terminal snippets, tall/narrow screenshots, memes |
+| `img-m` | 65% (~520px) | Medium screenshots and diagrams |
+| `img-l` | 85% (~680px) | Most screenshots and wide diagrams |
+| `img-feat` | 100% (800px), same as the cover | Hero shots, panoramas, anything that deserves the full column |
 
-`img-regular`, `img-big`, and `img-feature` all render at the same width today —
-the text column itself is 800px, one step wider than the header/footer bar, so
-there's no room left to break out further. They're kept as distinct classes so
-sizing can be tuned independently later without touching any posts. Plain
-`<figure>`, the legacy `class="figure"`, and bare Markdown images all render at
-`img-regular` size. On phones every size collapses to full width (`img-small`
-stays a bit narrower).
+The five widths step evenly (25 → 45 → 65 → 85 → 100%) so every size is clearly
+distinct at a glance. All are centered in the text column; `img-feat` renders at
+exactly the same width as the post's cover image. Plain `<figure>`, the legacy
+`class="figure"`, and bare Markdown images all render at full width (`img-feat`
+size). On phones the ladder compresses but keeps its hierarchy: `img-xs` → 55%,
+`img-s` → 70%, `img-m` → 85%, `img-l` and `img-feat` → full width.
 
 **Images are served as-is — no auto-resizing.** You must provide properly-sized
 images before uploading. CSS scales them responsively, but won't crop — and a
@@ -159,7 +159,29 @@ Code blocks render terminal-dark in both light and dark site themes — by desig
 ```
 
 Internal links use the permalink path (never the full `https://hutlab.dev` origin —
-keeps local preview working). There's also a styled link-card for showcasing a URL:
+keeps local preview working).
+
+### Bookmark cards
+
+Paste a URL **alone in its own paragraph** (blank line above and below) and the build
+turns it into a rich bookmark card automatically — favicon, page title, description,
+site · domain, and a preview thumbnail when the site provides one:
+
+```markdown
+Check out this repo:
+
+https://github.com/hutgrabber/hutlab.dev
+
+More text continues here.
+```
+
+Metadata is fetched once at build time and cached in `bookmark-cache.json` (commit it
+along with the post so builds stay fast and reproducible). X/Twitter links work via
+their public embed API; sites that block bots fall back to a clean domain + URL card.
+URLs written inline in a sentence are never upgraded — only bare-URL paragraphs.
+In RSS readers the card degrades to a plain link.
+
+You can still hand-write a card when you want full control over the text:
 
 ```html
 <a class="bookmark" href="https://example.com" target="_blank" rel="noopener">
@@ -177,7 +199,39 @@ And a button-style link:
 
 ---
 
-## 6. Embeds
+## 6. Callouts
+
+Obsidian-style callouts work out of the box — paste them straight from your vault:
+
+```markdown
+> [!tip] Optional custom title
+> Body text. All markdown works in here: **bold**, `code`, [links](/tags/),
+> lists, even nested callouts.
+```
+
+All 13 Obsidian types are supported, in three visual weights:
+
+| Weight | Types | Look |
+|---|---|---|
+| **Pop** | `danger` (`error`), `warning` (`caution`, `attention`), `failure` (`fail`, `missing`), `bug` | Strong tinted background + bright border — for things the reader must not miss |
+| **Mid** | `tip` (`hint`, `important`), `success` (`check`, `done`), `question` (`help`, `faq`) | Subtle tint + colored border |
+| **Blend** | `note`, `info`, `todo`, `abstract` (`summary`, `tldr`), `example`, `quote` (`cite`) | Quiet, blockquote-like — colored accent bar and title only |
+
+Notes:
+
+- Type names are case-insensitive; the aliases in parentheses map to the same style.
+- No title text → the type name is used (`> [!note]` shows "Note").
+- Each type has a terminal glyph in the title: `[*]` note, `[i]` info, `[!]` warning,
+  `[!!]` danger, `[x]` failure, `[✓]` success, `[+]` tip, `[?]` question, `[ ]` todo,
+  `[≡]` abstract, `[>]` example, `["]` quote, `[#]` bug.
+- Obsidian's foldable markers (`> [!tip]-` / `> [!tip]+`) are accepted but render
+  expanded — callouts never collapse on the site.
+- Unknown types (`> [!whatever]`) render with the note look.
+- A plain `>` blockquote without `[!...]` is untouched (italic, purple bar).
+
+---
+
+## 7. Embeds
 
 Markdown accepts raw HTML, so embeds are copy-paste. Put them on their own line with
 a blank line above and below.
@@ -236,7 +290,7 @@ responsive sizing; paste others as-is:
 
 ---
 
-## 7. Preview locally, then publish
+## 8. Preview locally, then publish
 
 ```bash
 npm install        # first time only
@@ -258,7 +312,7 @@ readers' next poll, no extra steps), and search index all update automatically.
 
 ---
 
-## 8. Other workflows
+## 9. Other workflows
 
 **Edit a published post** — edit the file, push. The URL stays stable as long as you
 don't touch `permalink`.

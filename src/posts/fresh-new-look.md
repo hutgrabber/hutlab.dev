@@ -14,7 +14,7 @@ Welcome back, friends. It's been a while.
 
 I have recently changed up this platform and moved from the old domain that I don't know what I will do with yet, but I am excited for what's to come. With this new domain `hutlab.dev` and a fresh look to the website, I am planning to start writing more now that I have settled in a little bit.
 
-<figure class="img-feature">
+<figure class="img-feat">
   <img src="/assets/images/og-card.png" alt="hutlab website card" loading="lazy">
 </figure>
 
@@ -37,7 +37,7 @@ The website is pretty basic, but I have added a few cool things that were not pr
 
 Other than that, the website is pretty much self-explanatory. It was a great experience building this out - although most of it was not even me. It did teach me a few things about prompting and agentic workflows - which now seem to be the future.
 
-<figure class="img-small">
+<figure class="img-m">
   <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTN2cjV0bWcwazIxMWI1ZTJmYmtqYTN6eTZmaXp6eDQ5bWVnbmphZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fH985LNdqFZXOFHygK/giphy.gif" alt="squidward shouting future." loading="lazy">
 </figure>
 
