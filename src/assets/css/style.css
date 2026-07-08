@@ -376,16 +376,19 @@ h1, h2, h3 {
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
+/* post-card dates get the cursor green; the date inside an opened post
+   (.post-meta) deliberately stays muted */
+.post-item-meta time { color: var(--prompt); }
 
 .tag-chip {
-  color: var(--prompt); /* tags are cursor-green, in both themes */
+  color: var(--accent);
   text-decoration: none;
   font-size: 0.78rem;
 }
 .tag-chip:hover { text-decoration: underline; }
 
-/* tag-page titles (#updates, #tags) share the tag green */
-.tag-title { color: var(--prompt); }
+/* tag-page titles (#updates, #tags) share the tag purple */
+.tag-title { color: var(--accent); }
 
 .post-item-title {
   margin: 0.35rem 0 0.4rem;
@@ -678,10 +681,10 @@ h1, h2, h3 {
 .graph-panel {
   --g-bg: #12101c;
   --g-dot: rgba(216, 212, 228, 0.055);
-  --g-tag: #21a866;
-  --g-tag-glow: rgba(33, 168, 102, 0.55);
-  --g-post: #a778e8;
-  --g-post-glow: rgba(167, 120, 232, 0.5);
+  --g-tag: #a778e8;
+  --g-tag-glow: rgba(167, 120, 232, 0.55);
+  --g-post: #21a866;
+  --g-post-glow: rgba(33, 168, 102, 0.5);
   --g-edge: rgba(139, 132, 162, 0.3);
   --g-edge-hi: #c39bf5;
   --g-text: #d8d4e4;
@@ -718,8 +721,8 @@ h1, h2, h3 {
   border-radius: 50%;
   vertical-align: -1px;
 }
-.g-dot-tag { background: #21a866; box-shadow: 0 0 6px rgba(33, 168, 102, 0.7); }
-.g-dot-post { background: #a778e8; box-shadow: 0 0 6px rgba(167, 120, 232, 0.6); }
+.g-dot-tag { background: #a778e8; box-shadow: 0 0 6px rgba(167, 120, 232, 0.7); }
+.g-dot-post { background: #21a866; box-shadow: 0 0 6px rgba(33, 168, 102, 0.6); }
 
 .graph-list-title {
   font-size: 1.6rem;
@@ -741,11 +744,11 @@ h1, h2, h3 {
   border-radius: 999px;
   padding: 0.32rem 0.85rem;
   font-size: 0.85rem;
-  color: var(--prompt);
+  color: var(--accent);
   text-decoration: none;
   background: var(--surface);
 }
-.tag-index a:hover { border-color: var(--prompt); }
+.tag-index a:hover { border-color: var(--accent); color: var(--accent-strong); }
 .tag-index .tag-count { color: var(--muted); font-size: 0.75rem; }
 
 /* feed subscribe page */
