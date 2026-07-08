@@ -1,7 +1,38 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import callouts from "./lib/markdown-callouts.js";
+import bookmarks from "./lib/markdown-bookmarks.js";
+import { resolveBookmark, renderBookmarkCard, flushCache } from "./lib/bookmark-meta.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
+
+  eleventyConfig.amendLibrary("md", (md) => md.use(callouts).use(bookmarks));
+
+  // Bare-URL paragraphs → rich bookmark cards (HTML pages only; feeds and
+  // search read templateContent, which keeps the plain-link fallback)
+  const BOOKMARK_MARKER = /<p class="bookmark-fallback" data-bookmark="([^"]*)">.*?<\/p>/gs;
+  eleventyConfig.addTransform("bookmarkCards", async function (content) {
+    if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) return content;
+    if (!content.includes("bookmark-fallback")) return content;
+
+    const jobs = new Map();
+    for (const [, escUrl] of content.matchAll(BOOKMARK_MARKER)) {
+      const url = escUrl
+        .replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+        .replace(/&amp;/g, "&");
+      if (!jobs.has(escUrl)) jobs.set(escUrl, resolveBookmark(url).then((m) => [url, m]));
+    }
+    const cards = new Map();
+    for (const [escUrl, job] of jobs) {
+      const [url, meta] = await job;
+      cards.set(escUrl, renderBookmarkCard(url, meta));
+    }
+    return content.replace(BOOKMARK_MARKER, (match, escUrl) => cards.get(escUrl) ?? match);
+  });
+
+  // persist newly fetched bookmark metadata (bookmark-cache.json, committed)
+  eleventyConfig.on("eleventy.after", flushCache);
+  eleventyConfig.watchIgnores.add("bookmark-cache.json");
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
@@ -47,6 +78,8 @@ export default function (eleventyConfig) {
   // iframes swapped for plain links (readers strip iframes, leaving a gap)
   eleventyConfig.addFilter("feedContent", (html, base) =>
     String(html || "")
+      // bookmark markers degrade to a plain link paragraph in feeds
+      .replace(/<p class="bookmark-fallback" data-bookmark="[^"]*">/g, "<p>")
       .replace(
         /<div class="video-embed">\s*<iframe([^>]*)>\s*<\/iframe>\s*<\/div>/g,
         (match, attrs) => {

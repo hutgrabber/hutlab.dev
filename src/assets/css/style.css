@@ -46,6 +46,14 @@
   --code-text: #d8d4e4;
   --selection: #7b41ae66;
   --shadow: 0 12px 40px rgb(0 0 0 / 0.45);
+  /* callout hues (dark) */
+  --co-red: #f2707f;
+  --co-amber: #f0b45f;
+  --co-yellow: #e3cb6a;
+  --co-blue: #7db8f0;
+  --co-teal: #63d8c8;
+  --co-pink: #f077b6;
+  --co-green: #6fe3a1;
   color-scheme: dark;
 }
 
@@ -65,6 +73,14 @@
     --code-text: #d8d4e4;
     --selection: #7b41ae33;
     --shadow: 0 12px 32px rgb(60 40 100 / 0.12);
+    /* callout hues (light) */
+    --co-red: #a82339;
+    --co-amber: #8a4e00;
+    --co-yellow: #6f5e00;
+    --co-blue: #1d63b8;
+    --co-teal: #0c7c6e;
+    --co-pink: #99315f;
+    --co-green: #167346;
     color-scheme: light;
   }
 }
@@ -84,6 +100,13 @@
   --code-text: #d8d4e4;
   --selection: #7b41ae66;
   --shadow: 0 12px 40px rgb(0 0 0 / 0.45);
+  --co-red: #f2707f;
+  --co-amber: #f0b45f;
+  --co-yellow: #e3cb6a;
+  --co-blue: #7db8f0;
+  --co-teal: #63d8c8;
+  --co-pink: #f077b6;
+  --co-green: #6fe3a1;
   color-scheme: dark;
 }
 
@@ -102,6 +125,13 @@
   --code-text: #d8d4e4;
   --selection: #7b41ae33;
   --shadow: 0 12px 32px rgb(60 40 100 / 0.12);
+  --co-red: #a82339;
+  --co-amber: #8a4e00;
+  --co-yellow: #6f5e00;
+  --co-blue: #1d63b8;
+  --co-teal: #0c7c6e;
+  --co-pink: #99315f;
+  --co-green: #167346;
   color-scheme: light;
 }
 
@@ -515,6 +545,61 @@ h1, h2, h3 {
 }
 .prose blockquote p:last-child { margin-bottom: 0; }
 
+/* ---------- callouts (Obsidian syntax: > [!type] title) ----------
+   three tiers: BLEND (base) quiet like blockquotes, MID subtle tint,
+   POP strong tint + bright border. Glyph + color per type below. */
+.prose .callout {
+  margin: 1.6rem 0;
+  padding: 0.8rem 1.1rem;
+  border-left: 3px solid var(--co-color, var(--accent));
+  border-radius: 0 6px 6px 0;
+  background: color-mix(in srgb, var(--co-color, var(--accent)) 5%, transparent);
+}
+.prose .callout .callout-title {
+  color: var(--co-color, var(--accent));
+  font-weight: 700;
+  margin: 0 0 0.55rem;
+  text-align: left;
+}
+.prose .callout .callout-title::before {
+  content: var(--co-glyph, "[*]") " ";
+  white-space: pre;
+}
+.prose .callout .callout-title strong { color: inherit; }
+.prose .callout > :last-child { margin-bottom: 0; }
+.prose .callout .callout { margin: 1rem 0; } /* nested callouts sit tighter */
+
+/* MID tier */
+.prose .callout:is([data-callout="tip"], [data-callout="success"], [data-callout="question"]) {
+  background: color-mix(in srgb, var(--co-color) 9%, transparent);
+  border: 1px solid color-mix(in srgb, var(--co-color) 65%, var(--border));
+  border-left: 3px solid var(--co-color);
+  border-radius: 6px;
+}
+
+/* POP tier */
+.prose .callout:is([data-callout="danger"], [data-callout="warning"], [data-callout="failure"], [data-callout="bug"]) {
+  background: color-mix(in srgb, var(--co-color) 16%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--co-color) 75%, var(--border));
+  border-left: 3px solid var(--co-color);
+  border-radius: 6px;
+}
+
+/* per-type glyph + color (unknown types inherit the base = note look) */
+.prose .callout[data-callout="note"]     { --co-color: var(--accent);        --co-glyph: "[*]"; }
+.prose .callout[data-callout="abstract"] { --co-color: var(--co-teal);       --co-glyph: "[\2261]"; }
+.prose .callout[data-callout="info"]     { --co-color: var(--co-blue);       --co-glyph: "[i]"; }
+.prose .callout[data-callout="todo"]     { --co-color: var(--co-blue);       --co-glyph: "[ ]"; }
+.prose .callout[data-callout="tip"]      { --co-color: var(--co-green);        --co-glyph: "[+]"; }
+.prose .callout[data-callout="success"]  { --co-color: var(--co-green);        --co-glyph: "[\2713]"; }
+.prose .callout[data-callout="question"] { --co-color: var(--co-yellow);     --co-glyph: "[?]"; }
+.prose .callout[data-callout="warning"]  { --co-color: var(--co-amber);      --co-glyph: "[!]"; }
+.prose .callout[data-callout="failure"]  { --co-color: var(--co-red);        --co-glyph: "[x]"; }
+.prose .callout[data-callout="danger"]   { --co-color: var(--co-red);        --co-glyph: "[!!]"; }
+.prose .callout[data-callout="bug"]      { --co-color: var(--co-pink);       --co-glyph: "[#]"; }
+.prose .callout[data-callout="example"]  { --co-color: var(--accent-strong); --co-glyph: "[>]"; }
+.prose .callout[data-callout="quote"]    { --co-color: var(--muted);         --co-glyph: "[\"]"; }
+
 .prose img {
   max-width: 100%;
   height: auto;
@@ -626,6 +711,45 @@ h1, h2, h3 {
 .bookmark-title { color: var(--text); font-weight: 700; }
 .bookmark-desc { color: var(--muted); font-size: 0.85rem; }
 .bookmark-meta { color: var(--accent); font-size: 0.78rem; }
+
+/* rich cards generated from bare-URL paragraphs */
+.bookmark-rich {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.bookmark-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.bookmark-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.bookmark-meta { overflow-wrap: anywhere; }
+.bookmark-favicon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.12em;
+  margin-right: 0.45em;
+  border-radius: 2px;
+}
+.bookmark-thumb {
+  flex: 0 0 auto;
+  width: 9.5rem;
+  max-height: 5.5rem;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+@media (max-width: 560px) {
+  .bookmark-thumb { display: none; }
+}
 
 /* button links */
 .btn-row { margin: 1.8rem 0; }

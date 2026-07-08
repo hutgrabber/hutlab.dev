@@ -159,7 +159,29 @@ Code blocks render terminal-dark in both light and dark site themes — by desig
 ```
 
 Internal links use the permalink path (never the full `https://hutlab.dev` origin —
-keeps local preview working). There's also a styled link-card for showcasing a URL:
+keeps local preview working).
+
+### Bookmark cards
+
+Paste a URL **alone in its own paragraph** (blank line above and below) and the build
+turns it into a rich bookmark card automatically — favicon, page title, description,
+site · domain, and a preview thumbnail when the site provides one:
+
+```markdown
+Check out this repo:
+
+https://github.com/hutgrabber/hutlab.dev
+
+More text continues here.
+```
+
+Metadata is fetched once at build time and cached in `bookmark-cache.json` (commit it
+along with the post so builds stay fast and reproducible). X/Twitter links work via
+their public embed API; sites that block bots fall back to a clean domain + URL card.
+URLs written inline in a sentence are never upgraded — only bare-URL paragraphs.
+In RSS readers the card degrades to a plain link.
+
+You can still hand-write a card when you want full control over the text:
 
 ```html
 <a class="bookmark" href="https://example.com" target="_blank" rel="noopener">
@@ -177,7 +199,39 @@ And a button-style link:
 
 ---
 
-## 6. Embeds
+## 6. Callouts
+
+Obsidian-style callouts work out of the box — paste them straight from your vault:
+
+```markdown
+> [!tip] Optional custom title
+> Body text. All markdown works in here: **bold**, `code`, [links](/tags/),
+> lists, even nested callouts.
+```
+
+All 13 Obsidian types are supported, in three visual weights:
+
+| Weight | Types | Look |
+|---|---|---|
+| **Pop** | `danger` (`error`), `warning` (`caution`, `attention`), `failure` (`fail`, `missing`), `bug` | Strong tinted background + bright border — for things the reader must not miss |
+| **Mid** | `tip` (`hint`, `important`), `success` (`check`, `done`), `question` (`help`, `faq`) | Subtle tint + colored border |
+| **Blend** | `note`, `info`, `todo`, `abstract` (`summary`, `tldr`), `example`, `quote` (`cite`) | Quiet, blockquote-like — colored accent bar and title only |
+
+Notes:
+
+- Type names are case-insensitive; the aliases in parentheses map to the same style.
+- No title text → the type name is used (`> [!note]` shows "Note").
+- Each type has a terminal glyph in the title: `[*]` note, `[i]` info, `[!]` warning,
+  `[!!]` danger, `[x]` failure, `[✓]` success, `[+]` tip, `[?]` question, `[ ]` todo,
+  `[≡]` abstract, `[>]` example, `["]` quote, `[#]` bug.
+- Obsidian's foldable markers (`> [!tip]-` / `> [!tip]+`) are accepted but render
+  expanded — callouts never collapse on the site.
+- Unknown types (`> [!whatever]`) render with the note look.
+- A plain `>` blockquote without `[!...]` is untouched (italic, purple bar).
+
+---
+
+## 7. Embeds
 
 Markdown accepts raw HTML, so embeds are copy-paste. Put them on their own line with
 a blank line above and below.
@@ -236,7 +290,7 @@ responsive sizing; paste others as-is:
 
 ---
 
-## 7. Preview locally, then publish
+## 8. Preview locally, then publish
 
 ```bash
 npm install        # first time only
@@ -258,7 +312,7 @@ readers' next poll, no extra steps), and search index all update automatically.
 
 ---
 
-## 8. Other workflows
+## 9. Other workflows
 
 **Edit a published post** — edit the file, push. The URL stays stable as long as you
 don't touch `permalink`.

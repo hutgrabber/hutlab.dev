@@ -129,6 +129,40 @@ A bare Markdown image also works (renders at full width, no caption):
 
 ---
 
+## Callouts
+
+Obsidian callouts paste straight from your vault. All 13 types (+ aliases like
+`tldr`, `hint`, `caution`) work; custom titles are optional; `[!type]-` fold
+markers are accepted but always render expanded.
+
+> [!note]
+> Quiet types (note, info, todo, abstract, example, quote) blend in like blockquotes.
+
+> [!tip] Custom title here
+> Mid types (tip, success, question) get a subtle tint and colored border.
+
+> [!warning]
+> Alert types (warning, danger, failure, bug) pop with a strong tint —
+> save these for things the reader must not miss.
+
+> [!example]
+> Callouts nest, and all markdown works inside:
+>
+> > [!success] It renders `code`, **bold**, and [links](/tags/)
+
+---
+
+## Bookmark Cards
+
+Paste a URL alone in its own paragraph and it becomes a rich bookmark card at
+build time (title, description, favicon, thumbnail). Inline links in sentences
+are never converted. The fetched metadata is cached in `bookmark-cache.json` —
+commit it together with the post.
+
+https://github.com/hutgrabber/hutlab.dev
+
+---
+
 ## Tables
 
 | Flag | Meaning | Default |
@@ -141,7 +175,8 @@ A bare Markdown image also works (renders at full width, no caption):
 
 ## Link Cards & Buttons
 
-A styled bookmark card for showcasing a URL:
+A hand-written bookmark card, for when you want full control over the text
+(otherwise just paste the bare URL — see Bookmark Cards above):
 
 <a class="bookmark" href="https://github.com/hutgrabber" target="_blank" rel="noopener">
   <span class="bookmark-title">Title of the Linked Page</span>
