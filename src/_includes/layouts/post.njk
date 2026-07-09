@@ -22,16 +22,18 @@ layout: layouts/base.njk
 
   {%- if toc.length %}
   <nav class="toc" aria-label="Table of contents">
-    <p class="toc-title" aria-hidden="true"><span class="prompt-glyph">$</span> toc</p>
-    <ol class="toc-list">
-      {%- for h in toc %}
-      <li class="toc-item lvl-{{ h.level }}">
-        <a href="#{{ h.id }}">{{ h.text }}</a>
-        <button type="button" class="toc-copy" data-id="{{ h.id }}"
-                aria-label="Copy link to section: {{ h.text }}">⧉</button>
-      </li>
-      {%- endfor %}
-    </ol>
+    <details class="toc-fold" open>
+      <summary class="toc-title"><span class="prompt-glyph">$</span> toc</summary>
+      <ol class="toc-list">
+        {%- for h in toc %}
+        <li class="toc-item lvl-{{ h.level }}">
+          <a href="#{{ h.id }}">{{ h.text }}</a>
+          <button type="button" class="toc-copy" data-id="{{ h.id }}"
+                  aria-label="Copy link to section: {{ h.text }}">⧉</button>
+        </li>
+        {%- endfor %}
+      </ol>
+    </details>
   </nav>
   {%- endif %}
 

@@ -213,8 +213,9 @@ In RSS readers the card degrades to a plain link.
 ### Section links & table of contents
 
 Every heading (h1–h6) automatically gets a stable anchor id, and every post
-renders a sticky `$ toc` rail in the right margin on desktop (hidden below
-~1200px wide and on phones). Clicking an entry smooth-scrolls to the section;
+gets a `$ toc` table of contents — a sticky rail in the right margin on wide
+screens, and a collapsible box between the post meta and the body on tablets
+and phones. Clicking an entry smooth-scrolls to the section;
 the small `⧉` icon next to each entry copies a shareable link. Anyone opening
 a shared `…#section` link gets an animated scroll to that exact heading with a
 brief highlight. Nothing to set up — it's all derived from your headings.

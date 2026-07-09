@@ -41,8 +41,9 @@ usual inline styles work: **bold** (renders in the cursor green), *italic*,
 The `#` / `##` / `###` prefixes are added by the site's styling automatically —
 don't type them in the heading text. h4–h6 render as plain bold text, no prefix.
 A dashed horizontal rule (the `---` above) separates sections. Every heading
-also gets an anchor id and appears in the desktop table-of-contents rail, where
-readers can copy a shareable link straight to that section.
+also gets an anchor id and appears in the table of contents (a side rail on
+desktop, a collapsible `$ toc` box on phones), where readers can copy a
+shareable link straight to that section.
 
 ## Heading 2
 

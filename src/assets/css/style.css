@@ -998,13 +998,33 @@ h1, h2, h3 {
   .anchor-flash { animation: none; }
 }
 
-.toc { display: none; }
+/* narrow screens: collapsible disclosure between post meta and body
+   (toc.js collapses it on load; without JS it just renders expanded) */
+.toc {
+  margin: 1.4rem 0 0.4rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+.toc-fold > .toc-list { margin-top: 0.5rem; }
+.toc-title::after {
+  content: "[+]";
+  float: right;
+  color: var(--muted);
+}
+.toc-fold[open] > .toc-title::after { content: "[-]"; color: var(--accent); }
+@media (hover: none) {
+  .toc-copy { opacity: 1; } /* no hover on touch — keep copy buttons visible */
+}
 
 @media (min-width: 75rem) {
-  /* fixed rail in the right gutter of the centered 50rem column; width is
-     fluid so it never crosses the window edge (right edge = 50vw - 1rem) */
+  /* wide screens: fixed rail in the right gutter of the centered 50rem
+     column; width is fluid so it never crosses the window edge
+     (right edge = 50vw - 1rem) */
   .toc {
-    display: block;
     position: fixed;
     top: 5.5rem;
     left: calc(50% + 26rem);
@@ -1013,17 +1033,31 @@ h1, h2, h3 {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
     font-size: 0.75rem;
     line-height: 1.55;
   }
+  /* the rail is always expanded; the summary is inert decoration there */
+  .toc-title { pointer-events: none; }
+  .toc-title::after, .toc-fold[open] > .toc-title::after { content: none; }
+  .toc-fold > .toc-list { margin-top: 0; }
 }
 
 .toc-title {
+  display: block;
   margin: 0 0 0.5rem;
   font-size: 0.72rem;
   color: var(--muted);
   letter-spacing: 0.06em;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
 }
+.toc-title::-webkit-details-marker { display: none; }
 .toc-list { list-style: none; margin: 0; padding: 0; }
 .toc-item {
   display: flex;

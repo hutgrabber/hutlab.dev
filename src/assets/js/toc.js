@@ -6,6 +6,19 @@
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* --- narrow screens get a collapsed disclosure; the desktop rail is
+         always open (the summary is inert there via CSS) --- */
+  var fold = toc.querySelector(".toc-fold");
+  var wide = window.matchMedia("(min-width: 75rem)");
+  if (fold) {
+    if (!wide.matches) fold.open = false;
+    var syncFold = function () {
+      if (wide.matches) fold.open = true;
+    };
+    if (wide.addEventListener) wide.addEventListener("change", syncFold);
+    else wide.addListener(syncFold);
+  }
+
   function flash(el) {
     if (reduced || !el) return;
     el.classList.remove("anchor-flash");
@@ -55,10 +68,12 @@
     }
   });
 
-  /* --- flash the target on ToC entry clicks (CSS smooth-scroll does the rest) --- */
+  /* --- flash the target on ToC entry clicks (CSS smooth-scroll does the
+         rest); on narrow screens also fold the disclosure out of the way --- */
   toc.addEventListener("click", function (e) {
     var a = e.target.closest(".toc-list a[href^='#']");
     if (!a) return;
+    if (fold && !wide.matches) fold.open = false;
     flash(document.getElementById(decodeURIComponent(a.hash.slice(1))));
   });
 
