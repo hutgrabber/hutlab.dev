@@ -627,6 +627,19 @@ h1, h2, h3 {
 .prose .img-l img    { width: 85%; }
 .prose .img-feat img { width: 100%; }
 
+/* multi-image groups — tag consecutive figures img-h1|img-h2 (pair) or
+   img-q1..img-q4 (quadrant); the build wraps each run in a grid. Images
+   keep natural heights (no cropping) and their own captions. */
+.prose .img-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  margin: 1.8rem 0;
+}
+.prose .img-group figure { margin: 0; }
+.prose .img-group img { width: 100%; }
+
 .prose u { text-decoration-color: var(--accent); text-underline-offset: 0.25em; }
 
 /* inline code */
@@ -968,6 +981,124 @@ h1, h2, h3 {
 .footer-links a:hover { color: var(--accent); }
 .footer-meta { color: color-mix(in srgb, var(--muted) 70%, var(--bg)); }
 
+/* ---------- table of contents (desktop rail) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+.prose h1, .prose h2, .prose h3,
+.prose h4, .prose h5, .prose h6 { scroll-margin-top: 4.75rem; }
+
+.anchor-flash { animation: anchor-flash 1.6s ease-out 1; border-radius: 4px; }
+@keyframes anchor-flash {
+  0%   { background: color-mix(in srgb, var(--accent) 26%, transparent); }
+  100% { background: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anchor-flash { animation: none; }
+}
+
+/* narrow screens: collapsible disclosure between post meta and body
+   (toc.js collapses it on load; without JS it just renders expanded) */
+.toc {
+  margin: 1.4rem 0 0.4rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+.toc-fold > .toc-list { margin-top: 0.5rem; }
+.toc-title::after {
+  content: "[+]";
+  float: right;
+  color: var(--muted);
+}
+.toc-fold[open] > .toc-title::after { content: "[-]"; color: var(--accent); }
+@media (hover: none) {
+  .toc-copy { opacity: 1; } /* no hover on touch — keep copy buttons visible */
+}
+
+@media (min-width: 75rem) {
+  /* wide screens: fixed rail in the right gutter of the centered 50rem
+     column; width is fluid so it never crosses the window edge
+     (right edge = 50vw - 1rem) */
+  .toc {
+    position: fixed;
+    top: 5.5rem;
+    left: calc(50% + 26rem);
+    width: min(16rem, 50vw - 27rem);
+    max-height: calc(100vh - 7.5rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+  /* the rail is always expanded; the summary is inert decoration there */
+  .toc-title { pointer-events: none; }
+  .toc-title::after, .toc-fold[open] > .toc-title::after { content: none; }
+  .toc-fold > .toc-list { margin-top: 0; }
+}
+
+.toc-title {
+  display: block;
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.toc-title::-webkit-details-marker { display: none; }
+.toc-list { list-style: none; margin: 0; padding: 0; }
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  border-left: 2px solid transparent;
+  padding-block: 0.12rem;
+}
+.toc-item.lvl-1 { padding-left: 0.5rem; }
+.toc-item.lvl-2 { padding-left: 1.1rem; }
+.toc-item.lvl-3 { padding-left: 1.7rem; }
+.toc-item.lvl-4 { padding-left: 2.3rem; }
+.toc-item.lvl-5 { padding-left: 2.9rem; }
+.toc-item.lvl-6 { padding-left: 3.5rem; }
+.toc-item a {
+  flex: 1;
+  min-width: 0;
+  color: var(--muted);
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+.toc-item a:hover { color: var(--accent-strong); }
+.toc-item.active { border-left-color: var(--accent); }
+.toc-item.active > a { color: var(--accent); }
+
+.toc-copy {
+  background: none;
+  border: none;
+  padding: 0 0.15rem;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0;
+}
+.toc-item:hover .toc-copy,
+.toc-copy:focus-visible { opacity: 1; }
+.toc-copy:hover { color: var(--accent-strong); }
+.toc-copy.copied { color: var(--prompt); opacity: 1; }
+
 /* ---------- small screens ---------- */
 
 @media (max-width: 560px) {
@@ -981,6 +1112,9 @@ h1, h2, h3 {
   .prose .img-s img  { width: 70%; }
   .prose .img-m img  { width: 85%; }
   .prose .img-l img  { width: 100%; }
+  /* pairs stack full-width; quadrants keep the 2×2 relationship */
+  .prose .img-pair { grid-template-columns: 1fr; }
+  .prose .img-quad { gap: 0.5rem; }
   /* tag graph: shorter panel, drop the bar title to fit the tools */
   .graph-panel { height: clamp(300px, 55vh, 440px); }
   .graph-window .term-title { display: none; }

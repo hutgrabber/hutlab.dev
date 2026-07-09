@@ -117,6 +117,35 @@ exactly the same width as the post's cover image. Plain `<figure>`, the legacy
 size). On phones the ladder compresses but keeps its hierarchy: `img-xs` → 55%,
 `img-s` → 70%, `img-m` → 85%, `img-l` and `img-feat` → full width.
 
+### Side-by-side pairs & quadrants
+
+Tag consecutive figures and the build groups them into a grid automatically —
+`img-h1` + `img-h2` for two images side by side, `img-q1`…`img-q4` for a 2×2
+quadrant. Each image keeps its own caption:
+
+```html
+<figure class="img-h1">
+  <img src="/images/2026-07-06-hardening-ssh/before.png" alt="Before" loading="lazy">
+  <figcaption>before hardening</figcaption>
+</figure>
+
+<figure class="img-h2">
+  <img src="/images/2026-07-06-hardening-ssh/after.png" alt="After" loading="lazy">
+  <figcaption>after hardening</figcaption>
+</figure>
+```
+
+Rules of thumb:
+
+- The tagged figures must sit **directly after one another** (blank lines between
+  them are fine, other content is not — text between figures ends the group).
+- Order doesn't matter: `q2` written before `q1` still renders in 1→4 order.
+- Incomplete groups are fine: `q1`–`q3` renders a 2×2 grid with three tiles; a
+  lone `img-h1` with no partner renders as a normal full-width figure.
+- Images keep their natural aspect ratio (no cropping); tops align.
+- On phones, pairs stack full-width; quadrants stay 2×2.
+- RSS readers see the images as normal sequential figures.
+
 **Images are served as-is — no auto-resizing.** You must provide properly-sized
 images before uploading. CSS scales them responsively, but won't crop — and a
 small source will upscale and look soft at 800px. Recommended dimensions:
@@ -180,6 +209,16 @@ along with the post so builds stay fast and reproducible). X/Twitter links work 
 their public embed API; sites that block bots fall back to a clean domain + URL card.
 URLs written inline in a sentence are never upgraded — only bare-URL paragraphs.
 In RSS readers the card degrades to a plain link.
+
+### Section links & table of contents
+
+Every heading (h1–h6) automatically gets a stable anchor id, and every post
+gets a `$ toc` table of contents — a sticky rail in the right margin on wide
+screens, and a collapsible box between the post meta and the body on tablets
+and phones. Clicking an entry smooth-scrolls to the section;
+the small `⧉` icon next to each entry copies a shareable link. Anyone opening
+a shared `…#section` link gets an animated scroll to that exact heading with a
+brief highlight. Nothing to set up — it's all derived from your headings.
 
 You can still hand-write a card when you want full control over the text:
 

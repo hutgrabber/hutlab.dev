@@ -40,7 +40,10 @@ usual inline styles work: **bold** (renders in the cursor green), *italic*,
 
 The `#` / `##` / `###` prefixes are added by the site's styling automatically —
 don't type them in the heading text. h4–h6 render as plain bold text, no prefix.
-A dashed horizontal rule (the `---` above) separates sections.
+A dashed horizontal rule (the `---` above) separates sections. Every heading
+also gets an anchor id and appears in the table of contents (a side rail on
+desktop, a collapsible `$ toc` box on phones), where readers can copy a
+shareable link straight to that section.
 
 ## Heading 2
 
@@ -126,6 +129,42 @@ your post's images (`/images/<date>-<short-name>/<description>.png`).
 A bare Markdown image also works (renders at full width, no caption):
 
 ![Describe the image](/images/2026-01-01-short-name/example.png)
+
+**Side-by-side pair** — tag two consecutive figures img-h1 / img-h2 and the
+build grids them automatically (each keeps its own caption; stacks on phones):
+
+<figure class="img-h1">
+  <img src="/images/2026-01-01-short-name/example.png" alt="Left image" loading="lazy">
+  <figcaption>left — img-h1</figcaption>
+</figure>
+
+<figure class="img-h2">
+  <img src="/images/2026-01-01-short-name/example.png" alt="Right image" loading="lazy">
+  <figcaption>right — img-h2</figcaption>
+</figure>
+
+**Quadrant** — four consecutive figures tagged img-q1..img-q4 become a 2×2
+grid (order self-corrects, three tiles also works, stays 2×2 on phones):
+
+<figure class="img-q1">
+  <img src="/images/2026-01-01-short-name/example.png" alt="Quadrant 1" loading="lazy">
+  <figcaption>img-q1</figcaption>
+</figure>
+
+<figure class="img-q2">
+  <img src="/images/2026-01-01-short-name/example.png" alt="Quadrant 2" loading="lazy">
+  <figcaption>img-q2</figcaption>
+</figure>
+
+<figure class="img-q3">
+  <img src="/images/2026-01-01-short-name/example.png" alt="Quadrant 3" loading="lazy">
+  <figcaption>img-q3</figcaption>
+</figure>
+
+<figure class="img-q4">
+  <img src="/images/2026-01-01-short-name/example.png" alt="Quadrant 4" loading="lazy">
+  <figcaption>img-q4</figcaption>
+</figure>
 
 ---
 
