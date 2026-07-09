@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
+{%- set toc = content | tocHeadings %}
 <article class="post">
   <header class="post-header">
     <p class="crumb"><span class="prompt-glyph">$</span> cat ./posts/{{ page.fileSlug }}.md</p>
@@ -19,6 +20,21 @@ layout: layouts/base.njk
     </p>
   </header>
 
+  {%- if toc.length %}
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-title" aria-hidden="true"><span class="prompt-glyph">$</span> toc</p>
+    <ol class="toc-list">
+      {%- for h in toc %}
+      <li class="toc-item lvl-{{ h.level }}">
+        <a href="#{{ h.id }}">{{ h.text }}</a>
+        <button type="button" class="toc-copy" data-id="{{ h.id }}"
+                aria-label="Copy link to section: {{ h.text }}">⧉</button>
+      </li>
+      {%- endfor %}
+    </ol>
+  </nav>
+  {%- endif %}
+
   {%- if feature_image %}
   <figure class="feature-image">
     <img src="{{ feature_image }}" alt="{{ feature_image_caption or title }}">
@@ -36,3 +52,6 @@ layout: layouts/base.njk
     <p><span class="prompt-glyph">$</span> cd <a href="/">..</a></p>
   </footer>
 </article>
+{%- if toc.length %}
+<script src="/assets/js/toc.js?v={{ buildId }}" defer></script>
+{%- endif %}

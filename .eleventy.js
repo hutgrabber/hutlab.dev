@@ -1,12 +1,81 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import callouts from "./lib/markdown-callouts.js";
 import bookmarks from "./lib/markdown-bookmarks.js";
+import headingIds from "./lib/markdown-heading-ids.js";
 import { resolveBookmark, renderBookmarkCard, flushCache } from "./lib/bookmark-meta.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  eleventyConfig.amendLibrary("md", (md) => md.use(callouts).use(bookmarks));
+  eleventyConfig.amendLibrary("md", (md) =>
+    md.use(callouts).use(bookmarks).use(headingIds)
+  );
+
+  // Consecutive <figure class="img-h1|img-h2"> (pair) or img-q1..q4 (quadrant)
+  // figures get wrapped in a grid container on HTML pages; feeds read
+  // templateContent and keep them as plain sequential figures
+  // (?:(?!<\/?figure)[\s\S])*? = lazy body that cannot cross another figure
+  // tag, so one match is always exactly one figure (backtracking can't make
+  // a match swallow the content between two figures)
+  const GFIG = /<figure class="img-([hq])([1-4])"[^>]*>(?:(?!<\/?figure)[\s\S])*?<\/figure>/;
+  const GRUN = new RegExp(`(?:${GFIG.source}\\s*){2,}`, "g");
+  eleventyConfig.addTransform("imageGroups", function (content) {
+    if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) return content;
+    if (!/class="img-[hq][1-4]"/.test(content)) return content;
+
+    return content.replace(GRUN, (run) => {
+      const figs = [...run.matchAll(new RegExp(GFIG.source, "g"))].map((m) => ({
+        family: m[1],
+        n: Number(m[2]),
+        html: m[0],
+      }));
+      // split where the family flips (h vs q), then chunk by capacity
+      const out = [];
+      let seg = [];
+      const flush = () => {
+        if (!seg.length) return;
+        const cap = seg[0].family === "h" ? 2 : 4;
+        for (let i = 0; i < seg.length; i += cap) {
+          const chunk = seg.slice(i, i + cap).sort((a, b) => a.n - b.n);
+          if (chunk.length === 1) {
+            out.push(chunk[0].html);
+          } else {
+            const cls = chunk[0].family === "h" ? "img-pair" : "img-quad";
+            out.push(
+              `<div class="img-group ${cls}">\n${chunk.map((f) => f.html).join("\n")}\n</div>`
+            );
+          }
+        }
+        seg = [];
+      };
+      for (const fig of figs) {
+        if (seg.length && seg[0].family !== fig.family) flush();
+        seg.push(fig);
+      }
+      flush();
+      return out.join("\n") + "\n";
+    });
+  });
+
+  // Headings of a post, for the table of contents rail
+  eleventyConfig.addFilter("tocHeadings", (html) => {
+    const out = [];
+    for (const m of String(html || "").matchAll(
+      /<h([1-6])[^>]*\bid="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g
+    )) {
+      const text = m[3]
+        .replace(/<[^>]*>/g, "")
+        .replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/\s+/g, " ")
+        .trim();
+      out.push({ level: Number(m[1]), id: m[2], text });
+    }
+    return out;
+  });
 
   // Bare-URL paragraphs → rich bookmark cards (HTML pages only; feeds and
   // search read templateContent, which keeps the plain-link fallback)
