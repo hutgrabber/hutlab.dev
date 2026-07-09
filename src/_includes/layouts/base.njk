@@ -112,12 +112,28 @@
   </footer>
 
   <script>
+    // click-to-play for YouTube embed cards: swap the card for the player
+    document.addEventListener("click", function (e) {
+      var card = e.target.closest && e.target.closest(".embed-card--youtube[data-video-id]");
+      if (!card) return;
+      var id = card.getAttribute("data-video-id");
+      if (!/^[\w-]{6,20}$/.test(id)) return;
+      e.preventDefault();
+      var wrap = document.createElement("div");
+      wrap.className = "video-embed";
+      var f = document.createElement("iframe");
+      f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1";
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      f.allowFullscreen = true;
+      var t = card.querySelector(".embed-title");
+      f.title = (t && t.textContent) || "YouTube video";
+      wrap.appendChild(f);
+      card.replaceWith(wrap);
+    });
+
     document.getElementById("theme-toggle").addEventListener("click", function () {
       var root = document.documentElement;
-      var current = root.getAttribute("data-theme");
-      if (!current) {
-        current = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-      }
+      var current = root.getAttribute("data-theme") || "dark";
       var next = current === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
       localStorage.setItem("theme", next);

@@ -204,11 +204,13 @@ https://github.com/hutgrabber/hutlab.dev
 More text continues here.
 ```
 
-Metadata is fetched once at build time and cached in `bookmark-cache.json` (commit it
-along with the post so builds stay fast and reproducible). X/Twitter links work via
-their public embed API; sites that block bots fall back to a clean domain + URL card.
+Links from **YouTube, X/Twitter, Bluesky, GitHub, Reddit, Threads, Instagram, and
+LinkedIn get special hand-crafted cards** instead — see §7 Embeds. Everything else
+gets this default bookmark card. Metadata is fetched once at build time and cached
+in `bookmark-cache.json` (commit it along with the post so builds stay fast and
+reproducible); sites that block bots fall back to a clean domain + URL card.
 URLs written inline in a sentence are never upgraded — only bare-URL paragraphs.
-In RSS readers the card degrades to a plain link.
+In RSS readers every card degrades to a plain link.
 
 ### Section links & table of contents
 
@@ -272,51 +274,34 @@ Notes:
 
 ## 7. Embeds
 
-Markdown accepts raw HTML, so embeds are copy-paste. Put them on their own line with
-a blank line above and below.
+**Just paste the link.** A bare URL alone in its own paragraph (blank line above and
+below) renders as a native, theme-synced card — no embed codes, no third-party
+scripts, no widgets. Eight platforms get hand-crafted treatments:
 
-### YouTube
+| Platform | Paste | What renders |
+|---|---|---|
+| **YouTube** | `youtube.com/watch?v=…`, `youtu.be/…`, `/shorts/…` | Click-to-play video card: thumbnail, title, channel; the player (youtube-nocookie) loads only when clicked |
+| **X / Twitter** | `x.com/USER/status/…` | Tweet text, author, date |
+| **Bluesky** | `bsky.app/profile/…/post/…` | Post text, author + avatar, like/repost/reply counts, image thumbnails |
+| **GitHub** | `github.com/owner/repo` or `github.com/user` | Repo card (description, language, ★ stars, ⑂ forks) or profile card (bio, followers) |
+| **Reddit** | `reddit.com/r/…/comments/…` (share links work too) | Post title, subreddit, ▲ score, comment count, text preview |
+| **Threads** | `threads.net/@user/post/…` | Branded card with the author handle |
+| **Instagram** | `instagram.com/p/…` or `/reel/…` | Branded card linking the post |
+| **LinkedIn** | `linkedin.com/posts/…`, `/in/…`, `/company/…` | Branded card with the author/company name |
 
-Take the video ID from the URL (`youtube.com/watch?v=VIDEO_ID`) and use the site's
-responsive wrapper:
+Everything else renders as the default rich bookmark card (§5). All cards match
+the site theme in dark and light mode — this is why the old Twitter/Bluesky embed
+widgets (with their unfixable white corners in dark mode) are gone.
 
-```html
-<div class="video-embed">
-  <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-          title="Video title for accessibility"
-          loading="lazy" frameborder="0" allowfullscreen
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-</div>
-```
+Details worth knowing:
 
-The `.video-embed` wrapper keeps it 16:9 and full-width on every screen size.
-
-### Twitter / X
-
-On the tweet, choose **Embed post** (or build it at [publish.twitter.com](https://publish.twitter.com)),
-then paste the snippet — it looks like this:
-
-```html
-<blockquote class="twitter-tweet" data-dnt="true">
-  <a href="https://twitter.com/USER/status/TWEET_ID"></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-```
-
-The `<script>` line is only needed once per post, even with multiple tweets.
-Before the script loads (or if it's blocked), readers see a plain link — fine.
-
-### Bluesky
-
-On the post, choose **Embed post** (or use [embed.bsky.app](https://embed.bsky.app)),
-then paste:
-
-```html
-<blockquote class="bluesky-embed" data-bluesky-uri="at://DID/app.bsky.feed.post/POST_ID">
-  <a href="https://bsky.app/profile/HANDLE/post/POST_ID">View on Bluesky</a>
-</blockquote>
-<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
-```
+- Card data is fetched **once at build time** and cached in `bookmark-cache.json` —
+  commit it with the post. A deleted post/tweet/repo falls back to a clean default
+  card and is retried on the next build.
+- Threads, Instagram, and LinkedIn block anonymous scraping, so their cards carry
+  the platform branding + whatever the URL reveals (handle, post type) rather than
+  the post text itself.
+- In RSS readers every card degrades to a plain clickable link.
 
 ### Anything else (Asciinema, CodePen, Google Maps, …)
 
