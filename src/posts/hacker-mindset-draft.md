@@ -1,5 +1,5 @@
 ---
-title: The Hacker Mindset
+title: The Hacker Mindset - DRAFT
 date: 2024-09-19T14:17:42.000Z
 layout: layouts/post.njk
 permalink: /the-hacker-mindset/
@@ -198,13 +198,13 @@ function rmhost() {
 alias hosts="cat /etc/hosts"
 ```
 
-<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/hosts-alias.png"/>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/hosts-alias.png"/>
 <figcaption>Fig: host aliasing</figcaption></figure>
 
-<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/addhost-demo.png"/>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/addhost-demo.png"/>
 <figcaption>Fig: addhost demo</figcaption></figure>
 
-<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/rmhost-demo.png"/>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/rmhost-demo.png"/>
 <figcaption>Fig: rmhost demo</figcaption></figure>
 
 **3. Handling VPNs.** I keep all my VPN files in one folder in my home directory and set up aliases that connect to each one. I am also building a function that prompts for the VPN I want and connects based on my input. A separate alias, `vpnip`, shows the address assigned to me after connecting, which saves me from running `ip addr` and scrolling through the output. Note that `vpnip` assumes an OpenVPN interface named `tun0`; adjust it if your interface differs.
@@ -239,11 +239,11 @@ nse() {
 
 <u>T-Mux Productivity Workflow</u>
 
-https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed
+<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed" title="Embedded video"></iframe></div>
 
 **6. Back up your toolset.** To avoid losing your tools, store them in `/opt` and push them to GitHub. In my case, some are binaries, some are PowerShell scripts, and some are Windows executables. Keep in mind that public repositories are visible to everyone, so use a private repo for anything sensitive and avoid committing credentials or client data.
 
-If you are new to Git, my tutorial walks through every step to help you **get-git-done**. See what I did there?
+If you are new to Git, [my tutorial](/git-github/) walks through every step to help you **get-git-done**. See what I did there?
 
 https://hutlab.dev/git-github/
 
@@ -257,7 +257,7 @@ Learning Vim has been worth the effort for me. The learning curve is steep but m
 
 <u>NeoVIM: Getting Started</u>
 
-https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed
+<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed" title="Embedded video"></iframe></div>
 
 **Additional Resources:** Barbarian-Meets-Coding is a great resource I found when lurking around the internet. The independent blogging community always comes in clutch.
 
@@ -283,7 +283,9 @@ The second is your walkthrough, which becomes the foundation for the official pe
 
 ### The Knowledge Base
 
-A few use cases:
+<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/markdown-meme.png"/></figure>
+
+**A few use cases**:
 
 1. Store notes on a tool you are learning, and use Git to back them up.
 2. Keep a consolidated command sheet so you can quickly find something you have forgotten. This works well as a cheatsheet.
@@ -295,9 +297,7 @@ One more thing: learn Markdown. It is a real quality-of-life improvement for not
 
 I use **Obsidian** for notes and **Notion** for writing walkthroughs. Either one gives you a solid base to get started.
 
-<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/markdown-meme.png"/></figure>
-
-<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
 
 ### Walkthroughs
 
@@ -305,13 +305,13 @@ When you begin practicing machines on hacking platforms, write walkthroughs for 
 
 Use Git to back up your notes to a private repository so nothing is lost. If you want to go further, GitBook is worth a look.
 
-<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
 
 ---
 
 # Conclusion
 
-<figure class="img-xs"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/desk-photo.jpg"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/desk-photo.jpg"/></figure>
 
 We have covered a lot, and it may feel like a great deal to absorb at once. Mastering penetration testing is a journey, not a single milestone. We looked at building a hacker mindset, testing your assumptions, and staying organized. We also worked through the practical side: an efficient terminal environment, tools like tmux and Vim, and a reliable note-taking system. Each of these supports the same goal, which is your steady growth as a penetration tester.
 

@@ -54,5 +54,21 @@
     "siteName": "hutlab",
     "image": "https://hutlab.dev/assets/images/og-card.png",
     "favicon": "https://hutlab.dev/assets/images/favicon-32.png"
+  },
+  "https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed": {
+    "fetchedAt": "2026-07-08",
+    "title": "YouTube",
+    "description": "",
+    "siteName": "",
+    "image": "https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed",
+    "favicon": "https://www.youtube.com/favicon.ico"
+  },
+  "https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed": {
+    "fetchedAt": "2026-07-08",
+    "title": "YouTube",
+    "description": "",
+    "siteName": "",
+    "image": "https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed",
+    "favicon": "https://www.youtube.com/favicon.ico"
   }
 }
