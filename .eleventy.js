@@ -2,7 +2,8 @@ import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import callouts from "./lib/markdown-callouts.js";
 import bookmarks from "./lib/markdown-bookmarks.js";
 import headingIds from "./lib/markdown-heading-ids.js";
-import { resolveBookmark, renderBookmarkCard, flushCache } from "./lib/bookmark-meta.js";
+import { flushCache } from "./lib/bookmark-meta.js";
+import { resolveEmbedCard } from "./lib/embed-cards.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -89,12 +90,11 @@ export default function (eleventyConfig) {
       const url = escUrl
         .replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">")
         .replace(/&amp;/g, "&");
-      if (!jobs.has(escUrl)) jobs.set(escUrl, resolveBookmark(url).then((m) => [url, m]));
+      if (!jobs.has(escUrl)) jobs.set(escUrl, resolveEmbedCard(url));
     }
     const cards = new Map();
     for (const [escUrl, job] of jobs) {
-      const [url, meta] = await job;
-      cards.set(escUrl, renderBookmarkCard(url, meta));
+      cards.set(escUrl, await job);
     }
     return content.replace(BOOKMARK_MARKER, (match, escUrl) => cards.get(escUrl) ?? match);
   });

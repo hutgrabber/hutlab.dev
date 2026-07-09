@@ -160,7 +160,7 @@ Let's get a few things out of the way before we start playing with the ssh-serve
 
 This is a great video by LearnLinuxTV that gives you a hands on tutorial about SSH from start to finish:
 
-<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/YS5Zh7KExvE?feature=oembed" title="Complete SSH Tutorial: All-in-One Guide for Secure Connections"></iframe></div>
+https://www.youtube.com/watch?v=YS5Zh7KExvE
 
 ---
 
