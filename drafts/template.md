@@ -231,31 +231,21 @@ A button-style link:
 
 ## Embeds
 
-**YouTube** — swap in the VIDEO_ID from `youtube.com/watch?v=VIDEO_ID`. The
-wrapper keeps it 16:9 and responsive. (RSS readers automatically get a
-"▶ Watch on YouTube" link instead.)
+**Just paste the link** — a bare URL alone in its own paragraph becomes a native
+theme-synced card at build time. YouTube (click-to-play player), X/Twitter,
+Bluesky, GitHub, Reddit, Threads, Instagram, and LinkedIn get hand-crafted
+treatments; anything else gets the default bookmark card. No embed codes, no
+third-party scripts. Examples:
 
-<div class="video-embed">
-  <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-          title="Video title for accessibility"
-          loading="lazy" frameborder="0" allowfullscreen
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-</div>
+https://www.youtube.com/watch?v=VIDEO_ID
 
-**Twitter / X** — use "Embed post" on the tweet (or publish.twitter.com) and
-paste. The script line is needed once per post, even with several tweets:
+https://x.com/USER/status/TWEET_ID
 
-<blockquote class="twitter-tweet" data-dnt="true">
-  <a href="https://twitter.com/USER/status/TWEET_ID"></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://bsky.app/profile/HANDLE/post/POST_ID
 
-**Bluesky** — use "Embed post" on the post (or embed.bsky.app) and paste:
+https://github.com/OWNER/REPO
 
-<blockquote class="bluesky-embed" data-bluesky-uri="at://DID/app.bsky.feed.post/POST_ID">
-  <a href="https://bsky.app/profile/HANDLE/post/POST_ID">View on Bluesky</a>
-</blockquote>
-<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+https://www.reddit.com/r/SUBREDDIT/comments/POST_ID/slug/
 
 **Anything else** (Asciinema, CodePen, maps...) — paste the service's iframe;
 wrap video-shaped ones in `<div class="video-embed">` for responsive sizing.

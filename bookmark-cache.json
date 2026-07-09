@@ -31,14 +31,6 @@
     "image": "https://www.barbarianmeetscoding.com/static/c812657a205b5da59a55fc681123973e/47498/do-more.jpg",
     "favicon": "https://www.barbarianmeetscoding.com/favicon.png"
   },
-  "https://github.com/hutgrabber/pentesting-toolkit": {
-    "fetchedAt": "2026-07-08",
-    "title": "GitHub - hutgrabber/pentesting-toolkit",
-    "description": "Contribute to hutgrabber/pentesting-toolkit development by creating an account on GitHub.",
-    "siteName": "GitHub",
-    "image": "https://opengraph.githubassets.com/55809bd887d7969b8b49fc2122a0da5230401b1a388a9bd1c8752c57ef9d092e/hutgrabber/pentesting-toolkit",
-    "favicon": "https://github.githubassets.com/favicons/favicon.svg"
-  },
   "https://hutlab.dev/": {
     "fetchedAt": "2026-07-08",
     "title": "hutlab",
@@ -55,20 +47,46 @@
     "image": "https://hutlab.dev/assets/images/og-card.png",
     "favicon": "https://hutlab.dev/assets/images/favicon-32.png"
   },
-  "https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed": {
-    "fetchedAt": "2026-07-08",
-    "title": "YouTube",
+  "https://github.com/hutgrabber/pentesting-toolkit": {
+    "kind": "github",
+    "fetchedAt": "2026-07-09",
+    "type": "repo",
+    "fullName": "hutgrabber/pentesting-toolkit",
     "description": "",
-    "siteName": "",
-    "image": "https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed",
-    "favicon": "https://www.youtube.com/favicon.ico"
+    "stars": 0,
+    "forks": 0,
+    "language": "Shell"
   },
-  "https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed": {
-    "fetchedAt": "2026-07-08",
-    "title": "YouTube",
-    "description": "",
-    "siteName": "",
-    "image": "https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed",
-    "favicon": "https://www.youtube.com/favicon.ico"
+  "https://www.youtube.com/watch?v=SPwyp2NG-bE": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-09",
+    "videoId": "SPwyp2NG-bE",
+    "title": "you need to learn BASH Scripting RIGHT NOW!! // EP 1",
+    "channel": "NetworkChuck",
+    "thumb": "https://i.ytimg.com/vi/SPwyp2NG-bE/maxresdefault.jpg"
+  },
+  "https://www.youtube.com/watch?v=zHTeCSVAFNY": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-09",
+    "videoId": "zHTeCSVAFNY",
+    "title": "From 0 to IDE in NEOVIM from scratch | FREE COURSE // EP 1",
+    "channel": "typecraft",
+    "thumb": "https://i.ytimg.com/vi/zHTeCSVAFNY/maxresdefault.jpg"
+  },
+  "https://www.youtube.com/watch?v=YS5Zh7KExvE": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-09",
+    "videoId": "YS5Zh7KExvE",
+    "title": "SSH for Beginners: The Ultimate Getting Started Guide",
+    "channel": "Learn Linux TV",
+    "thumb": "https://i.ytimg.com/vi/YS5Zh7KExvE/maxresdefault.jpg"
+  },
+  "https://www.youtube.com/watch?v=niuOc02Rvrc": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-09",
+    "videoId": "niuOc02Rvrc",
+    "title": "Tmux will SKYROCKET your productivity - here’s how",
+    "channel": "typecraft",
+    "thumb": "https://i.ytimg.com/vi/niuOc02Rvrc/maxresdefault.jpg"
   }
 }

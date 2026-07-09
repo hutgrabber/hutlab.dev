@@ -133,7 +133,7 @@ This is where things get more technical, but the payoff is worth it.
 
 First, get your bash on!
 
-<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/SPwyp2NG-bE?feature=oembed" title="Embedded video"></iframe></div>
+https://www.youtube.com/watch?v=SPwyp2NG-bE
 
 Many of you will already know NetworkChuck. He is a strong resource for beginners and experienced users alike, and he explains concepts through clear, real-world examples.
 
@@ -238,7 +238,7 @@ nse() {
 
 <u>T-Mux Productivity Workflow</u>
 
-<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed" title="Embedded video"></iframe></div>
+https://www.youtube.com/watch?v=niuOc02Rvrc
 
 **6. Back up your toolset.** To avoid losing your tools, store them in `/opt` and push them to GitHub. In my case, some are binaries, some are PowerShell scripts, and some are Windows executables. Keep in mind that public repositories are visible to everyone, so use a private repo for anything sensitive and avoid committing credentials or client data.
 
@@ -256,7 +256,7 @@ Learning Vim has been worth the effort for me. The learning curve is steep but m
 
 <u>NeoVIM: Getting Started</u>
 
-<div class="video-embed"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" loading="lazy" src="https://www.youtube.com/embed/zHTeCSVAFNY?feature=oembed" title="Embedded video"></iframe></div>
+https://www.youtube.com/watch?v=zHTeCSVAFNY
 
 **Additional Resources:** Barbarian-Meets-Coding is a great resource I found when lurking around the internet. The independent blogging community always comes in clutch.
 
