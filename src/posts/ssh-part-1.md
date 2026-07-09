@@ -10,7 +10,6 @@ description: A multi-part series where we talk about the basics of SSH. From ssh
 feature_image: /images/2024-10-05-ssh-part-1/cover.jpg
 templateEngineOverride: md
 ---
-
 Alright, so this one's pretty interesting! As you might have guessed from the title, this one is going to be a multi-part-series. We will start by covering the basics of SecureShell – setup, keys, configs and more. In the following posts I plan to cover other topics like hardening ssh servers and using ssh as a nifty tool for red teaming.
 
 You will learn about things you never knew the SSH service could do. So subscribe to my newsletter if you haven't yet, and hang tight :)
@@ -108,9 +107,9 @@ Host HomeNas
 
 This reduces the command above to this –
 
-`ssh HomeNas`
-
-You don't even have to type `HomeNas` all the way. It also comes with tab-completion. I know! #LifeChanged.
+```bash
+ssh HomeNas
+```
 
 So, what else can you do with the ssh config file? Remember the other [github](/git-github/) blogpost? We did something along these lines –
 

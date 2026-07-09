@@ -11,7 +11,6 @@ meta_title: The Hacker Mindset
 feature_image: /images/2024-09-19-hacker-mindset/cover.jpg
 templateEngineOverride: md
 ---
-
 > A guide to developing the mindset and toolset needed to work as a penetration tester.
 
 ---
