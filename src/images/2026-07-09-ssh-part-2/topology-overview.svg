@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1000 380" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace">
+  <defs>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6fe3a1"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f2707f"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="380" rx="14" fill="#12101c" stroke="#2e2547" stroke-width="1.5"/>
+  <!-- title bar -->
+  <circle cx="26" cy="24" r="5" fill="#f2707f"/>
+  <circle cx="44" cy="24" r="5" fill="#f0b45f"/>
+  <circle cx="62" cy="24" r="5" fill="#6fe3a1"/>
+  <text x="500" y="29" text-anchor="middle" fill="#8b84a2" font-size="12">the-lab-topology.sh</text>
+  <line x1="0" y1="40" x2="1000" y2="40" stroke="#2e2547" stroke-width="1"/>
+
+  <!-- subnet lanes -->
+  <rect x="170" y="60" width="260" height="290" rx="10" fill="none" stroke="#7db8f0" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="300" y="80" text-anchor="middle" fill="#7db8f0" font-size="12" font-weight="bold">SUBNET A · 192.168.50.0/24</text>
+
+  <rect x="430" y="60" width="260" height="290" rx="10" fill="none" stroke="#63d8c8" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="560" y="80" text-anchor="middle" fill="#63d8c8" font-size="12" font-weight="bold">SUBNET B · 10.4.50.0/24</text>
+
+  <rect x="690" y="60" width="290" height="290" rx="10" fill="none" stroke="#f077b6" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="835" y="80" text-anchor="middle" fill="#f077b6" font-size="12" font-weight="bold">SUBNET C · 172.16.50.0/24</text>
+
+  <!-- Kali -->
+  <rect x="20" y="175" width="140" height="70" rx="10" fill="#1f1833" stroke="#6fe3a1" stroke-width="2"/>
+  <text x="90" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">you (kali)</text>
+  <text x="90" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">attack box</text>
+
+  <!-- confluence01 -->
+  <rect x="355" y="175" width="150" height="70" rx="10" fill="#1f1833" stroke="#a778e8" stroke-width="2"/>
+  <text x="430" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">confluence01</text>
+  <text x="430" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">dual-homed pivot</text>
+  <text x="390" y="262" text-anchor="middle" fill="#7db8f0" font-size="11">192.168.50.63</text>
+  <text x="470" y="262" text-anchor="middle" fill="#63d8c8" font-size="11">10.4.50.x</text>
+
+  <!-- pgdatabase01 -->
+  <rect x="615" y="175" width="150" height="70" rx="10" fill="#1f1833" stroke="#a778e8" stroke-width="2"/>
+  <text x="690" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">pgdatabase01</text>
+  <text x="690" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">dual-homed pivot</text>
+  <text x="650" y="262" text-anchor="middle" fill="#63d8c8" font-size="11">10.4.50.215</text>
+  <text x="730" y="262" text-anchor="middle" fill="#f077b6" font-size="11">172.16.50.x</text>
+
+  <!-- hr_shares -->
+  <rect x="850" y="175" width="130" height="70" rx="10" fill="#1f1833" stroke="#f077b6" stroke-width="2"/>
+  <text x="915" y="205" text-anchor="middle" fill="#d8d4e4" font-size="14" font-weight="bold">hr_shares</text>
+  <text x="915" y="222" text-anchor="middle" fill="#8b84a2" font-size="11">the actual target</text>
+  <text x="915" y="262" text-anchor="middle" fill="#f077b6" font-size="11">172.16.50.217:445</text>
+
+  <!-- reachable hops -->
+  <line x1="160" y1="210" x2="353" y2="210" stroke="#6fe3a1" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+  <text x="256" y="200" text-anchor="middle" fill="#6fe3a1" font-size="11">you have a shell here</text>
+
+  <line x1="505" y1="210" x2="613" y2="210" stroke="#6fe3a1" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+  <text x="559" y="200" text-anchor="middle" fill="#6fe3a1" font-size="11">reachable</text>
+
+  <line x1="765" y1="210" x2="848" y2="210" stroke="#6fe3a1" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+  <text x="806" y="200" text-anchor="middle" fill="#6fe3a1" font-size="11">reachable</text>
+
+  <!-- blocked direct route -->
+  <path d="M 90 175 C 250 90, 750 90, 915 175" fill="none" stroke="#f2707f" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrRed)"/>
+  <text x="500" y="110" text-anchor="middle" fill="#f2707f" font-size="12" font-weight="bold">no direct route — this is why we pivot</text>
+
+  <text x="500" y="335" text-anchor="middle" fill="#8b84a2" font-size="11">three hops, three subnets, one ssh session doing all the work</text>
+</svg>
