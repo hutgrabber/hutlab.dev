@@ -70,5 +70,29 @@
     "siteName": "",
     "image": "https://www.youtube.com/embed/niuOc02Rvrc?feature=oembed",
     "favicon": "https://www.youtube.com/favicon.ico"
+  },
+  "https://github.com/hutgrabber/hutlab.dev": {
+    "fetchedAt": "2026-07-09",
+    "title": "GitHub - hutgrabber/hutlab.dev",
+    "description": "Contribute to hutgrabber/hutlab.dev development by creating an account on GitHub.",
+    "siteName": "GitHub",
+    "image": "https://opengraph.githubassets.com/cc21579d6de933b3f0804471e708b3b82a0b53210cc993a053da5dac30fe9794/hutgrabber/hutlab.dev",
+    "favicon": "https://github.githubassets.com/favicons/favicon.svg"
+  },
+  "https://bsky.app/profile/basicappleguy.com/post/3mq6icmgrqs2u": {
+    "fetchedAt": "2026-07-09",
+    "title": "Basic Apple Guy (@basicappleguy.com)",
+    "description": "Fell down the dangerous rabbit hole of organizing all my audiobooks, articles, games, movies, and TV shows in @sofahq.social.",
+    "siteName": "Bluesky Social",
+    "image": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:lzyp6qjpmjwpqgszkplbju53/bafkreigmz2n3vdqtc7k7csyfhrbkevcbk4rwxtern3mooyixd5xe3blj54",
+    "favicon": "https://web-cdn.bsky.app/static/favicon-32x32.png"
+  },
+  "https://x.com/dorsa_rohani/status/2074963064231952832?s=20": {
+    "fetchedAt": "2026-07-09",
+    "title": "Post by Dorsa",
+    "description": "We made Claude Code multiplayer! Use it with other people in the same terminal, and connect your Claudes so they can all talk to each other. pic.twitter.com/Pc7Ytag86z — Dorsa (@dorsa_rohani) July 8, 2026",
+    "siteName": "X",
+    "image": null,
+    "favicon": null
   }
 }
