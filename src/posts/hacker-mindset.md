@@ -1,5 +1,5 @@
 ---
-title: The Hacker Mindset - DRAFT
+title: The Hacker Mindset
 date: 2024-09-19T14:17:42.000Z
 layout: layouts/post.njk
 permalink: /the-hacker-mindset/
@@ -33,7 +33,7 @@ I am still early in my own journey, and it really is a craft. What carries you i
 
 # The Crash Test Dummy
 
-<figure class="img-s">
+<figure class="img-m">
   <img src="/images/2024-09-19-hacker-mindset/crash-dummy.jpg" loading="lazy">
 </figure>
 
@@ -49,7 +49,7 @@ Keep testing assumptions, and keep learning from what breaks.
 
 # Organize, Organize, Organize
 
-<figure class="img-s">
+<figure class="img-m">
   <img src="/images/2024-09-19-hacker-mindset/moving-parts.jpg" loading="lazy">
 </figure>
 
@@ -112,7 +112,7 @@ The idea is simple: a smoother workflow leads to clearer thinking, which keeps y
 
 ## Your Temple, The Terminal
 
-<figure class="img-s"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/terminal-temple.jpg"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/terminal-temple.jpg"/></figure>
 
 I wish I had learned the power of Bash earlier, but better late than never. Any scripting knowledge is a valuable asset here. We are going to use aliases, shell functions, and a few terminal applications to remove repetitive friction from your workflow.
 
@@ -197,14 +197,15 @@ function rmhost() {
 alias hosts="cat /etc/hosts"
 ```
 
+<figure class="img-h1"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/rmhost-demo.png"/>
+<figcaption>Fig: rmhost demo</figcaption></figure>
+
+<figure class="img-h2"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/addhost-demo.png"/>
+<figcaption>Fig: addhost demo</figcaption></figure>
+
 <figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/hosts-alias.png"/>
 <figcaption>Fig: host aliasing</figcaption></figure>
 
-<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/addhost-demo.png"/>
-<figcaption>Fig: addhost demo</figcaption></figure>
-
-<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/rmhost-demo.png"/>
-<figcaption>Fig: rmhost demo</figcaption></figure>
 
 **3. Handling VPNs.** I keep all my VPN files in one folder in my home directory and set up aliases that connect to each one. I am also building a function that prompts for the VPN I want and connects based on my input. A separate alias, `vpnip`, shows the address assigned to me after connecting, which saves me from running `ip addr` and scrolling through the output. Note that `vpnip` assumes an OpenVPN interface named `tun0`; adjust it if your interface differs.
 
@@ -296,7 +297,7 @@ One more thing: learn Markdown. It is a real quality-of-life improvement for not
 
 I use **Obsidian** for notes and **Notion** for writing walkthroughs. Either one gives you a solid base to get started.
 
-<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
+<figure class="img-l"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tunneling-note.png"/></figure>
 
 ### Walkthroughs
 
@@ -304,7 +305,7 @@ When you begin practicing machines on hacking platforms, write walkthroughs for 
 
 Use Git to back up your notes to a private repository so nothing is lost. If you want to go further, GitBook is worth a look.
 
-<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
+<figure class="img-l"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/tips-note.png"/></figure>
 
 ---
 
