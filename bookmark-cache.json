@@ -111,5 +111,14 @@
     "handle": "dorsa_rohani",
     "text": "We made Claude Code multiplayer! Use it with other people in the same terminal, and connect your Claudes so they can all talk to each other. pic.twitter.com/Pc7Ytag86z",
     "date": "July 8, 2026"
+  },
+  "https://help.hackthebox.com/en/articles/5185470-how-to-play-pro-labs#h_29a2f67cf2": {
+    "kind": "bookmark",
+    "fetchedAt": "2026-07-10",
+    "title": "How to Play Pro Labs | Hack The Box Help Center",
+    "description": "Taking on a Pro Lab? Prepare to pivot through the network by reading this article.",
+    "siteName": "",
+    "image": "https://intercom.help/hackthebox/assets/favicon",
+    "favicon": "https://intercom.help/hackthebox/assets/favicon"
   }
 }

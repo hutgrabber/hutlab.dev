@@ -20,7 +20,7 @@ Let's start by getting the definition out of the way...
 
 It's not that bad. Just a simple tool that you'll find hanging on Batman's famous "utility belt" along with other tools like nmap, tcpdump, vim, wireshark, docker, ss & ps. You know, if Batman was a system administrator. He might as well be one – coming out at night and fighting the bad guys; the attributes match up perfectly!
 
-<figure class="figure"><img alt="" class="kg-image" loading="lazy" src="https://media.tenor.com/zfQUtnufVn8AAAAC/kemer-batman.gif"/></figure>
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="https://media.tenor.com/zfQUtnufVn8AAAAC/kemer-batman.gif"/></figure>
 
 ---
 
