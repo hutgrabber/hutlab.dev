@@ -15,10 +15,6 @@ Welcome back, friends. It's been a while.
 
 I have recently changed up this platform and moved from the old domain that I don't know what I will do with yet, but I am excited for what's to come. With this new domain `hutlab.dev` and a fresh look to the website, I am planning to start writing more now that I have settled in a little bit.
 
-<figure class="img-feat">
-  <img src="/assets/images/og-card.png" alt="hutlab website card" loading="lazy">
-</figure>
-
 ---
 ## What's Changed?
 
