@@ -1,0 +1,39 @@
+<svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="700" height="460" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="698" height="458" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="1" y="1" width="698" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="698" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="350" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">same fuzzy matcher, three different pipes</text>
+
+  <!-- panel 1: git branch -->
+  <rect x="20" y="48" width="660" height="118" rx="6" fill="#0d0b12" stroke="#2e2547"/>
+  <text x="34" y="70" font-size="12" fill="#8b84a2">❯ git branch | fzf</text>
+  <text x="34" y="92" font-size="12" fill="#5a5470">main</text>
+  <text x="34" y="112" font-size="12" fill="#5a5470">fix/tmux-mouse-shame</text>
+  <rect x="28" y="122" width="300" height="20" fill="#a778e8" opacity="0.18"/>
+  <text x="34" y="136" font-size="12" fill="#c39bf5" font-weight="bold">feature/tunnel-diagrams</text>
+  <text x="34" y="156" font-size="11" fill="#5a5470">&gt; 3/3</text>
+
+  <!-- panel 2: process kill -->
+  <rect x="20" y="176" width="660" height="118" rx="6" fill="#0d0b12" stroke="#2e2547"/>
+  <text x="34" y="198" font-size="12" fill="#8b84a2">❯ ps aux | fzf | awk '{print $2}' | xargs kill</text>
+  <text x="34" y="220" font-size="12" fill="#5a5470">chrome    5501   4.2%   1.1gb</text>
+  <rect x="28" y="228" width="600" height="20" fill="#a778e8" opacity="0.18"/>
+  <text x="34" y="242" font-size="12" fill="#c39bf5" font-weight="bold">node      81421  0.3%   214mb   npm run dev</text>
+  <text x="34" y="262" font-size="12" fill="#5a5470">Docker    2210   1.8%   340mb</text>
+  <text x="34" y="284" font-size="11" fill="#5a5470">&gt; 3/41</text>
+
+  <!-- panel 3: history search -->
+  <rect x="20" y="304" width="660" height="132" rx="6" fill="#0d0b12" stroke="#a778e8" stroke-width="1.5"/>
+  <text x="34" y="326" font-size="12" fill="#8b84a2">❯ history | fzf</text>
+  <text x="34" y="348" font-size="12" fill="#5a5470">git commit -m "fix load order"</text>
+  <text x="34" y="368" font-size="12" fill="#5a5470">qemu-x86_64-static ./challenge</text>
+  <rect x="28" y="378" width="220" height="20" fill="#a778e8" opacity="0.18"/>
+  <text x="34" y="392" font-size="12" fill="#c39bf5" font-weight="bold">stow -R .</text>
+  <text x="34" y="412" font-size="12" fill="#5a5470">nvim src/plugins/mason.lua</text>
+
+  <text x="20" y="454" font-size="11" fill="#5a5470">files, branches, processes, history. fzf does not care what it is filtering.</text>
+</svg>

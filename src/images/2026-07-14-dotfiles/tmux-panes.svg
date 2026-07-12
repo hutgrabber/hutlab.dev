@@ -1,0 +1,57 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="700" height="420" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="698" height="418" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="1" y="1" width="698" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="698" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="350" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">tmux — session: hutlab</text>
+
+  <!-- left pane: nvim -->
+  <rect x="16" y="46" width="380" height="326" rx="6" fill="#0d0b12" stroke="#2e2547" stroke-width="1"/>
+  <text x="30" y="70" font-size="12" fill="#5a5470">1</text>
+  <text x="46" y="70" font-size="12" fill="#f077b6">---</text>
+  <text x="30" y="90" font-size="12" fill="#5a5470">2</text>
+  <text x="46" y="90" font-size="12"><tspan fill="#7db8f0">title</tspan><tspan fill="#8b84a2">: Behind the Prompt</tspan></text>
+  <text x="30" y="110" font-size="12" fill="#5a5470">3</text>
+  <text x="46" y="110" font-size="12"><tspan fill="#7db8f0">tags</tspan><tspan fill="#8b84a2">: [posts, tutorials, tools]</tspan></text>
+  <text x="30" y="130" font-size="12" fill="#5a5470">4</text>
+  <text x="46" y="130" font-size="12" fill="#f077b6">---</text>
+  <text x="30" y="150" font-size="12" fill="#5a5470">5</text>
+  <text x="46" y="150" font-size="12" fill="#6fe3a1"># The Foundation</text>
+  <text x="30" y="170" font-size="12" fill="#5a5470">6</text>
+  <text x="30" y="190" font-size="12" fill="#5a5470">7</text>
+  <text x="46" y="190" font-size="12" fill="#d8d4e4">People keep asking what's</text>
+  <text x="46" y="208" font-size="12" fill="#d8d4e4">actually inside that repo...</text>
+  <rect x="46" y="216" width="8" height="14" fill="#d8d4e4" opacity="0.6"/>
+  <text x="30" y="352" font-size="11" fill="#5a5470">-- INSERT --                    behind-the-prompt.md</text>
+
+  <!-- top right pane: htop-ish -->
+  <rect x="404" y="46" width="280" height="150" rx="6" fill="#0d0b12" stroke="#2e2547" stroke-width="1"/>
+  <text x="416" y="66" font-size="11" fill="#8b84a2">❯ btop</text>
+  <text x="416" y="86" font-size="11"><tspan fill="#6fe3a1">CPU</tspan><tspan fill="#5a5470"> [||||||    ] 41%</tspan></text>
+  <text x="416" y="104" font-size="11"><tspan fill="#f0b45f">MEM</tspan><tspan fill="#5a5470"> [||||||||  ] 62%</tspan></text>
+  <text x="416" y="122" font-size="11"><tspan fill="#7db8f0">NET</tspan><tspan fill="#5a5470"> ↓ 128kb/s ↑ 12kb/s</tspan></text>
+  <text x="416" y="150" font-size="11" fill="#5a5470">PID   CMD</text>
+  <text x="416" y="168" font-size="11" fill="#d8d4e4">4471  nvim</text>
+  <text x="416" y="184" font-size="11" fill="#d8d4e4">4488  zsh</text>
+
+  <!-- bottom right pane: shell -->
+  <rect x="404" y="204" width="280" height="168" rx="6" fill="#0d0b12" stroke="#a778e8" stroke-width="1.5"/>
+  <text x="416" y="226" font-size="11" fill="#8b84a2">❯ git status -s</text>
+  <text x="416" y="246" font-size="11"><tspan fill="#6fe3a1">M</tspan><tspan fill="#d8d4e4"> src/posts/behind-the-prompt.md</tspan></text>
+  <text x="416" y="264" font-size="11"><tspan fill="#f0b45f">??</tspan><tspan fill="#d8d4e4"> src/images/2026-07-09-dotfiles/</tspan></text>
+  <text x="416" y="290" font-size="11" fill="#a778e8">❯ ▍</text>
+  <text x="416" y="312" font-size="10" fill="#5a5470">(active pane, purple border)</text>
+
+  <!-- status bar -->
+  <rect x="16" y="382" width="668" height="26" rx="4" fill="#1f1833"/>
+  <rect x="22" y="387" width="70" height="16" rx="3" fill="#f077b6"/>
+  <text x="57" y="399" font-size="10" fill="#171226" text-anchor="middle" font-weight="bold">hutlab</text>
+  <text x="104" y="399" font-size="11" fill="#d8d4e4">1:nvim*  2:btop  3:zsh</text>
+  <text x="480" y="399" font-size="10" fill="#63d8c8">  main*</text>
+  <text x="560" y="399" font-size="10" fill="#f0b45f"> 41%</text>
+  <text x="615" y="399" font-size="10" fill="#7db8f0"> 62%</text>
+  <text x="672" y="399" font-size="10" fill="#8b84a2" text-anchor="end">22:41</text>
+</svg>

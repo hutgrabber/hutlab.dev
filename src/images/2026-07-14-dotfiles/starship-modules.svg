@@ -1,0 +1,85 @@
+<svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="700" height="460" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="698" height="458" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="1" y="1" width="698" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="698" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="350" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">one config, five different projects</text>
+
+  <!-- python project -->
+  <text x="24" y="60" font-size="14">
+    <tspan fill="#c39bf5">~/Projects/api</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  main</tspan>
+    <tspan fill="#8b84a2"> via </tspan>
+    <tspan fill="#6fe3a1"> v3.12.1</tspan>
+    <tspan fill="#5a5470"> (.venv)</tspan>
+  </text>
+  <text x="24" y="80" fill="#5a5470" font-size="11">python module reads the venv AND the interpreter version</text>
+
+  <line x1="24" y1="96" x2="676" y2="96" stroke="#2e2547"/>
+
+  <!-- node project -->
+  <text x="24" y="122" font-size="14">
+    <tspan fill="#c39bf5">~/Projects/hutlab-blog</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  master</tspan>
+    <tspan fill="#8b84a2"> via </tspan>
+    <tspan fill="#6fe3a1"> v20.11.0</tspan>
+  </text>
+  <text x="24" y="142" fill="#5a5470" font-size="11">node module only shows up inside a directory with a package.json</text>
+
+  <line x1="24" y1="158" x2="676" y2="158" stroke="#2e2547"/>
+
+  <!-- terraform -->
+  <text x="24" y="184" font-size="14">
+    <tspan fill="#c39bf5">~/infra</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  main</tspan>
+    <tspan fill="#f2707f"> [!1]</tspan>
+    <tspan fill="#8b84a2"> via </tspan>
+    <tspan fill="#7db8f0">󱁢 dev</tspan>
+  </text>
+  <text x="24" y="204" fill="#5a5470" font-size="11">terraform workspace name, so you know which account you're about to touch</text>
+
+  <line x1="24" y1="220" x2="676" y2="220" stroke="#2e2547"/>
+
+  <!-- failed command -->
+  <text x="24" y="246" font-size="14">
+    <tspan fill="#c39bf5">~/Projects/hutlab-blog</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  master</tspan>
+    <tspan fill="#f2707f"> [127]</tspan>
+  </text>
+  <text x="24" y="270" font-size="16">
+    <tspan fill="#f2707f">❯ </tspan>
+    <tspan fill="#5a5470">▍</tspan>
+  </text>
+  <text x="24" y="290" fill="#5a5470" font-size="11">the arrow turns red on a non-zero exit code. purple means the last thing worked.</text>
+
+  <line x1="24" y1="306" x2="676" y2="306" stroke="#2e2547"/>
+
+  <!-- battery -->
+  <text x="24" y="332" font-size="14">
+    <tspan fill="#c39bf5">~/Projects/hutlab-blog</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  master</tspan>
+    <tspan fill="#f2707f"> 19%</tspan>
+  </text>
+  <text x="24" y="352" fill="#5a5470" font-size="11">battery module only renders under the configured threshold, invisible otherwise</text>
+
+  <line x1="24" y1="368" x2="676" y2="368" stroke="#2e2547"/>
+
+  <!-- cmd duration -->
+  <text x="24" y="394" font-size="14">
+    <tspan fill="#c39bf5">~/Projects/hutlab-blog</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  master</tspan>
+    <tspan fill="#5a5470"> took 6s</tspan>
+  </text>
+  <text x="24" y="414" fill="#5a5470" font-size="11">cmd_duration only shows up past min_time, quick commands stay silent</text>
+
+  <text x="24" y="444" font-size="12" fill="#8b84a2">one binary, one toml file, none of it hardcoded per project.</text>
+</svg>

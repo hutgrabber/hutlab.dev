@@ -120,5 +120,53 @@
     "siteName": "",
     "image": "https://intercom.help/hackthebox/assets/favicon",
     "favicon": "https://intercom.help/hackthebox/assets/favicon"
+  },
+  "https://twitter.com/iamdevloper/status/435555976687923200": {
+    "kind": "twitter",
+    "fetchedAt": "2026-07-10",
+    "author": "I Am Devloper",
+    "handle": "iamdevloper",
+    "text": "I've been using Vim for about 2 years now, mostly because I can't figure out how to exit it.",
+    "date": "February 17, 2014"
+  },
+  "https://www.youtube.com/watch?v=nTqu6w2wc68": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-10",
+    "videoId": "nTqu6w2wc68",
+    "title": "you need to learn tmux RIGHT NOW!!",
+    "channel": "NetworkChuck",
+    "thumb": "https://i.ytimg.com/vi/nTqu6w2wc68/maxresdefault.jpg"
+  },
+  "https://www.youtube.com/watch?v=N93cTbtLCIM": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-10",
+    "videoId": "N93cTbtLCIM",
+    "title": "Zero to IDE with LazyVim",
+    "channel": "Elijah Manor",
+    "thumb": "https://i.ytimg.com/vi/N93cTbtLCIM/maxresdefault.jpg"
+  },
+  "https://www.youtube.com/watch?v=TLFsee7DDSI": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-10",
+    "videoId": "TLFsee7DDSI",
+    "title": "How To ACTUALLY Manage Dotfiles with Stow | Full Guide + Git Workflow",
+    "channel": "Seth Phaeno",
+    "thumb": "https://i.ytimg.com/vi/TLFsee7DDSI/maxresdefault.jpg"
+  },
+  "https://www.youtube.com/watch?v=G7aWxK4395Y": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-10",
+    "videoId": "G7aWxK4395Y",
+    "title": "Your shell prompt, ON STEROIDS // Starship",
+    "channel": "DevOps Toolbox",
+    "thumb": "https://i.ytimg.com/vi/G7aWxK4395Y/maxresdefault.jpg"
+  },
+  "https://www.youtube.com/watch?v=u-qLj4YBry0": {
+    "kind": "youtube",
+    "fetchedAt": "2026-07-10",
+    "videoId": "u-qLj4YBry0",
+    "title": "FZF Is My Favorite Way To Find Things In The Terminal",
+    "channel": "Josean Martinez",
+    "thumb": "https://i.ytimg.com/vi/u-qLj4YBry0/maxresdefault.jpg"
   }
 }

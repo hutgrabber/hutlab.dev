@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="1000" height="500" fill="#0d0b12"/>
+  <rect x="1" y="1" width="998" height="498" fill="#0d0b12" stroke="#2e2547" stroke-width="1"/>
+
+  <!-- main terminal window, centered -->
+  <rect x="130" y="70" width="740" height="360" rx="14" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="130" y="70" width="740" height="38" rx="14" fill="#1f1833"/>
+  <rect x="130" y="96" width="740" height="12" fill="#1f1833"/>
+  <circle cx="158" cy="89" r="7" fill="#f2707f"/>
+  <circle cx="182" cy="89" r="7" fill="#f0b45f"/>
+  <circle cx="206" cy="89" r="7" fill="#6fe3a1"/>
+  <text x="500" y="94" fill="#8b84a2" font-size="13" text-anchor="middle">hutgrabber@m1max — zsh — tmux — nvim</text>
+
+  <!-- content lines -->
+  <text x="164" y="150" font-size="17"><tspan fill="#c39bf5">~/.dotfiles</tspan><tspan fill="#8b84a2"> on </tspan><tspan fill="#63d8c8">  main</tspan></text>
+  <text x="164" y="180" font-size="18"><tspan fill="#a778e8">❯ </tspan><tspan fill="#d8d4e4">stow . &amp;&amp; nvim</tspan></text>
+
+  <line x1="164" y1="206" x2="836" y2="206" stroke="#2e2547"/>
+
+  <text x="164" y="236" font-size="14" fill="#6fe3a1"># The Foundation</text>
+  <text x="164" y="262" font-size="14" fill="#d8d4e4">M1 Max, macOS, and a fight against x86 binaries.</text>
+  <text x="164" y="290" font-size="14" fill="#f077b6"># The Toolkit</text>
+  <text x="164" y="316" font-size="14" fill="#d8d4e4">zsh, starship, LazyVim, tmux, bat, and a wishlist.</text>
+  <text x="164" y="344" font-size="14" fill="#7db8f0"># Managing and Version Control</text>
+  <text x="164" y="370" font-size="14" fill="#d8d4e4">GNU Stow does the symlinking. git does the rest.</text>
+
+  <rect x="164" y="384" width="9" height="18" fill="#d8d4e4" opacity="0.7"/>
+
+  <!-- bottom status strip -->
+  <rect x="130" y="392" width="740" height="0" fill="none"/>
+</svg>

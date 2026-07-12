@@ -1,0 +1,38 @@
+<svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="500" height="320" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="498" height="318" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="1" y="1" width="498" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="498" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="250" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">bat starship.toml</text>
+
+  <text x="20" y="66" font-size="13" fill="#8b84a2" xml:space="preserve">❯ bat starship.toml</text>
+
+  <!-- gutter with a modified marker -->
+  <rect x="20" y="80" width="3" height="210" fill="#2e2547"/>
+  <rect x="20" y="150" width="3" height="18" fill="#f0b45f"/>
+
+  <text x="30" y="96" font-size="12" fill="#5a5470">1</text>
+  <text x="30" y="118" font-size="12" fill="#5a5470">2</text>
+  <text x="30" y="140" font-size="12" fill="#5a5470">3</text>
+  <text x="30" y="162" font-size="12" fill="#5a5470">4</text>
+  <text x="30" y="184" font-size="12" fill="#5a5470">5</text>
+  <text x="30" y="206" font-size="12" fill="#5a5470">6</text>
+  <text x="30" y="228" font-size="12" fill="#5a5470">7</text>
+  <text x="30" y="250" font-size="12" fill="#5a5470">8</text>
+  <text x="30" y="272" font-size="12" fill="#5a5470">9</text>
+
+  <text x="58" y="96" font-size="13" xml:space="preserve"><tspan fill="#7db8f0">palette</tspan><tspan fill="#8b84a2"> = </tspan><tspan fill="#6fe3a1">"catppuccin_mocha"</tspan></text>
+  <text x="58" y="118" font-size="13" fill="#f077b6">[character]</text>
+  <text x="58" y="140" font-size="13" xml:space="preserve"><tspan fill="#7db8f0">success_symbol</tspan><tspan fill="#8b84a2"> = </tspan><tspan fill="#6fe3a1">"[❯](bold green)"</tspan></text>
+  <text x="58" y="162" font-size="13" fill="#f077b6">[git_branch]</text>
+  <text x="58" y="184" font-size="13" xml:space="preserve"><tspan fill="#7db8f0">symbol</tspan><tspan fill="#8b84a2"> = </tspan><tspan fill="#6fe3a1">" "</tspan></text>
+  <text x="58" y="206" font-size="13" fill="#f077b6">[git_status]</text>
+  <text x="58" y="228" font-size="13" xml:space="preserve"><tspan fill="#7db8f0">conflicted</tspan><tspan fill="#8b84a2"> = </tspan><tspan fill="#6fe3a1">"="</tspan></text>
+  <text x="58" y="250" font-size="13" fill="#f077b6">[cmd_duration]</text>
+  <text x="58" y="272" font-size="13" xml:space="preserve"><tspan fill="#7db8f0">min_time</tspan><tspan fill="#8b84a2"> = </tspan><tspan fill="#c39bf5">500</tspan></text>
+
+  <text x="20" y="300" font-size="12" fill="#5a5470">colors, line numbers, a gutter mark on line 4</text>
+</svg>

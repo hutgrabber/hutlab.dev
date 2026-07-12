@@ -1,0 +1,45 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="700" height="420" fill="#0d0b12"/>
+
+  <!-- repo box -->
+  <rect x="30" y="40" width="270" height="300" rx="10" fill="#171226" stroke="#a778e8" stroke-width="1.5"/>
+  <text x="165" y="68" font-size="13" fill="#c39bf5" text-anchor="middle" font-weight="bold">~/.dotfiles  (git repo)</text>
+  <text x="50" y="100" font-size="12" fill="#d8d4e4">.zshrc</text>
+  <text x="50" y="128" font-size="12" fill="#d8d4e4">.config/</text>
+  <text x="66" y="152" font-size="12" fill="#8b84a2">nvim/init.lua</text>
+  <text x="66" y="176" font-size="12" fill="#8b84a2">tmux/tmux.conf</text>
+  <text x="66" y="200" font-size="12" fill="#8b84a2">starship.toml</text>
+  <text x="66" y="224" font-size="12" fill="#8b84a2">omz/aliases.zsh</text>
+  <text x="50" y="256" font-size="12" fill="#5a5470">.stow-ignore-local</text>
+  <text x="50" y="280" font-size="12" fill="#5a5470">README.md</text>
+
+  <!-- command -->
+  <rect x="50" y="296" width="230" height="30" rx="5" fill="#0d0b12" stroke="#2e2547"/>
+  <text x="165" y="316" font-size="13" fill="#6fe3a1" text-anchor="middle">❯ stow .</text>
+
+  <!-- home box -->
+  <rect x="400" y="40" width="270" height="300" rx="10" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <text x="535" y="68" font-size="13" fill="#63d8c8" text-anchor="middle" font-weight="bold">$HOME</text>
+  <text x="420" y="100" font-size="12" fill="#d8d4e4">.zshrc</text>
+  <text x="420" y="128" font-size="12" fill="#d8d4e4">.config/</text>
+  <text x="436" y="152" font-size="12" fill="#8b84a2">nvim/init.lua</text>
+  <text x="436" y="176" font-size="12" fill="#8b84a2">tmux/tmux.conf</text>
+  <text x="436" y="200" font-size="12" fill="#8b84a2">starship.toml</text>
+  <text x="436" y="224" font-size="12" fill="#8b84a2">omz/aliases.zsh</text>
+
+  <!-- symlink arrows -->
+  <g stroke="#f0b45f" stroke-width="1.4" fill="none" stroke-dasharray="4 3">
+    <path d="M300,96 C350,96 370,96 400,96" marker-end="url(#arrow)"/>
+    <path d="M300,148 C350,148 370,148 400,148" marker-end="url(#arrow)"/>
+    <path d="M300,172 C350,172 370,172 400,172" marker-end="url(#arrow)"/>
+    <path d="M300,196 C350,196 370,196 400,196" marker-end="url(#arrow)"/>
+    <path d="M300,220 C350,220 370,220 400,220" marker-end="url(#arrow)"/>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f0b45f"/>
+    </marker>
+  </defs>
+  <text x="350" y="360" font-size="11" fill="#f0b45f" text-anchor="middle">dashed lines = symlinks, not copies</text>
+  <text x="350" y="382" font-size="11" fill="#5a5470" text-anchor="middle">edit either side, you're editing the same inode</text>
+</svg>

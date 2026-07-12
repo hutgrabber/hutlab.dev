@@ -1,0 +1,48 @@
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="700" height="300" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="698" height="298" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+
+  <!-- title bar -->
+  <rect x="1" y="1" width="698" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="698" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="350" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">zsh — starship prompt</text>
+
+  <!-- insert mode block -->
+  <text x="24" y="70" fill="#5a5470" font-size="11">insert mode</text>
+  <text x="24" y="96" font-size="15">
+    <tspan fill="#c39bf5">~/D/Projects/hutlab-blog</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  master</tspan>
+    <tspan fill="#f2707f"> [!2]</tspan>
+  </text>
+  <text x="24" y="120" font-size="15">
+    <tspan fill="#8b84a2">via </tspan>
+    <tspan fill="#6fe3a1"> v20.11.0</tspan>
+    <tspan fill="#5a5470"> took 4s</tspan>
+  </text>
+  <text x="24" y="146" font-size="16">
+    <tspan fill="#a778e8">❯ </tspan>
+    <tspan fill="#d8d4e4">nvim src/posts/behind-the-prompt.md</tspan>
+  </text>
+  <rect x="24" y="152" width="9" height="16" fill="#d8d4e4" opacity="0.7"/>
+
+  <line x1="24" y1="184" x2="676" y2="184" stroke="#2e2547" stroke-width="1"/>
+
+  <!-- normal mode block -->
+  <text x="24" y="206" fill="#5a5470" font-size="11">normal mode, after pressing Esc — the character changes shape</text>
+  <text x="24" y="232" font-size="15">
+    <tspan fill="#c39bf5">~/D/Projects/hutlab-blog</tspan>
+    <tspan fill="#8b84a2"> on </tspan>
+    <tspan fill="#63d8c8">  master</tspan>
+    <tspan fill="#f2707f"> [!2]</tspan>
+  </text>
+  <text x="24" y="256" font-size="16">
+    <tspan fill="#f0b45f">❮ </tspan>
+    <tspan fill="#5a5470">-- NORMAL --</tspan>
+  </text>
+
+  <text x="676" y="284" fill="#3a3450" font-size="10" text-anchor="end">palette: catppuccin_mocha</text>
+</svg>

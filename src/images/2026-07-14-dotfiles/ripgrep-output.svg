@@ -1,0 +1,39 @@
+<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="700" height="360" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="698" height="358" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="1" y="1" width="698" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="698" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="350" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">rg "TODO" --type py</text>
+
+  <text x="24" y="64" font-size="13" fill="#8b84a2">❯ rg "TODO" --type py</text>
+
+  <text x="24" y="94" font-size="13" fill="#63d8c8" font-weight="bold">handlers/scan.py</text>
+  <text x="24" y="116" font-size="12"><tspan fill="#a778e8">42</tspan><tspan fill="#5a5470">:# </tspan><tspan fill="#0d0b12" style="paint-order:stroke fill">TODO</tspan></text>
+  <rect x="53" y="105" width="40" height="16" fill="#e3cb6a"/>
+  <text x="57" y="116" font-size="12" fill="#171226" font-weight="bold">TODO</text>
+  <text x="97" y="116" font-size="12" fill="#d8d4e4">: handle timeout retries</text>
+
+  <text x="24" y="140" font-size="12" fill="#a778e8">108</text>
+  <rect x="61" y="129" width="40" height="16" fill="#e3cb6a"/>
+  <text x="65" y="140" font-size="12" fill="#171226" font-weight="bold">TODO</text>
+  <text x="105" y="140" font-size="12" fill="#d8d4e4">: this leaks memory on large targets</text>
+
+  <text x="24" y="172" font-size="13" fill="#63d8c8" font-weight="bold">config/settings.py</text>
+  <text x="24" y="194" font-size="12" fill="#a778e8">9</text>
+  <rect x="41" y="183" width="40" height="16" fill="#e3cb6a"/>
+  <text x="45" y="194" font-size="12" fill="#171226" font-weight="bold">TODO</text>
+  <text x="85" y="194" font-size="12" fill="#d8d4e4">: pull from env instead of hardcoding</text>
+
+  <text x="24" y="226" font-size="13" fill="#63d8c8" font-weight="bold">utils/parse.py</text>
+  <text x="24" y="248" font-size="12" fill="#a778e8">221</text>
+  <rect x="61" y="237" width="40" height="16" fill="#e3cb6a"/>
+  <text x="65" y="248" font-size="12" fill="#171226" font-weight="bold">TODO</text>
+  <text x="105" y="248" font-size="12" fill="#d8d4e4">: this whole function is cursed, rewrite</text>
+
+  <line x1="24" y1="272" x2="676" y2="272" stroke="#2e2547"/>
+  <text x="24" y="296" font-size="12" fill="#6fe3a1">4 matches across 3 files in 9ms.</text>
+  <text x="24" y="318" font-size="12" fill="#5a5470">.venv/ and node_modules/ never touched, .gitignore already said so.</text>
+</svg>

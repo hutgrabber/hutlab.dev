@@ -1,0 +1,46 @@
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="700" height="380" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="698" height="378" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="1" y="1" width="698" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="698" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="350" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">find . -type f | fzf --preview 'bat {}'</text>
+
+  <!-- left: fzf list -->
+  <rect x="16" y="46" width="220" height="318" rx="6" fill="#0d0b12" stroke="#2e2547"/>
+  <text x="28" y="70" font-size="13" fill="#a778e8">&gt; conf</text>
+  <rect x="28" y="220" y2="0" width="196" height="20" fill="#2e2547"/>
+  <text x="34" y="98" font-size="12" fill="#5a5470">.config/starship.toml</text>
+  <text x="34" y="122" font-size="12" fill="#5a5470">.config/tmux/tmux.conf</text>
+  <text x="34" y="146" font-size="12" fill="#5a5470">.config/nvim/init.lua</text>
+  <text x="34" y="170" font-size="12" fill="#5a5470">.config/omz/aliases.zsh</text>
+  <rect x="28" y="184" width="196" height="20" fill="#a778e8" opacity="0.18"/>
+  <text x="34" y="198" font-size="12" fill="#c39bf5" font-weight="bold">.config/omz/environment.zsh</text>
+  <text x="34" y="222" font-size="12" fill="#5a5470">.gitignore</text>
+  <text x="34" y="246" font-size="12" fill="#5a5470">.stow-ignore-local</text>
+  <text x="28" y="352" font-size="11" fill="#5a5470">6/34</text>
+
+  <!-- right: bat preview -->
+  <rect x="248" y="46" width="436" height="318" rx="6" fill="#0d0b12" stroke="#2e2547"/>
+  <text x="262" y="70" font-size="11" fill="#8b84a2">.config/omz/environment.zsh</text>
+  <text x="262" y="94" font-size="12" fill="#5a5470">18</text>
+  <text x="290" y="94" font-size="12"><tspan fill="#f077b6">funtion</tspan><tspan fill="#d8d4e4"> addkey() {</tspan></text>
+  <text x="262" y="116" font-size="12" fill="#5a5470">19</text>
+  <text x="290" y="116" font-size="12"><tspan fill="#7db8f0">  ssh-add</tspan><tspan fill="#d8d4e4"> "$1"</tspan></text>
+  <text x="262" y="138" font-size="12" fill="#5a5470">20</text>
+  <text x="290" y="138" font-size="12" fill="#d8d4e4">}</text>
+  <text x="262" y="160" font-size="12" fill="#5a5470">21</text>
+  <text x="290" y="160" font-size="12"><tspan fill="#f077b6">showkeys</tspan><tspan fill="#d8d4e4">() {</tspan></text>
+  <text x="262" y="182" font-size="12" fill="#5a5470">22</text>
+  <text x="290" y="182" font-size="12"><tspan fill="#7db8f0">  ssh-add</tspan><tspan fill="#d8d4e4"> -l</tspan></text>
+  <text x="262" y="204" font-size="12" fill="#5a5470">23</text>
+  <text x="290" y="204" font-size="12" fill="#d8d4e4">}</text>
+  <text x="262" y="226" font-size="12" fill="#5a5470">24</text>
+  <text x="262" y="248" font-size="12" fill="#5a5470">25</text>
+  <text x="290" y="248" font-size="12"><tspan fill="#f077b6">helpme</tspan><tspan fill="#d8d4e4">() {</tspan></text>
+  <text x="290" y="270" font-size="12"><tspan fill="#6fe3a1">  echo</tspan><tspan fill="#d8d4e4"> "cheat sheet:"</tspan></text>
+  <rect x="262" y="93" width="3" height="52" fill="#f0b45f"/>
+  <text x="262" y="352" font-size="10" fill="#5a5470">no exit, no separate window, one keystroke to preview</text>
+</svg>

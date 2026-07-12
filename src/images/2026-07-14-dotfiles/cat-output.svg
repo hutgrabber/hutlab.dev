@@ -1,0 +1,23 @@
+<svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" font-family="Menlo, Consolas, 'SF Mono', monospace">
+  <rect width="500" height="320" rx="12" fill="#0d0b12"/>
+  <rect x="1" y="1" width="498" height="318" rx="11" fill="#171226" stroke="#2e2547" stroke-width="1.5"/>
+  <rect x="1" y="1" width="498" height="34" rx="11" fill="#1f1833"/>
+  <rect x="1" y="24" width="498" height="11" fill="#1f1833"/>
+  <circle cx="24" cy="18" r="6" fill="#f2707f"/>
+  <circle cx="44" cy="18" r="6" fill="#f0b45f"/>
+  <circle cx="64" cy="18" r="6" fill="#6fe3a1"/>
+  <text x="250" y="22" fill="#8b84a2" font-size="12" text-anchor="middle">cat starship.toml</text>
+
+  <text x="20" y="66" font-size="13" fill="#8b84a2" xml:space="preserve">❯ cat starship.toml</text>
+  <text x="20" y="96" font-size="13" fill="#c9c5d6" xml:space="preserve">palette = "catppuccin_mocha"</text>
+  <text x="20" y="118" font-size="13" fill="#c9c5d6" xml:space="preserve">[character]</text>
+  <text x="20" y="140" font-size="13" fill="#c9c5d6" xml:space="preserve">success_symbol = "[❯](bold green)"</text>
+  <text x="20" y="162" font-size="13" fill="#c9c5d6" xml:space="preserve">[git_branch]</text>
+  <text x="20" y="184" font-size="13" fill="#c9c5d6" xml:space="preserve">symbol = " "</text>
+  <text x="20" y="206" font-size="13" fill="#c9c5d6" xml:space="preserve">[git_status]</text>
+  <text x="20" y="228" font-size="13" fill="#c9c5d6" xml:space="preserve">conflicted = "="</text>
+  <text x="20" y="250" font-size="13" fill="#c9c5d6" xml:space="preserve">[cmd_duration]</text>
+  <text x="20" y="272" font-size="13" fill="#c9c5d6" xml:space="preserve">min_time = 500</text>
+
+  <text x="20" y="300" font-size="12" fill="#5a5470">one flat wall of text, no idea what changed last</text>
+</svg>
