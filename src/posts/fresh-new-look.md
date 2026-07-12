@@ -7,6 +7,7 @@ tags:
   - posts
   - updates
 description: A quick, casual post announcing the move to a new self-hosted domain (hutlab.dev) with an AI-assisted ("vibe-coded") redesign, highlighting new RSS feeds and tag-based organization built with Obsidian-inspired graphs and Nunjucks templating.
+feature_image: /assets/images/og-card.png
 ---
 ## Quick Update
 

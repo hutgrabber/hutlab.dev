@@ -1,11 +1,14 @@
 ---
-title: "Git & GitHub"
+title: Git & GitHub
 date: 2024-01-15T15:25:57.000Z
 layout: layouts/post.njk
 permalink: /git-github/
-tags: [posts, tutorials]
-description: "Get started with git & github. Learn everything - all the way from learning how to set up git on a new system to making your first commit."
+tags:
+  - posts
+  - tutorials
+description: Get started with git & github. Learn everything - all the way from learning how to set up git on a new system to making your first commit.
 templateEngineOverride: md
+feature_image: /images/2024-01-15-git-github/cover-image.png
 ---
 
 A Beginner’s Guide
