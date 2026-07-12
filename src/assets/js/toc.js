@@ -126,7 +126,8 @@
       if (prev) prev.classList.remove("active");
       if (li) {
         li.classList.add("active");
-        if (toc.scrollHeight > toc.clientHeight) {
+        var scroller = fold || toc; // .toc-fold is the scroll container on desktop
+        if (scroller.scrollHeight > scroller.clientHeight) {
           li.scrollIntoView({ block: "nearest" });
         }
       }

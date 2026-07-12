@@ -13,7 +13,8 @@ permalink: /
       <p class="term-out">{{ site.author.name }} — penetration tester, cybersecurity enthusiast, coffee snob.</p>
       <p><span class="prompt-glyph">$</span> cat mission.txt</p>
       <p class="term-out">All things cyber: tutorials, write-ups &amp; field notes from the lab.</p>
-      <p><span class="prompt-glyph">$</span> ls ./posts --sort=date<span class="cursor" aria-hidden="true"></span></p>
+      <p><span class="prompt-glyph">$</span> ls ./posts --sort=date</p>
+      <p><span class="prompt-glyph">$</span> <span class="cursor cursor-static" aria-hidden="true"></span></p>
     </div>
   </div>
 </section>
@@ -41,6 +42,11 @@ permalink: /
         {%- endfor %}
       </div>
       <h2 class="post-item-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      {%- if post.data.feature_image %}
+      <a class="post-item-thumb" href="{{ post.url }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ post.data.feature_image }}" alt="" loading="lazy">
+      </a>
+      {%- endif %}
       {%- if post.data.description %}
       <p class="post-item-excerpt">{{ post.data.description }}</p>
       {%- endif %}

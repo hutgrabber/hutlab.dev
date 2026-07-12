@@ -197,6 +197,9 @@ h1, h2, h3 {
 @media (prefers-reduced-motion: reduce) {
   .cursor { animation: none; }
 }
+/* resting prompt in the hero terminal — the brand cursor in the header is
+   the page's single blinking element */
+.cursor-static { animation: none; }
 
 /* ---------- header ---------- */
 
@@ -419,9 +422,43 @@ h1, h2, h3 {
 .post-item-more a { text-decoration: none; }
 .post-item-more a:hover { text-decoration: underline; }
 
+/* cover thumbnail on list pages — items WITH a cover opt into a two-column
+   grid (text left, 3:2 thumb right); coverless items keep plain block flow */
+.post-item:has(.post-item-thumb) {
+  display: grid;
+  grid-template-columns: 1fr 12.5rem;
+  grid-template-areas:
+    "meta    thumb"
+    "title   thumb"
+    "excerpt thumb"
+    "more    thumb";
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: 1.6rem;
+}
+.post-item:has(.post-item-thumb) .post-item-meta    { grid-area: meta; }
+.post-item:has(.post-item-thumb) .post-item-title   { grid-area: title; }
+.post-item:has(.post-item-thumb) .post-item-excerpt { grid-area: excerpt; }
+.post-item:has(.post-item-thumb) .post-item-more    { grid-area: more; }
+.post-item-thumb {
+  grid-area: thumb;
+  align-self: center;
+  display: block;
+}
+.post-item-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2); /* transparent covers still read as a tile */
+  transition: border-color 0.15s ease;
+}
+.post-item:hover .post-item-thumb img { border-color: var(--accent); }
+
 /* ---------- post / page ---------- */
 
-.post { margin-block: 2.5rem 3rem; }
+.post { margin-block: 2.5rem 3rem; position: relative; /* anchors the ToC rail track */ }
 
 .crumb {
   font-size: 0.8rem;
@@ -1127,22 +1164,25 @@ h1, h2, h3 {
 }
 .toc-fold[open] > .toc-title::after { content: "[-]"; color: var(--accent); }
 @media (hover: none) {
-  .toc-copy { opacity: 1; } /* no hover on touch — keep copy buttons visible */
+  /* no hover on touch — keep copy buttons visible, with a finger-sized target */
+  .toc-copy {
+    opacity: 1;
+    padding: 0.35rem 0.55rem;
+    margin: -0.35rem -0.15rem;
+  }
 }
 
 @media (min-width: 75rem) {
-  /* wide screens: fixed rail in the right gutter of the centered 50rem
-     column; width is fluid so it never crosses the window edge
-     (right edge = 50vw - 1rem) */
+  /* wide screens: nav.toc becomes an invisible track spanning the whole
+     article in the right gutter (the article ends above the site footer,
+     so the rail can never overlap it); .toc-fold is the visible box that
+     sticks below the header and scrolls internally when the list is long */
   .toc {
-    position: fixed;
-    top: 5.5rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     left: calc(50% + 26rem);
     width: min(16rem, 50vw - 27rem);
-    max-height: calc(100vh - 7.5rem);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
     margin: 0;
     padding: 0;
     background: none;
@@ -1150,6 +1190,17 @@ h1, h2, h3 {
     border-radius: 0;
     font-size: 0.75rem;
     line-height: 1.55;
+    pointer-events: none; /* the track is inert; the box re-enables */
+  }
+  .toc-fold {
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 7.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+    pointer-events: auto;
   }
   /* the rail is always expanded; the summary is inert decoration there */
   .toc-title { pointer-events: none; }
@@ -1225,6 +1276,14 @@ h1, h2, h3 {
   /* pairs stack full-width; quadrants keep the 2×2 relationship */
   .prose .img-pair { grid-template-columns: 1fr; }
   .prose .img-quad { gap: 0.5rem; }
+  /* cover thumbs stack between title and excerpt (source order) at the
+     covers' natural 2:1 shape */
+  .post-item:has(.post-item-thumb) { display: block; }
+  .post-item-thumb { margin: 0.75rem 0 0.65rem; }
+  .post-item-thumb img { aspect-ratio: 2 / 1; }
+  /* the header wraps to two rows on phones — anchor jumps need more room */
+  .prose h1, .prose h2, .prose h3,
+  .prose h4, .prose h5, .prose h6 { scroll-margin-top: 7.25rem; }
   /* tag graph: shorter panel, drop the bar title to fit the tools */
   .graph-panel { height: clamp(300px, 55vh, 440px); }
   .graph-window .term-title { display: none; }

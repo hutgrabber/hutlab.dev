@@ -45,7 +45,7 @@ Your post starts here...
 | `permalink` | yes | The URL, as `/your-slug/` (leading and trailing slash) |
 | `tags` | yes | Always start with `posts`, then add topic tags (see §2) |
 | `description` | recommended | Excerpt for the homepage list, search results, RSS, and SEO |
-| `feature_image` | optional | Cover image path, shown atop the post and in link previews |
+| `feature_image` | optional | Cover image path — shown atop the post, as the thumbnail on the homepage and tag lists, and in link previews |
 | `feature_image_caption` | optional | Small caption under the cover image |
 | `meta_title` | optional | Overrides `title` in the browser tab / search engines only |
 

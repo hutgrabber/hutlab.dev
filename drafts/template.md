@@ -7,6 +7,7 @@ tags: [posts, updates]
 description: "One or two sentences shown on the homepage, in search results, in RSS readers, and on social link previews."
 feature_image: "/images/2026-01-01-short-name/cover.jpg"
 feature_image_caption: "Optional caption shown under the cover image — delete this line if unused"
+# feature_image also becomes the post's thumbnail on the homepage and tag lists
 # meta_title: "Optional — overrides title in the browser tab & search engines only"
 ---
 
