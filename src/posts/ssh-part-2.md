@@ -239,7 +239,7 @@ If for some reason the box doesn't have OpenSSH but does have PuTTY's command-li
 
 ---
 
-## Wrapping This One Up
+## Shell-le-lujah
 
 That's the red team side of ssh. The same binary you used in Part 1 to log into your NAS is, with a handful of flags, a <u>full pivoting toolkit</u>. **Local forwards** for precision, **dynamic forwards** for a proper SOCKS proxy, **remote forwards** for firewalls that only let traffic leave, and sshuttle for when you'd rather not think about it at all.
 
