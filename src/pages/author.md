@@ -1,11 +1,11 @@
 ---
-title: "The Author's Desk"
+title: the author's desk
 date: 2024-09-24T23:51:04.000Z
 layout: layouts/page.njk
 permalink: /author/
-description: "Take a sneak peak behind the scenes on Hutgrabber where the magic happens."
-meta_title: "Author's Desk | Hutgrabber"
-feature_image: "/images/author/cover.jpeg"
+description: Take a sneak peak behind the scenes on Hutgrabber where the magic happens.
+meta_title: Author's Desk | Hutgrabber
+feature_image: /images/author/cover.jpeg
 templateEngineOverride: md
 ---
 
@@ -22,8 +22,7 @@ At present, my ability to publish content regularly is limited due to various co
 1. Increase the frequency of posts
 2. Expand the range of topics covered
 3. Introduce interactive elements to engage readers
-4. Collaborate with other cybersecurity professionals for guest posts
-5. Develop a series of in-depth tutorials on penetration testing techniques
+4. Develop a series of in-depth tutorials on penetration testing techniques
 
 ## A Work in Progress
 
@@ -31,6 +30,6 @@ Building a comprehensive and valuable blog takes time, especially in a field as 
 
 ## Your Role
 
-As readers, your input is invaluable. I encourage you to share your thoughts, suggest topics you'd like to see covered, and engage in discussions. Your feedback will play a crucial role in shaping the future direction of this blog. Stay tuned for more updates and thank you for your patience and support as hutgrabber.com grows and evolves. The best is yet to come!
+As readers, your input is invaluable. I encourage you to share your thoughts, suggest topics you'd like to see covered, and engage in discussions. Your feedback will play a crucial role in shaping the future direction of this blog. Stay tuned for more updates and thank you for your patience and support as the hutgrabber blog grows and evolves.
 
-Thank you dear readers.
+The best is on the way!
