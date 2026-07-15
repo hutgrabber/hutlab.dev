@@ -32,11 +32,7 @@ Most of my experience is focused on <u>application security</u>, <u>system admin
 
 You can find me lurking around the internet under the alias <u>hutgrabber</u>. Feel free to get in touch with me through one of my <u>socials</u> or schedule some <u>one-on-one</u> time with me and I'll tell the secret to making the perfect cup of ✨*blonde roast americano*✨.
 
-<p class="btn-row"><a class="btn" href="https://www.linkedin.com/in/hutgrabber">💼 LinkedIn →</a></p>
-<p class="btn-row"><a class="btn" href="https://github.com/hutgrabber">👨🏼‍💻 GitHub →</a></p>
-<p class="btn-row"><a class="btn" href="https://discord.com/users/712193639769702501">💬 Discord →</a></p>
-<p class="btn-row"><a class="btn" href="https://x.com/hutgrabber">🐦 Twitter →</a></p>
-<p class="btn-row"><a class="btn" href="https://calendar.app.google/uF3cDdhMk8Bn3ati6">🗓️ Book Time →</a></p>
+<p class="btn-row"><a class="btn" href="https://www.linkedin.com/in/hutgrabber">💼 LinkedIn →</a></p><p class="btn-row"><a class="btn" href="https://github.com/hutgrabber">👨🏼‍💻 GitHub →</a></p><p class="btn-row"><a class="btn" href="https://discord.com/users/712193639769702501">💬 Discord →</a></p><p class="btn-row"><a class="btn" href="https://x.com/hutgrabber">🐦 Twitter →</a></p><p class="btn-row"><a class="btn" href="https://calendar.app.google/uF3cDdhMk8Bn3ati6">🗓️ Book Time →</a></p>
 
 ---
 
