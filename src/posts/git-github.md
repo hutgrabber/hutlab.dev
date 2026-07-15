@@ -1,5 +1,5 @@
 ---
-title: Git & GitHub
+title: git 101
 date: 2024-01-15T15:25:57.000Z
 layout: layouts/post.njk
 permalink: /git-github/

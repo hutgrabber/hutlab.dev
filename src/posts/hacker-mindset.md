@@ -1,5 +1,5 @@
 ---
-title: The Hacker Mindset
+title: the hacker mindset
 date: 2024-09-19T14:17:42.000Z
 layout: layouts/post.njk
 permalink: /the-hacker-mindset/

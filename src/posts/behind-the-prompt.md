@@ -1,16 +1,18 @@
 ---
-title: Behind the Prompt
+title: behind the prompt
 date: 2026-07-14
 layout: layouts/post.njk
 permalink: /dotfiles/
 tags:
-  - tutorials
-  - tools
+  - posts
+  - write-up
 description: A tour through my actual terminal setup. zsh, starship, tmux, Neovim, GNU Stow, and the small scripts that hold it together, on an M1 Mac that occasionally has to fight its own processor.
 templateEngineOverride: md
 feature_image: /images/2026-07-14-dotfiles/cover-image.png
 ---
 People keep asking what's actually inside that dotfiles repo I keep linking at the bottom of every post. I've dropped the link enough times that it feels dishonest not to actually walk you through it, so here it is: everything I run, why I run it, and the handful of scripts I wrote myself and signed like a graffiti tag because apparently that's a thing I do now.
+
+https://github.com/hutgrabber/hutgrabber-dots
 
 This isn't a "10 tools to 10x your terminal" listicle. Some of what's below I use every single day. Some of it I installed once, got scared of, and never opened again. I'll tell you which is which.
 

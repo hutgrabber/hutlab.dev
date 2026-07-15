@@ -1,5 +1,5 @@
 ---
-title: All Things SSH - Part 1
+title: all things ssh - chapter 1
 date: 2024-10-05T22:23:52.000Z
 layout: layouts/post.njk
 permalink: /ssh-part-1/

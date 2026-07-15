@@ -1,5 +1,5 @@
 ---
-title: A Fresh New Look
+title: a fresh new look
 date: 2026-07-06
 layout: layouts/post.njk
 permalink: /quick-update/

@@ -1,5 +1,5 @@
 ---
-title: Bring Your Own Image
+title: " digital ocean -> bring your own image"
 date: 2024-09-14T22:44:15.000Z
 layout: layouts/post.njk
 permalink: /bring-your-own-image/
@@ -10,7 +10,6 @@ description: Creating instances with your custom VM image in the cloud.
 feature_image: /images/2024-09-14-byo-image/cover-image.png
 templateEngineOverride: md
 ---
-
 Creating instances with your custom VM image in the cloud.
 
 ---
