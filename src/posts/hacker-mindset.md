@@ -235,6 +235,11 @@ nse() {
 }
 ```
 
+Here's how that looks when in use:
+
+<figure class="img-m"><img alt="" class="kg-image" loading="lazy" src="/images/2024-09-19-hacker-mindset/nse-search.png"/>
+<figcaption>Fig: nse() function at work</figcaption></figure>
+
 **5. tmux.** If you are not familiar with tmux, typecraft is a good place to learn. Chris covers a range of command-line tools and has short series on both tmux and Neovim, which are central to how I work. My tmux and Neovim configs are in the `hutgrabber-dots` repository on GitHub.
 
 <u>T-Mux Productivity Workflow</u>
