@@ -1,6 +1,6 @@
 ---
 title: the hacker mindset
-date: 2024-09-19T14:17:42.000Z
+date: 2024-09-19
 layout: layouts/post.njk
 permalink: /the-hacker-mindset/
 tags:

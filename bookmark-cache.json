@@ -194,5 +194,25 @@
     "handle": "iamdevloper",
     "text": "I've been using Vim for about 2 years now, mostly because I can't figure out how to exit it.",
     "date": "February 17, 2014"
+  },
+  "https://github.com/bee-san/RustScan": {
+    "kind": "github",
+    "fetchedAt": "2026-07-20",
+    "type": "repo",
+    "fullName": "bee-san/RustScan",
+    "description": "🤖 The Modern Port Scanner 🤖",
+    "stars": 20124,
+    "forks": 1356,
+    "language": "Rust"
+  },
+  "https://github.com/bee-san/RustScan/blob/master/pictures/fast.gif": {
+    "kind": "github",
+    "fetchedAt": "2026-07-20",
+    "type": "repo",
+    "fullName": "bee-san/RustScan",
+    "description": "🤖 The Modern Port Scanner 🤖",
+    "stars": 20124,
+    "forks": 1356,
+    "language": "Rust"
   }
 }

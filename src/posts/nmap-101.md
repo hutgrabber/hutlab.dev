@@ -5,9 +5,11 @@ layout: layouts/post.njk
 permalink: /nmap/
 tags:
   - posts
-  - tutorials
-description: One or two sentences shown on the homepage, in search results, in RSS readers, and on social link previews.
+  - write-up
+description: Getting those hands dirty with some advanced network scanning. This post is all about nmap the network mapping tool that provides as a first step to network recon.
 feature_image: /images/2026-07-19-nmap/cover-image.png
+templateEngineOverride: md
+meta_title: Network Mapping 101
 ---
 ## What Is Nmap?
 
@@ -25,19 +27,21 @@ This post is the "101" in the sense that it starts from the default scan, but it
 
 > [!danger] Scan what you're allowed to scan. Everything below works exactly as well against a network you don't have permission to touch as one you do. The difference is authorization, and only one of those is legal. If you want a live target to practice against without asking anyone's permission, nmap.org keeps `scanme.nmap.org` online for exactly that reason. Their only ask: no more than a dozen scans against it per day, and nothing beyond the scanning itself, no exploits, no denial of service testing.
 
+With the disclaimer out of the way, there is a companion post along with this one, that has a list of commands to try out when working with nmap. Save those in your notes to keep them handy during your engagement as a cheat sheet:
+
+https://hutlab.dev/nmap-commands/
+
 ## Basic Nmap Commands
 
 ### The Absolute Basics
 
 `nmap $IP` runs the default scan: a SYN scan (more on why in a second) against the 1,000 most common TCP ports. `-p` narrows or expands that: `-p22,80,443` scans exactly those three, `-p1-1000` scans a range, and `-p-` scans all 65,535 ports, which is slower but occasionally the only way you find the interesting service someone stuck on a five digit port because they thought that made it hidden. Targets follow the same flexible syntax whether you're pointing at one box or a whole subnet: a single IP or hostname, a CIDR block like `10.20.30.0/24` (shorthand for every address sharing the first three octets, 256 hosts in that example), or an octet range like `10.20.30.1-50` when you want more control than CIDR gives you.
 
-bash
-
 ```bash
 nmap -sV -p22,80,443 $IP
 ```
 
-That's about as basic as this post is going to get, on purpose. If you've read <u>the hacker mindset</u>, you already know I export my current target as `$IP` for the session ([`exip()`](/the-hacker-mindset/#designing-the-solution) does the honors) so I'm not retyping an address into every command. The rest of this section assumes you already know what a default scan looks like and cares more about what happens once you start turning knobs.
+That's about as basic as this post is going to get, on purpose. If you've read [the hacker mindset](/the-hacker-mindset/), you already know I export my current target as `$IP` for the session ([`exip()`](/the-hacker-mindset/#designing-the-solution) does the honors) so I'm not retyping an address into every command. The rest of this section assumes you already know what a default scan looks like and cares more about what happens once you start turning knobs.
 
 Here's the difference between the two in practice, a default scan against a lab target, followed by the same target with `-p-` turned loose on the full range:
 
@@ -57,8 +61,6 @@ Speed past the scan type itself is controlled with `-T0` through `-T5`. These ti
 
 `-sV` is where nmap stops telling you "port 22 is open" and starts telling you what's actually answering on it. It works by sending a series of protocol specific probes (the `nmap-service-probes` database has entries for hundreds of protocols) and matching the response against known signatures. You control how hard it tries with `--version-intensity`, from 0 to 9, default 7: higher catches more obscure services at the cost of a slower scan.
 
-bash
-
 ```bash
 sudo nmap -sV -O -p22,443 $IP
 ```
@@ -73,7 +75,6 @@ None of this is useful if you can't get it out of the terminal. Nmap writes five
 
 `-oN <file>` is normal output: the same thing you see in your terminal, saved to a file, meant for a human to read later. `-oX <file>` is XML, and it's the one that actually matters for anything downstream: every major Nmap parsing library, every report generator, every "import my scan into a tool" workflow expects XML, because it's structured and stable in a way the other formats aren't. `-oG <file>` is grepable output, one line per host, and despite being officially deprecated in favor of XML, it's still genuinely useful for a fast one liner: `grep open scan.gnmap` beats writing an XML parser for a five minute task. `-oA <basename>` writes all three at once (`.nmap`, `.xml`, `.gnmap`), which is what I actually run on anything worth keeping:
 
-bash
 
 ```bash
 sudo nmap -sV -O -T4 -p- -oA WEB-01-EXTERNAL-fullscan $IP
@@ -138,8 +139,6 @@ Everything so far assumes nmap is talking to a target with nothing actively work
 
 `-sI <zombie_ip> <target>` is the closest thing nmap has to a magic trick. It performs a completely blind scan where no packet with your real IP address ever touches the target. Instead, it exploits predictable IP ID generation on a third host (the "zombie"). The IP ID is a per-packet counter most operating systems increment by one every time they send a packet, and by watching how that counter changes on the zombie, nmap infers which ports on the real target are open without ever touching it directly. Any <u>IDS</u> watching the target sees the zombie's IP doing the scanning, not yours.
 
-bash
-
 ```bash
 sudo nmap -sI 10.20.30.99 -p1-1000 $IP
 ```
@@ -150,8 +149,6 @@ The zombie has to be an idle host with predictable, incremental IP ID generation
 
 A surprising number of firewall misconfigurations come down to trusting a source port instead of actually inspecting the traffic. DNS replies come from port 53, so some administrators allow all inbound traffic claiming to originate from port 53, reasoning that no attacker would bother spoofing it. `--source-port` (or its shorthand `-g`) exploits exactly that assumption:
 
-bash
-
 ```bash
 sudo nmap --source-port 53 -p22,80,443 $IP
 ```
@@ -159,8 +156,6 @@ sudo nmap --source-port 53 -p22,80,443 $IP
 It only works on scan types using raw sockets (SYN, UDP, and friends), not on connect scans or anything relying on your OS's normal socket stack, since the OS picks its own source port for those regardless of what you ask for.
 
 `--spoof-mac` does the same trick one layer down, rewriting the MAC address (the hardware address burned into a network interface, one layer below an IP address, and the identifier your local network segment actually uses) on every raw ethernet frame nmap sends. Feed it a full address, a partial one it'll pad randomly, a vendor name it'll look up an OUI for (the three byte vendor prefix baked into every MAC address), or a bare `0` for something fully random. `-D` layers on <u>decoys</u>: supply a list of other IPs (real or, with `RND`, generated on the spot) and nmap makes it look like all of them are scanning the target simultaneously, burying your real address in the noise. Put `ME` in the list to control where your actual IP lands in that lineup, or leave it out and nmap places you randomly.
-
-bash
 
 ```bash
 sudo nmap -D RND:10,ME -p1-1000 $IP
@@ -175,8 +170,6 @@ None of this is undetectable. A patient analyst tracing routes back through deco
 ### Fragmentation and Padding
 
 `-f` splits your outgoing packets into fragments of 8 bytes each after the IP header, small enough that a naive packet filter inspecting each fragment individually can't reassemble enough of the TCP header to know what it's looking at. Specify `-f` twice for 16 byte fragments, or set an exact size yourself with `--mtu` (Maximum Transmission Unit, the largest chunk of data a network link will carry in one packet before it has to be split up; the value has to be a multiple of 8). This only helps against filters that don't reassemble fragments before inspecting them, and plenty of modern firewalls do reassemble by default specifically to close this gap, so it's worth confirming with a packet capture that your fragments are actually going out fragmented rather than assuming the flag did something.
-
-bash
 
 ```bash
 sudo nmap -f -p22,80,443 $IP
@@ -194,15 +187,11 @@ NSE runs scripts, written in Lua, against the hosts and ports nmap has already f
 
 Most interesting scripts take arguments, and the syntax is Lua's table syntax borrowed wholesale: comma separated `name=value` pairs, with `{}` for table values. This is a real example straight from Nmap's own documentation, and it's dense enough to be worth studying once rather than guessing at:
 
-bash
-
 ```bash
 nmap -sC --script-args 'user=foo,pass=",{}=bar",paths={/admin,/cgi-bin},xmpp-info.server_name=localhost'
 ```
 
 Arguments can be qualified with the script name (`xmpp-info.server_name`) so they only affect that one script, or left unqualified when you want a value like `timeout=250ms` to apply broadly across every script that reads a `timeout` argument. Specify both, and the qualified one wins for its script while the unqualified one covers everything else. A simpler, more typical case:
-
-bash
 
 ```bash
 nmap --script snmp-sysdescr --script-args creds.snmp=admin $IP
@@ -288,15 +277,31 @@ One detail worth knowing about `ssh-hostkey` specifically: it's not only a port 
 
 ## Enter Rustscan
 
+<figure class="img-l">
+  <img src="/images/2026-07-19-nmap/rustscan.gif" loading="lazy">
+</figure>
+
 ### What It Fixes
 
 Everything in this post assumes you're willing to wait for nmap to work through however many ports you asked for. Rustscan's whole pitch is that you shouldn't have to: it scans all 65,535 ports in a few seconds by leaning on async networking and a much more aggressive open file limit than nmap defaults to, then hands the actual open port list to nmap for the parts nmap is genuinely better at, service detection, OS fingerprinting, NSE.
 
+<figure class="img-h1">
+  <img src="/images/2026-07-19-nmap/rustscan-ex1.gif" alt="Left image" loading="lazy">
+</figure>
+<figure class="img-h1">
+  <img src="/images/2026-07-19-nmap/rustscan-ex2.gif" alt="Left image" loading="lazy">
+</figure>
+<figure class="img-m">
+  <img src="/images/2026-07-19-nmap/rustscan-ex3.gif" loading="lazy">
+</figure>
+
 ### Not Today
 
-I'm not covering it properly here, on purpose. It deserves its own post rather than a rushed paragraph at the bottom of this one, and there's enough nuance in how it hands off to nmap (and where that handoff can go wrong) to justify the space. Consider this the trailer.
+I'm not covering it properly here, on purpose. It deserves its own post rather than a rushed paragraph at the bottom of this one, and there's enough nuance in how it hands off to nmap (and where that handoff can go wrong) to justify the space. Consider this the trailer, but here's some documentation to get you started:
 
-## SYN Off
+https://github.com/bee-san/RustScan
+
+## SYN'n Off
 
 ### What We Actually Covered
 
@@ -304,4 +309,4 @@ Default scans, timing templates, stealth versus connect scans and why a SOCKS pr
 
 ### One Last Thing
 
-Go build the lab, run the scans, and actually read what comes back instead of grepping straight for "open" and moving on. The interesting part of this tool was never the scan. It's what the response tells you about everything standing between you and the target. SYN off.
+Go build the lab, run the scans, and actually read what comes back instead of grepping straight for "open" and moving on. The interesting part of this tool was never the scan. Don't forget to check out my [companion post](/nmap-commands/) with various examples to try out. It's what the response tells you about everything standing between you and the target. SYN off.
