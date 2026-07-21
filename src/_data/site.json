@@ -2,7 +2,7 @@
   "title": "hutlab",
   "domain": "hutlab.dev",
   "url": "https://hutlab.dev",
-  "description": "All things cyber — pentesting tutorials, write-ups & field notes from the lab.",
+  "description": "All things cyber! pentesting tutorials, write-ups & field notes from the lab.",
   "author": {
     "name": "Sparsh Mehta",
     "handle": "hutgrabber",
@@ -15,6 +15,6 @@
     { "label": "posts", "url": "/" },
     { "label": "author", "url": "/author/" },
     { "label": "about", "url": "/about-me/" },
-    { "label": "github", "url": "https://github.com/hutgrabber", "external": true }
+    { "label": "linkedin", "url": "https://linkedin.com/in/hutgrabber", "external": true }
   ]
 }
