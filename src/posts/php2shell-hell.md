@@ -10,13 +10,8 @@ description: What a temporal memory bug actually is, why php2shell is one, and w
 templateEngineOverride: md
 feature_image: /images/2026-10-25-php2shell-hell/php2shell-hell-cover.webp
 ---
-I promised a deep dive at the end of [Vuln Week Galore](/vuln-week-galore/), and here it is. Before we start, if you're interested in low level assembly and that interest is something that has brought you here, you'd love the following 2 of my github repositories that explore the world of binary exploitation through a couple of university courses I took back in the day.
+I promised a deep dive at the end of [Vuln Week Galore](/vuln-week-galore/), so here it is.
 
-### Some of my own work
-
-https://github.com/hutgrabber/umd-enpm691
-
-https://github.com/hutgrabber/umd-enpm809v
 
 ---
 
