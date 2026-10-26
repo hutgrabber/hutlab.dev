@@ -214,5 +214,133 @@
     "stars": 20124,
     "forks": 1356,
     "language": "Rust"
+  },
+  "https://hutlab.dev/nmap-commands/": {
+    "kind": "bookmark",
+    "fetchedAt": "2026-10-25",
+    "title": "101 Nmap Commands",
+    "description": "A companion cheat sheet to nmap 101. One hundred and one commands, one trick each, zero filler.",
+    "siteName": "hutlab",
+    "image": "https://hutlab.dev/images/2026-07-19-nmap/nmap-commands-companion-post.png",
+    "favicon": "https://hutlab.dev/assets/images/favicon-32.png"
+  },
+  "https://github.com/hutgrabber/hutlab.dev": {
+    "kind": "github",
+    "fetchedAt": "2026-10-25",
+    "type": "repo",
+    "fullName": "hutgrabber/hutlab.dev",
+    "description": "",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript"
+  },
+  "https://github.com/hutgrabber/umd-enpm809v": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "repo",
+    "fullName": "hutgrabber/umd-enpm809v",
+    "description": "",
+    "stars": 2,
+    "forks": 0,
+    "language": "C"
+  },
+  "https://github.com/hutgrabber/umd-enpm691": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "repo",
+    "fullName": "hutgrabber/umd-enpm691",
+    "description": "Hacking of C Programs & Unix Binaries - Fall 2022",
+    "stars": 2,
+    "forks": 1,
+    "language": "Python"
+  },
+  "https://github.com/ikow/php2shell-poc/tree/main": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "repo",
+    "fullName": "ikow/php2shell-poc",
+    "description": "CVE-2026-109618/109619 — 5 RCE chains + detection rules (Suricata, Sigma, ModSecurity). PHP session.upload_progress pre-auth exploit research.",
+    "stars": 1792,
+    "forks": 621,
+    "language": "Python"
+  },
+  "https://github.com/ikow/php2shell-poc/": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "repo",
+    "fullName": "ikow/php2shell-poc",
+    "description": "CVE-2026-109618/109619 — 5 RCE chains + detection rules (Suricata, Sigma, ModSecurity). PHP session.upload_progress pre-auth exploit research.",
+    "stars": 1792,
+    "forks": 621,
+    "language": "Python"
+  },
+  "http://localhost:8080/php2shell-hell/": {
+    "kind": "bookmark",
+    "fetchedAt": "2026-10-26",
+    "title": "php2shell Hell",
+    "description": "What a temporal memory bug actually is, why php2shell is one, and why it took a language model to find a hole that had been sitting in PHP since 2012. We look at it all, in this one.",
+    "siteName": "hutlab",
+    "image": "https://hutlab.dev/images/2026-10-25-php2shell-hell/php2shell-hell-cover.webp",
+    "favicon": "http://localhost:8080/assets/images/favicon-32.png"
+  },
+  "https://github.com/php/php-src/commit/3584a98bda0f2c0d367255b046798b0d3a221a19": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "repo",
+    "fullName": "php/php-src",
+    "description": "The PHP Interpreter",
+    "stars": 41664,
+    "forks": 8405,
+    "language": "C"
+  },
+  "https://github.com/php/php-src/commit/31c0ea7d7ff1d1fccb6492e52dab544011628065": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "repo",
+    "fullName": "php/php-src",
+    "description": "The PHP Interpreter",
+    "stars": 41664,
+    "forks": 8405,
+    "language": "C"
+  },
+  "https://github.com/arnaud-lb": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "user",
+    "login": "arnaud-lb",
+    "name": "Arnaud Le Blanc",
+    "bio": "",
+    "followers": 554,
+    "avatar": "https://avatars.githubusercontent.com/u/365207?v=4"
+  },
+  "https://github.com/iluuu1994": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "user",
+    "login": "iluuu1994",
+    "name": "Ilija Tovilo",
+    "bio": "",
+    "followers": 495,
+    "avatar": "https://avatars.githubusercontent.com/u/1752683?v=4"
+  },
+  "https://github.com/bukka": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "user",
+    "login": "bukka",
+    "name": "Jakub Zelenka",
+    "bio": "",
+    "followers": 335,
+    "avatar": "https://avatars.githubusercontent.com/u/137594?v=4"
+  },
+  "https://github.com/ndossche": {
+    "kind": "github",
+    "fetchedAt": "2026-10-26",
+    "type": "user",
+    "login": "ndossche",
+    "name": "Nora Dossche",
+    "bio": "PhD student at Ghent University. Volunteer PHP contributor. Interested in kernels, x86, compilers, security, PHP",
+    "followers": 172,
+    "avatar": "https://avatars.githubusercontent.com/u/7771979?v=4"
   }
 }

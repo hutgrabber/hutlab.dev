@@ -175,6 +175,8 @@ Obsidian callouts paste straight from your vault. All 13 types (+ aliases like
 `tldr`, `hint`, `caution`) work; custom titles are optional; `[!type]-` fold
 markers are accepted but always render expanded.
 
+> [!danger] Custom
+
 > [!note]
 > Quiet types (note, info, todo, abstract, example, quote) blend in like blockquotes.
 
