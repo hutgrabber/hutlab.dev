@@ -10,7 +10,7 @@ description: What a temporal memory bug actually is, why php2shell is one, and w
 templateEngineOverride: md
 feature_image: /images/2026-10-25-php2shell-hell/php2shell-hell-cover.webp
 ---
-I promised a deep dive at the end of [Vuln Week Galore](/vuln-week-galore/), and here it is. Before we start, if you're interested in low level assembly and that interest is something that has brought you here, you'd love the following 2 of my github repositories that explores the world of binary exploitation through a couple of university courses I took back in the day.
+I promised a deep dive at the end of [Vuln Week Galore](/vuln-week-galore/), and here it is. Before we start, if you're interested in low level assembly and that interest is something that has brought you here, you'd love the following 2 of my github repositories that explore the world of binary exploitation through a couple of university courses I took back in the day.
 
 ### Some of my own work
 
@@ -131,7 +131,7 @@ Once we have the malformed HTTP request, we can either exploit **CVE-2026-109618
 - [RCE via OOM corruption](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w)
 - [RCE via stale global state](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp)
 
-To really ride my previous point home, helps to separate out the two core engine vulnerabilities that are exploited within **each** CVE and that is also the reason, we have 2 CVE IDs. Once we have the malformed HTTP Request, picture this:
+To really ride my previous point home, it helps to separate out the two core engine vulnerabilities that are exploited within **each** CVE and that is also the reason, we have 2 CVE IDs. Once the first step of creating your malformed HTTP request is completed, this is how the rest of the attack unfolds:
 
 - **CVE-2026-109618 (Intra-Request OOM Bailout Corruption):** Occurs _within a single request_ when an Out-of-Memory (`longjmp`) bailout interrupts data structure initialization, causing that same request's shutdown routine to run across uninitialized/corrupt pointers.
 - **CVE-2026-109619 (Cross-Request Stale Global State UAF):** Occurs _across two sequential requests_ handled by the same persistent worker process when a pointer in global memory survives after its request-heap backing memory is freed, allowing the next request to dereference it before re-initialization.
