@@ -924,6 +924,125 @@ h1, h2, h3 {
 }
 .btn:hover { background: var(--accent-strong); color: var(--bg); }
 
+/* pixel buttons: chunky retro link buttons, one colour each.
+
+     <div class="pixel-panel">
+       <p class="pixel-panel-title"><span class="prompt-glyph">$</span> ls ~/socials</p>
+       <div class="pixel-btns">
+         <a class="pixel-btn px-green" href="…"><span class="pixel-btn-tag">&lt;/&gt;</span>GitHub</a>
+       </div>
+     </div>
+
+   .pixel-panel   optional framed box with a prompt-style title line
+   .pixel-btns    the grid; buttons share the row in equal widths and wrap
+   .pixel-btn     one button; pick a colour with .px-green .px-yellow
+                  .px-blue .px-red .px-teal (no colour class = site accent)
+   .pixel-btn-tag optional small chip in front of the label
+
+   Colours are Catppuccin: Mocha in dark mode, Latte in light mode. */
+.pixel-btns {
+  --px-ink: #11111b;      /* Mocha crust, the dark label colour */
+  --px-paper: #eff1f5;    /* Latte base, the light label colour */
+  --px-green: #a6e3a1;    /* Mocha green */
+  --px-yellow: #f9e2af;   /* Mocha yellow */
+  --px-blue: #89b4fa;     /* Mocha blue */
+  --px-red: #f38ba8;      /* Mocha red */
+  --px-teal: #94e2d5;     /* Mocha teal (the terminal's cyan) */
+  --px-on-green: var(--px-ink);
+  --px-on-yellow: var(--px-ink);
+  --px-on-blue: var(--px-ink);
+  --px-on-red: var(--px-ink);
+  --px-on-teal: var(--px-ink);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.2rem, 1fr));
+  gap: 1.25rem 1.1rem;
+  margin: 1.2rem 0;
+  padding: 4px 4px 8px;   /* room for the pixel edges and the base */
+}
+:root[data-theme="light"] .pixel-btns {
+  --px-green: #40a02b;    /* Latte green */
+  --px-yellow: #df8e1d;   /* Latte yellow */
+  --px-blue: #1e66f5;     /* Latte blue */
+  --px-red: #d20f39;      /* Latte red */
+  --px-teal: #179299;     /* Latte teal */
+  --px-on-blue: var(--px-paper);   /* light labels where dark ones lose contrast */
+  --px-on-red: var(--px-paper);
+}
+
+.prose .pixel-btn {
+  --px: var(--accent);
+  --px-on: var(--bg);
+  --px-shade: color-mix(in srgb, var(--px) 62%, #000);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.7rem 0.35rem;
+  font-family: "VT323", "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: var(--px-on);
+  background: var(--px);
+  text-decoration: none;
+  border-radius: 0;
+  /* four same-colour shadows extend every side but leave the corners
+     empty, which is what gives the stepped pixel corners; the fifth is
+     the darker base the button sits on, the inset one a top highlight */
+  box-shadow:
+    0 -4px 0 0 var(--px),
+    -4px 0 0 0 var(--px),
+    4px 0 0 0 var(--px),
+    0 4px 0 0 var(--px),
+    0 8px 0 0 var(--px-shade),
+    inset 0 3px 0 0 color-mix(in srgb, var(--px) 72%, #fff);
+  transition: transform 0.08s steps(2, end);
+}
+.prose .pixel-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+.prose .pixel-btn:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 -4px 0 0 var(--px),
+    -4px 0 0 0 var(--px),
+    4px 0 0 0 var(--px),
+    0 4px 0 0 var(--px),
+    inset 0 3px 0 0 var(--px-shade);
+}
+.prose .pixel-btn:focus-visible { outline-offset: 8px; }
+
+.prose .px-green  { --px: var(--px-green);  --px-on: var(--px-on-green); }
+.prose .px-yellow { --px: var(--px-yellow); --px-on: var(--px-on-yellow); }
+.prose .px-blue   { --px: var(--px-blue);   --px-on: var(--px-on-blue); }
+.prose .px-red    { --px: var(--px-red);    --px-on: var(--px-on-red); }
+.prose .px-teal   { --px: var(--px-teal);   --px-on: var(--px-on-teal); }
+
+.prose .pixel-btn-tag {
+  padding: 0.1rem 0.3rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  background: color-mix(in srgb, var(--px-on) 16%, transparent);
+}
+
+.prose .pixel-panel {
+  margin: 1.6rem 0 2rem;
+  padding: 0.9rem 1.1rem 0.6rem;
+  background: var(--surface);
+  border: 2px dashed var(--border);
+}
+.prose .pixel-panel-title {
+  margin: 0 0 0.2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose .pixel-btn { transition: none; }
+}
+
 .post-footer {
   margin-top: 3rem;
   font-size: 0.85rem;

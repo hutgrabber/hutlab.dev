@@ -342,5 +342,29 @@
     "bio": "PhD student at Ghent University. Volunteer PHP contributor. Interested in kernels, x86, compilers, security, PHP",
     "followers": 172,
     "avatar": "https://avatars.githubusercontent.com/u/7771979?v=4"
+  },
+  "https://www.youtube.com/watch?v=sK5i-N34im8": {
+    "kind": "youtube",
+    "fetchedAt": "2026-11-15",
+    "videoId": "sK5i-N34im8",
+    "title": "Cgroups, namespaces, and beyond: what are containers made from?",
+    "channel": "Docker",
+    "thumb": "https://i.ytimg.com/vi/sK5i-N34im8/maxresdefault.jpg"
+  },
+  "https://x.com/iamdevloper/status/1173559739558584321": {
+    "kind": "twitter",
+    "fetchedAt": "2026-11-15",
+    "author": "I Am Devloper",
+    "handle": "iamdevloper",
+    "text": "> well it works on my machine Docker: hold my beer > cool. what *exactly* is a container though? Docker: *sheepishly hands beer back*",
+    "date": "September 16, 2019"
+  },
+  "https://x.com/Docker/status/1687142176705191954": {
+    "kind": "twitter",
+    "fetchedAt": "2026-11-15",
+    "author": "Docker",
+    "handle": "Docker",
+    "text": "“It works on my machine” “Then we’ll ship your machine” https://t.co/c48BaOxpxT",
+    "date": "August 3, 2023"
   }
 }

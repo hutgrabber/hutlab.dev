@@ -2,6 +2,7 @@ import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import callouts from "./lib/markdown-callouts.js";
 import bookmarks from "./lib/markdown-bookmarks.js";
 import headingIds from "./lib/markdown-heading-ids.js";
+import carousel from "./lib/markdown-carousel.js";
 import { flushCache } from "./lib/bookmark-meta.js";
 import { resolveEmbedCard } from "./lib/embed-cards.js";
 
@@ -9,7 +10,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.amendLibrary("md", (md) =>
-    md.use(callouts).use(bookmarks).use(headingIds)
+    md.use(callouts).use(bookmarks).use(headingIds).use(carousel)
   );
 
   // Consecutive <figure class="img-h1|img-h2"> (pair) or img-q1..q4 (quadrant)

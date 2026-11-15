@@ -1,0 +1,245 @@
+/* Carousel: a horizontally scrolling row of cards built from an ordered
+   list (see lib/markdown-carousel.js for the `::: carousel` markdown block
+   and drafts/template.md for writer docs). base.njk loads this file only
+   on pages that contain a carousel. Scrolling and snapping are pure CSS;
+   carousel.js adds the buttons, the rail and keyboard control. Without the
+   script, or in feed readers, the markup is a readable ordered list.
+
+   Named blocks:
+     .carousel            the whole block           (data-rail, data-view)
+     .carousel-intro      optional lead-in text above the cards
+     .carousel-track      the scrolling row
+     .carousel-card       one card                  (.tone-*, .has-image, .is-image-only)
+       .carousel-media      image + .carousel-caption
+       .carousel-body       text side of a card
+         .carousel-label    big line (also the card's rail text)
+         .carousel-title    heading
+         .carousel-tag      small uppercase line
+         .carousel-text     markdown body
+     .carousel-nav        buttons + rail            (added by carousel.js)
+       .carousel-btn        previous / next
+       .carousel-rail       strip of stops, one per card
+         .carousel-stop     a rail entry (label, number or dot)
+     .carousel-counter    "label · 3 of 14"         (added by carousel.js) */
+
+.prose .carousel {
+  --card: min(82%, 30rem);       /* card width; the next card peeks in */
+  --gap: 0.9rem;
+  margin: 1.6rem 0 2rem;
+}
+.prose .carousel[data-view="single"] { --card: 100%; }
+
+.prose .carousel-intro > :last-child { margin-bottom: 0.6rem; }
+
+.prose .carousel-track {
+  position: relative;            /* offsetLeft of cards is measured from here */
+  display: flex;
+  gap: var(--gap);
+  margin: 0;
+  padding: 0.25rem 0 0.9rem;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* spacer so the last card can also snap to the left edge */
+.prose .carousel-track::after {
+  content: "";
+  flex: 0 0 max(0px, calc(100% - var(--card) - var(--gap)));
+}
+
+.prose .carousel-track:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* ---- card ---- */
+
+.prose .carousel-card {
+  --tone: var(--accent);
+  flex: 0 0 var(--card);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;              /* clips the image to the rounded corners */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--tone);
+  border-radius: 10px;
+  text-align: left;
+  hyphens: manual;
+  transition: opacity 0.2s ease;
+}
+.prose .carousel-card::marker { content: ""; }
+
+/* tones: the accent colour of a card and of its stop on the rail */
+.prose .tone-purple { --tone: var(--accent); }
+.prose .tone-blue   { --tone: var(--co-blue); }
+.prose .tone-teal   { --tone: var(--co-teal); }
+.prose .tone-green  { --tone: var(--co-green); }
+.prose .tone-pink   { --tone: var(--co-pink); }
+.prose .tone-amber  { --tone: var(--co-amber); }
+.prose .tone-yellow { --tone: var(--co-yellow); }
+.prose .tone-red    { --tone: var(--co-red); }
+
+/* ---- card: image ---- */
+
+.prose .carousel-media {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+.prose .carousel-media img {
+  display: block;
+  width: 100%;
+  max-height: 20rem;
+  object-fit: contain;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+.prose .carousel-caption {
+  padding: 0.5rem 1.25rem 0.6rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  background: var(--surface);
+}
+/* a card that is only an image lets the image use the full height */
+.prose .is-image-only .carousel-media { flex: 1 1 auto; justify-content: center; }
+.prose .is-image-only .carousel-media img { max-height: 26rem; }
+
+/* ---- card: text ---- */
+
+.prose .carousel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.1rem 1.25rem 1.2rem;
+}
+
+.prose .carousel-label {
+  font-family: "VT323", "JetBrains Mono", monospace;
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--tone);
+}
+
+.prose .carousel-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.prose .carousel-tag {
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tone);
+}
+
+.prose .carousel-text { margin-top: 0.45rem; font-size: 0.95rem; }
+.prose .carousel-text > :first-child { margin-top: 0; }
+.prose .carousel-text > :last-child { margin-bottom: 0; }
+.prose .carousel-text p,
+.prose .carousel-text li {
+  text-align: left;
+  hyphens: manual;
+}
+.prose .carousel-text p { margin: 0 0 0.6rem; }
+
+/* ---- script-only parts: appear once carousel.js marks the block live ---- */
+
+.prose .carousel.is-live .carousel-card:not(.is-active) { opacity: 0.5; }
+.prose .carousel[data-view="single"].is-live .carousel-card:not(.is-active) { opacity: 1; }
+
+.prose .carousel-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.2rem;
+}
+
+.prose .carousel-btn {
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  font: inherit;
+  line-height: 1;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.prose .carousel-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.prose .carousel-btn:disabled { opacity: 0.35; cursor: default; }
+
+.prose .carousel-rail {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  overflow: hidden;
+}
+.prose .carousel[data-rail="none"] .carousel-rail { visibility: hidden; }
+
+.prose .carousel-stop {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.1rem;
+  font: inherit;
+  font-size: 0.7rem;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+.prose .carousel-stop:hover { color: var(--text); }
+.prose .carousel-stop.is-active {
+  color: var(--tone, var(--accent));
+  border-bottom-color: var(--tone, var(--accent));
+  font-weight: 700;
+}
+
+/* dots: asked for with rail=dots, or switched to automatically by
+   carousel.js when the labels or numbers do not fit on one line */
+.prose .carousel-rail.is-dots { justify-content: center; gap: 0.55rem; }
+.prose .carousel-rail.is-dots .carousel-stop {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  font-size: 0;
+  background: var(--border);
+  border: 0;
+  border-radius: 50%;
+}
+.prose .carousel-rail.is-dots .carousel-stop.is-active { background: var(--tone, var(--accent)); }
+
+.prose .carousel-counter {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .prose .carousel { --card: 86%; }
+  .prose .carousel[data-view="single"] { --card: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose .carousel-card { transition: none; }
+}

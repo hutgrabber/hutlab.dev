@@ -8,6 +8,23 @@ feature_image: "/images/about-me/cover.jpg"
 templateEngineOverride: md
 ---
 
+## **My Socials.**
+
+You can find me lurking around the internet under the alias <u>hutgrabber</u>. Feel free to get in touch with me through one of my <u>socials</u> or schedule some <u>one-on-one</u> time with me and I'll tell the secret to making the perfect cup of ✨*blonde roast americano*✨.
+
+<div class="pixel-panel">
+<p class="pixel-panel-title"><span class="prompt-glyph">$</span> ls ~/socials</p>
+<div class="pixel-btns">
+<a class="pixel-btn px-blue" href="https://www.linkedin.com/in/hutgrabber"><span class="pixel-btn-tag">CV</span>LinkedIn</a>
+<a class="pixel-btn px-green" href="https://github.com/hutgrabber"><span class="pixel-btn-tag">&lt;/&gt;</span>GitHub</a>
+<a class="pixel-btn px-teal" href="https://discord.com/users/712193639769702501"><span class="pixel-btn-tag">#</span>Discord</a>
+<a class="pixel-btn px-red" href="https://x.com/hutgrabber"><span class="pixel-btn-tag">@</span>Twitter</a>
+<a class="pixel-btn px-yellow" href="https://calendar.app.google/uF3cDdhMk8Bn3ati6"><span class="pixel-btn-tag">1:1</span>Book Time</a>
+</div>
+</div>
+
+---
+
 ## **The Hacker's Brew.**
 
 Hey there! I'm ***Sparsh***, your friendly neighborhood *Penetration Tester*, *Cybersecurity Enthusiast* and an *Analyst* at *CrowdStrike*.
@@ -25,14 +42,6 @@ I would like to call myself an <u>offensive security practitioner</u> with exper
 I speak fluent *C/C++*, *Python*, *Bash*, and *PowerShell* amongst many other languages. Currently, I'm learning *Rust* & *Go* to see how their binaries work under the hood, hoping to learn how to reverse them.
 
 Most of my experience is focused on <u>application security</u>, <u>system administration</u>, <u>network security</u>, <u>secure code reviews</u>, <u>forensics</u>, and <u>information assurance</u> with a fair amount of experience hardening both on-prem infrastructure and cloud deployments, such as <u>AWS</u> and <u>Azure</u>.
-
----
-
-## **My Socials.**
-
-You can find me lurking around the internet under the alias <u>hutgrabber</u>. Feel free to get in touch with me through one of my <u>socials</u> or schedule some <u>one-on-one</u> time with me and I'll tell the secret to making the perfect cup of ✨*blonde roast americano*✨.
-
-<p class="btn-row"><a class="btn" href="https://www.linkedin.com/in/hutgrabber">💼 LinkedIn →</a></p><p class="btn-row"><a class="btn" href="https://github.com/hutgrabber">👨🏼‍💻 GitHub →</a></p><p class="btn-row"><a class="btn" href="https://discord.com/users/712193639769702501">💬 Discord →</a></p><p class="btn-row"><a class="btn" href="https://x.com/hutgrabber">🐦 Twitter →</a></p><p class="btn-row"><a class="btn" href="https://calendar.app.google/uF3cDdhMk8Bn3ati6">🗓️ Book Time →</a></p>
 
 ---
 
